@@ -1,0 +1,342 @@
+@charset "utf-8";
+#autodanawa_gridH hr{display:block;margin:0;padding:0;width:100%;height:1px;border:0;background:#e5e5e5}
+
+.home_top{position:relative;height:38px}
+.home_top .title{padding:2px 0 0 0;letter-spacing:-2px;font-size:20px;}
+.home_top .more{position:absolute;top:10px;right:0;display:block;padding-right:10px;color:#666;font-size:12px}
+.home_top .more:after{content:"";position:absolute;top:6px;right:0;background:url(//autoimg.danawa.com/html/images/common/icon_28.png) 0px -174px no-repeat;width:7px;height:10px;}
+
+.home_request{position:relative;display:block;margin-top:36px;padding-bottom:20px;width:100%;min-height:130px;border-bottom:1px solid #e5e5e5;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
+#autodanawa_content .home_request .title{display:inline-block;padding:21px 0 0 0;vertical-align:top;line-height:120%;font-size:20px;letter-spacing: -2px;}
+#autodanawa_content .home_request .home_top .title{padding:2px 0 0 0}
+.home_request .request_item{position:relative;float:left;padding:18px 27px 26px;width:382px;height:46px;background:#f7f7f7;vertical-align:top;letter-spacing:-0.5px;}
+.home_request .request_item+.request_item{margin-left:8px}
+.home_request .request_title{display:inline;font-size:18px}
+.home_request .request_count{font-weight:bold;font-size:18px;color:#2964e0}
+.home_request .request_count .num{font-size:22px;line-height:1}
+.home_request .request_total{display:block;font-size:15px;color:#666;line-height:1.2}
+.home_request .request_total .num{font-weight:bold;line-height:1}
+.home_request .request_btn{position:absolute;top:23px;right:27px;display:block;width:144px;height:43px;border:1px solid;text-align:center;font-weight:bold;font-size:15px;line-height:2.8;letter-spacing:-0.7px}
+.home_request .request_btn.newcar{border-color:transparent;background:#2964e0;color:#fff}
+.home_request .request_btn.rent{border-color:#666;background:#fff;color:#000}
+.home_request .today{display:inline-block;padding:10px 0 0 15px;height:48px;font-size:22px;color:#2964e0;}
+.home_request .todayQ{position:relative;display:inline-block;padding-left:50px;margin-right:15px}
+.home_request .todayQ:before{content:'';position:absolute;top:5px;left:0;display:block;width:48px;height:36px;background:url(//autoimg.danawa.com/html/images/common/newcar_icon_18.png) -239px -161px no-repeat;}
+.home_request .todayA{position:relative;display:inline-block;padding-left:55px}
+.home_request .todayA:before{content:'';position:absolute;top:4px;left:0;display:block;width:48px;height:36px;background:url(//autoimg.danawa.com/html/images/common/newcar_icon_18.png) -304px -160px no-repeat;}
+.home_request .text{display:inline-block;vertical-align:top;padding-top:2px;line-height:38px;font-weight:bold;}
+.home_request .count{display:inline-block;padding-top:1px;vertical-align:top;line-height:40px;font-size:28px;font-weight:bold;}
+.home_request .request{position:absolute;top:16px;right:19px;width:104px;height:34px;text-align:center;background:#2964e0}
+.home_request .request a{display:block;margin:0 0 0 0;width:100%;height:34px;line-height:34px;color:#fff;font-size:14px;letter-spacing:-1px;background:#2964e0;text-align:center;}
+.home_request .simulate{position:absolute;top:16px;right:137px;width:104px;height:34px;text-align:center;background:#2964e0}
+.home_request .simulate.new{right:19px;width:222px;line-height:32px}
+.home_request .simulate a{display:block;margin:0 0 0 0;width:100%;height:34px;line-height:33px;color:#fff;font-size:14px;letter-spacing:-1px;background:#2964e0;text-align:center;}
+.home_request a:hover{text-decoration:none}
+.home_request .shortcut{clear:left;margin:6px 0 0;padding:14px 0 0 4px;}
+.home_request .shortcut:after{content:"";display:block;clear:both;overflow:hidden}
+.home_request .shortcut li{float:left}
+.home_request .shortcut li+li{margin-left:4px}
+.home_request .shortcut li a{position:relative;display:inline-block;vertical-align:top;padding-left:50px;width:166px;overflow:hidden}
+.home_request .shortcut li img{position:absolute;top:0;left:0;display:block;max-width:50px;max-height:40px}
+.home_request .shortcut li .subj{display:block;width:98%;overflow:hidden;white-space:nowrap;line-height:130%;font-size:14px;letter-spacing:-0.2px;}
+.home_request .shortcut li .info{display:block;width:98%;overflow:hidden;white-space:nowrap;color:#666;letter-spacing:-0.5px}
+.home_request .shortcut li a:hover .subj, .home_request .shortcut li a:hover .info{text-decoration:underline}
+
+.home_hotissue{margin:30px 0 30px;position:relative}
+.home_hotissue .contents{position:relative}
+.home_hotissue .contents .large{padding-left:0}
+.home_hotissue .contents .large a{position:relative;display:block;width:430px;height:265px}
+.home_hotissue .contents .large a:hover:after{content:'';position:absolute;top:0;left:0;width:428px;height:263px;border:1px solid #2964e0;}
+.home_hotissue .contents .large img{display:block;width:100%;height:100%}
+.home_hotissue .contents .large .info{position:absolute;bottom:0;left:0;padding:15px 18px;width:394px;height:44px;background:rgba(0,0,0,0.5)}
+.home_hotissue .contents .large .subj{display:block;padding-top:0;font-size:14px;line-height:130%;color:#fff;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;letter-spacing:-0.2px;}
+.home_hotissue .contents .large .origin{padding-top:4px;font-size:13px}
+.home_hotissue .contents .large .write{position:relative;display:inline-block;vertical-align:top;color:#fff}
+.home_hotissue .contents .large .date{position:relative;display:inline-block;padding-left:21px;vertical-align:top;color:#fff}
+.home_hotissue .contents .large .date:before{content:'';position:absolute;top:4.5px;left:10px;width:1px;height:11px;background:#999}
+.home_hotissue .contents .type_photo{margin-top:22px}
+.home_hotissue .contents .type_photo li{float:left;padding-left:21px}
+.home_hotissue .contents .type_photo li:first-child{padding-left:0}
+.home_hotissue .contents .type_photo li a{position:relative;display:block;width:204px;height:246px}
+.home_hotissue .contents .type_photo li a:hover{text-decoration:none}
+.home_hotissue .contents .type_photo li a:hover .subj{text-decoration:underline}
+.home_hotissue .contents .type_photo li a:hover .explain{text-decoration:underline}
+.home_hotissue .contents .type_photo li a:hover .origin span{text-decoration:none}
+.home_hotissue .contents .type_photo li img{display:block;width:204px;height:125px}
+.home_hotissue .contents .type_photo li .subj{display:block;padding-top:13px;max-height:37px;overflow:hidden;font-size:14px;line-height:130%;letter-spacing:-0.2px;}
+.home_hotissue .contents .type_photo li .explain{padding-top:5px;max-height:35px;overflow:hidden;color:#666;line-height:150%}
+.home_hotissue .contents .type_photo li .origin{padding-top:7px;font-size:11px}
+.home_hotissue .contents .type_photo li .write{position:relative;display:inline-block;vertical-align:top;color:#2964e0}
+.home_hotissue .contents .type_photo li .date{position:relative;display:inline-block;padding-left:21px;vertical-align:top;color:#666}
+.home_hotissue .contents .type_photo li .date:before{content:'';position:absolute;top:4px;left:10px;width:1px;height:10px;background:#ccc}
+.home_hotissue .contents .type_txt{position:absolute;top:0;right:0;width:429px;height:265px}
+.home_hotissue .contents .type_txt li:nth-child(6){margin-top:15px}
+.home_hotissue .contents .type_txt li a{position:relative;display:block;width:100%;padding:4px 0}
+.home_hotissue .contents .type_txt li .subj{display:block;width:340px;height:17px;overflow:hidden;font-size:14px;line-height:120%;letter-spacing:-0.2px;}
+.home_hotissue .contents .type_txt li .origin{position:absolute;top:2px;right:0;font-size:12px;color:#4b89c3}
+.home_hotissue .swipe-control{top:6px;right:4px}
+
+.home_gossip{margin:30px 0 20px}
+.home_gossip .contents li{float:left;padding-left:21px}
+.home_gossip .contents li:first-child{padding-left:0}
+.home_gossip .contents li:nth-child(3){padding-left:22px}
+.home_gossip .contents li a{position:relative;display:block;width:204px}
+.home_gossip .contents li a:hover:after{content:'';position:absolute;top:0;left:0;width:202px;height:206px;border:1px solid #2964e0;}
+.home_gossip .contents li img{display:block;;width:204px;height:125px}
+.home_gossip .contents li .info{position:relative;padding:10px 15px;width:172px;border:1px solid #e5e5e5;border-top:0;background:#f9f9f9}
+.home_gossip .contents li .subj{display:block;height:38px;overflow:hidden;font-size:14px;line-height:140%}
+.home_gossip .contents li .origin{margin-top:4px;font-size:11px}
+.home_gossip .contents li .date{position:relative;display:inline-block;vertical-align:top;color:#666}
+
+.home_weekcar{margin:40px 0 20px}
+.home_weekcar{position:relative;width:878px;height:200px;border:1px solid #bfbfbf;background:#f9f9f9}
+.home_weekcar .home_top{height:0}
+.home_weekcar .home_top .title{display:none;}
+.home_weekcar .home_top .stitle{position:absolute;z-index:10;top:5px;right:310px;width:272px;text-align:left;font-size:13px;}
+.home_weekcar .slide > li{display:none;position:relative;background:#f9f9f9}
+.home_weekcar .slide > li.on{display:block}
+.home_weekcar .slide > li:after{content:"";display:block;height:0;clear:both;visibility:hidden}
+.home_weekcar .page {position:absolute;bottom:8px;left:0;width:100%;text-align:center; margin-top:10px}
+.home_weekcar .page button{width:10px;height:10px;margin:3px;border:1px solid #b2b2b2;border-radius:5px;background:#fff}
+.home_weekcar .page button.on {border-color:#2964e0;background:#2964e0}
+.home_weekcar .arrow {display:none; width:45px; height:50px;}
+.home_weekcar .arrow.prev {position:absolute; top:80px; left:0; background:url(//autoimg.danawa.com/html/images/common/icon_28.png) 0 -420px no-repeat;opacity: .1;  filter: alpha(opacity=10);}
+.home_weekcar .arrow.prev:hover {position:absolute; top:80px; left:0; background:url(//autoimg.danawa.com/html/images/common/icon_28.png) 0 -420px no-repeat;opacity: .2;  filter: alpha(opacity=20);}
+.home_weekcar .arrow.next {position:absolute; top:80px; right:0; background:url(//autoimg.danawa.com/html/images/common/icon_28.png) 100% -420px no-repeat;opacity: .1;  filter: alpha(opacity=10);}
+.home_weekcar .arrow.next:hover {position:absolute; top:80px; right:0; background:url(//autoimg.danawa.com/html/images/common/icon_28.png) 100% -420px no-repeat;opacity: .2;  filter: alpha(opacity=20);}
+.home_weekcar:hover .arrow {display:block;}
+.home_weekcar .car{position:relative;float:left;width:589px;height:200px;background:url(//autoimg.danawa.com/html/images/common/home_week_bg.jpg) 0 0 no-repeat}
+.home_weekcar .car:after{content:'';position:absolute;top:-1px;left:-1px;width:82px;height:82px;background:url(//autoimg.danawa.com/html/images/common/home_week_title.png) 0 0 no-repeat}
+.home_weekcar .car .model{position:absolute;top:38px;left:20px;display:block;width:260px;height:130px;}
+.home_weekcar .car .model > img{width:100%;height:100%}
+.home_weekcar .car .model .brand{position:absolute;top:0;right:0;width:45px;height:auto}
+.home_weekcar .car .info{padding-left:295px}
+.home_weekcar .car .subj{display:block;padding-top:35px;letter-spacing:-1px;font-size:20px;}
+.home_weekcar .car .subj strong{line-height:130%}
+.home_weekcar .car .price{padding-top:4px;font-weight:bold;font-size:14px;color:#2964e0;}
+.home_weekcar .car .price span{display:inline-block;line-height:27px;font-weight:bold;font-size:14px;color:#2964e0;vertical-align:top}
+.home_weekcar .car .price span.number{line-height:25px;font-size:20px;font-family:"Century Gothic","Malgun Gothic",Dotum,"돋움","Apple SD Gothic Neo",Helvetica,Sans-serif;}
+.home_weekcar .car .price .button{margin-left:5px;border:0;border-radius:0;background:#2964e0;line-height:24px;font-size:14px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+.home_weekcar .car .etc{margin-top:7px;padding-right:10px;line-height:130%}
+.home_weekcar .car .etc span{position:relative;display:inline}
+.home_weekcar .car .etc span:before{content:'|';padding:0 2px 0 6px;font-size:11px;color:#919191}
+.home_weekcar .car .etc span:first-child{padding-left:0}
+.home_weekcar .car .etc span:first-child:before{content:'';padding:0}
+.home_weekcar .car .etc span.newLine{display:block}
+.home_weekcar .car .etc span.newLine:before{content:'';padding:0}
+.home_weekcar .car .link{margin-top:5px;padding-left:295px}
+.home_weekcar .car .link > a{display:inline-block;margin-right:4px;padding:2px 5px 0;height:16px;line-height:16px;border:1px solid #e0e0e0;background:#fff;}
+.home_weekcar .car .link > a:hover{text-decoration:none}
+.home_weekcar .car .link .adver_insure{display:inline;padding-left:4px}
+.home_weekcar .car .link .adver_insure > a{display:inline-block;vertical-align:top}
+.home_weekcar .news{float:left;padding:20px 15px;width:258px;height:160px;border-left:1px solid #e5e5e5}
+.home_weekcar .news h4{margin:0 0 8px 0;padding:0;font-size:18px;}
+.home_weekcar .news li{margin-top:6px;}
+.home_weekcar .news li:first-child{margin-top:0}
+.home_weekcar .news a{position:relative;display:block;padding-left:10px}
+.home_weekcar .news a:hover span{text-decoration:underline}
+.home_weekcar .news a:before{content:'';position:absolute;top:7px;left:0;width:2px;height:2px;background:#b3b3b3}
+.home_weekcar .news .subj{display:inline-block;max-width:210px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;vertical-align:top}
+.home_weekcar .news .count{display:inline-block;color:#2964e0;vertical-align:top;}
+
+.division_2{margin:0}
+.division_2 > div{float:left;padding-left:22px}
+.division_2 > div:first-child{padding-left:0}
+.division_margin{margin:20px 0 30px}
+
+.home_news{margin:10px 0 30px}
+.home_news .contents li{margin-top:15px}
+.home_news .contents li:first-child{margin-top:0}
+.home_news .contents li a{position:relative;display:block;width:429px;height:125px}
+.home_news .contents li a:hover{text-decoration:none}
+.home_news .contents li a:hover .subj{text-decoration:underline}
+.home_news .contents li a:hover .explain{text-decoration:underline}
+.home_news .contents li a:hover .origin span{text-decoration:none}
+.home_news .contents li img{position:absolute;top:0;left:0;width:204px;height:125px}
+.home_news .contents li .press{position:absolute;bottom:10px;left:152px;width:42px;height:42px;border-radius:42px;background:#2964e0}
+.home_news .contents li .press em{display:block;padding-top:8px;line-height:110%;color:#fff;letter-spacing:-1px;font-size:11px;font-weight:bold;text-align:center}
+.home_news .contents li .info{padding-left:217px}
+.home_news .contents li .subj{display:block;overflow:hidden;padding-top:13px;max-height:37px;font-size:14px;line-height:130%;letter-spacing:-0.2px;}
+.home_news .contents li .explain{max-height:36px;overflow:hidden;padding-top:5px;color:#666;line-height:150%}
+.home_news .contents li .origin{padding-top:6px;font-size:12px}
+.home_news .contents li .write{position:relative;display:inline-block;vertical-align:top;color:#4b89c3}
+.home_news .contents li .date{position:relative;display:inline-block;padding-left:21px;vertical-align:top;color:#666}
+.home_news .contents li .date:before{content:'';position:absolute;top:7px;left:10px;width:1px;height:10px;background:#ccc}
+
+.home_puredrive{margin:20px 0;padding-bottom:10px}
+.home_puredrive .contents li{float:left;padding-left:21px;width:204px}
+.home_puredrive .contents li:first-child{padding-left:0}
+.home_puredrive .contents li:nth-child(3){padding-left:22px}
+.home_puredrive .contents li a{position:relative;display:block}
+.home_puredrive .contents li a:focus{outline:#808080 dotted 1px;}
+.home_puredrive .contents li a:hover:after{content:'';position:absolute;top:0;left:0;width:202px;height:163px;border:1px solid #2964e0;}
+.home_puredrive .contents li .photo{position:relative;width:204px;height:125px}
+.home_puredrive .contents li .photo:after{content:'';position:absolute;top:50%;left:50%;transform:translate(-40%,-40%);-webkit-transform:translate(-40%,-40%);-ms-transform:translate(-40%,-40%);display:block;width:48px;height:48px;background:url(//autoimg.danawa.com/html/images/common/home_today_movie_48.png) 0 0 no-repeat}
+.home_puredrive .contents li .photo:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:-moz-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);background:-webkit-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff',endColorstr='#000000',GradientType=0);}
+.home_puredrive .contents li img{display:block;width:100%;height:100%}
+.home_puredrive .contents li .info{position:relative;padding:10px 15px;width:172px;border:1px solid #e5e5e5;border-top:0;background:#f9f9f9}
+.home_puredrive .contents li .subj{display:block;height:19px;overflow:hidden;font-size:14px;line-height:140%;letter-spacing:-0.2px;}
+
+.home_banner{margin-top:30px}
+.home_banner li{display:none}
+.home_banner li.on{display:block}
+.home_banner > a,.home_banner > a img{display:block;width:100%;height:80px}
+.home_banner .TabContents li a,.home_banner .TabContents li img{display:block;width:100%;height:54px}
+.home_request + .home_banner{margin-top:40px}
+.home_middlebanner{margin-top:20px}
+.home_middlebanner a,.home_middlebanner img{display:block}
+
+.home_movie{margin:20px 0;padding-bottom:10px}
+.home_movie .contents li{float:left;padding-left:21px;width:204px}
+.home_movie .contents li:first-child{padding-left:0}
+.home_movie .contents li:nth-child(3){padding-left:22px}
+.home_movie .contents li a{position:relative;display:block}
+.home_movie .contents li a:focus{outline:#808080 dotted 1px;}
+.home_movie .contents li a:hover:after{content:'';position:absolute;top:0;left:0;bottom:0;right:0;border:1px solid #2964e0;}
+.home_movie .contents li a:hover .subj{text-decoration:underline}
+.home_movie .contents li .photo{position:relative;width:204px;height:125px}
+.home_movie .contents li .photo:after{content:'';position:absolute;bottom:8px;right:8px;display:block;width:22px;height:22px;background:url(//autoimg.danawa.com/html/images/common/home_today_movie_22.png) 0 0 no-repeat}
+.home_movie .contents li .photo:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:-moz-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);background:-webkit-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff',endColorstr='#000000',GradientType=0);}
+.home_movie .contents li img{display:block;width:100%;height:100%}
+.home_movie .contents li .info{position:relative;padding:12px 15px;width:174px;background:#000}
+.home_movie .contents li .subj{display:block;height:19px;overflow:hidden;font-size:14px;line-height:140%;color:#fff;letter-spacing:-0.2px;}
+.home_movie .contents li .write{font-size:12px;color:#2964e0}
+
+.home_gallery{margin:20px 0 0;width:429px}
+.home_gallery .contents li{float:left}
+.home_gallery .contents li:last-child{padding-left:21px}
+.home_gallery .contents li a{position:relative;display:block;width:204px;height:125px}
+.home_gallery .contents li a:focus{outline:#808080 dotted 1px;}
+.home_gallery .contents li a:hover:after{content:'';position:absolute;top:0;left:0;width:202px;height:123px;border:1px solid #2964e0;}
+.home_gallery .contents li a:hover .subj{text-decoration:underline}
+.home_gallery .contents li .photo{position:relative}
+.home_gallery .contents li .photo:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:-moz-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);background:-webkit-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff',endColorstr='#000000',GradientType=0);}
+.home_gallery .contents li img{display:block;width:100%;height:100%}
+.home_gallery .contents li .info{position:absolute;bottom:10px;left:0;width:100%;height:19px;overflow:hidden;text-align:center;color:#fff}
+.home_gallery .contents li.large{margin-bottom:12px}
+.home_gallery .contents li.large a{position:relative;width:429px;height:264px;overflow:hidden}
+.home_gallery .contents li.large a:hover:after{width:427px;height:262px}
+.home_gallery .contents li.large .info{bottom:13px;font-size:14px}
+.home_gallery .contents li.large .info .subj{letter-spacing:-0.2px;}
+
+.home_catalog{margin:20px 0 0;width:429px}
+.home_catalog .contents li{float:left;padding-left:21px;margin-bottom:13px;}
+.home_catalog .contents li:first-child,.home_catalog .contents li:nth-child(2n+1){padding-left:0}
+.home_catalog .contents li a{position:relative;display:block;width:204px;height:125px}
+.home_catalog .contents li a:focus{outline:#808080 dotted 1px;}
+.home_catalog .contents li a:hover:after{content:'';position:absolute;top:0;left:0;width:202px;height:123px;border:1px solid #2964e0;}
+.home_catalog .contents li a:hover .subj{text-decoration:underline}
+.home_catalog .contents li .photo{position:relative}
+.home_catalog .contents li .photo:before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:-moz-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);background:-webkit-linear-gradient(top,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff',endColorstr='#000000',GradientType=0);}
+.home_catalog .contents li img{display:block;width:100%;height:100%}
+.home_catalog .contents li .info{position:absolute;bottom:10px;left:0;width:100%;height:19px;overflow:hidden;text-align:center;color:#fff}
+
+.home_leaserent{margin:20px 0}
+.home_leaserent .contents{height:249px;border:1px solid #e5e5e5}
+.home_leaserent .contents ul{position:relative}
+.home_leaserent .contents li{position:absolute;right:0;padding:13px 20px 0;width:398px;border-left:1px solid #e5e5e5} 
+.home_leaserent .contents li:nth-child(-n+3){position:relative;border-left:0}
+.home_leaserent .contents li:nth-child(4){top:0}
+.home_leaserent .contents li:nth-child(5){top:78px}
+.home_leaserent .contents li:nth-child(6){top:156px}
+.home_leaserent .contents li:last-child{padding-bottom:15px}
+.home_leaserent .contents .model{position:relative;display:block;width:130px;height:65px;}
+.home_leaserent .contents .model:hover .subj{text-decoration:underline}
+.home_leaserent .contents .model img{width:100%}
+.home_leaserent .contents .model .brand{display:none}
+.home_leaserent .contents .info{position:absolute;top:50%;left:163px;overflow:hidden;transform:translate(0,-50%);-webkit-transform:translate(0,-50%);-ms-transform:translate(0,-50%);}
+.home_leaserent .contents .subj{display:block;margin-bottom:6px;height:21px;overflow:hidden;font-size:14px;font-weight:bold}
+.home_leaserent .contents .subj img{display:inline-block;vertical-align:top;margin-right:5px;width:30px}
+.home_leaserent .contents .subj span{display:inline-block;vertical-align:top}
+.home_leaserent .contents .price dt{display:inline-block;padding-top:2px;width:32px;height:15px;line-height:15px;font-size:11px;color:#fff;text-align:center;vertical-align:top}
+.home_leaserent .contents .price dt.lease{background:#0091ab}
+.home_leaserent .contents .price dt.rent{margin-left:20px;background:#2964e0}
+.home_leaserent .contents .price dd{display:inline-block;padding-right:10px;height:17px;line-height:17px;vertical-align:top}
+.home_leaserent .contents .price .num{display:inline-block;padding-right:3px;height:17px;line-height:16px;font-weight:bold;font-size:16px;font-family:"Century Gothic","Malgun Gothic",Dotum,"돋움","Apple SD Gothic Neo",Helvetica,Sans-serif;}
+.home_leaserent .contents .estimate{display:none}
+
+.home_compare{margin:40px 0 30px}
+.home_compare a{position:relative;display:block;width:100%;height:80px;color:#fff}
+.home_compare a:hover,.home_compare a:hover *{text-decoration:none}
+.home_compare a.blue{background:url(//autoimg.danawa.com/html/images/common/home_compare_blue.jpg) 0 0 no-repeat}
+.home_compare a.black{background:url(//autoimg.danawa.com/html/images/common/home_compare_black.jpg) 0 0 no-repeat}
+.home_compare .modelA{position:absolute;top:11px;left:19px;width:373px;height:60px}
+.home_compare .modelA img{position:absolute;top:0;right:0;width:120px;height:60px}
+.home_compare .modelB{position:absolute;top:11px;right:19px;width:373px;height:60px}
+.home_compare .modelB img{position:absolute;top:0;left:0;width:120px;height:60px}
+.home_compare .info{position:absolute;top:50%;left:0;transform:translate(0,-50%);-webkit-transform:translate(0,-50%);-ms-transform:translate(0,-50%);width:243px;text-align:center}
+.home_compare .modelB .info{padding-left:130px}
+.home_compare .subj{display:block;margin-bottom:2px;font-size:14px;letter-spacing:-0.2px;}
+.home_compare .price .num{display:inline-block;padding-right:3px;height:17px;line-height:14px;font-weight:bold;font-size:16px;font-family:"Century Gothic","Malgun Gothic",Dotum,"돋움","Apple SD Gothic Neo",Helvetica,Sans-serif;}
+
+.home_model{width:429px}
+.home_model .contents{border:1px solid #e5e5e5;background:#f9f9f9}
+.home_model .contents ol{counter-reset:item} 
+.home_model .contents li{position:relative;display:list-item;list-style-type:none;text-align:-webkit-match-parent;padding:14px 15px 10px 37px;min-height:75px;border-top:1px solid #e5e5e5}
+.home_model .contents li:before {content:counter(item)" ";counter-increment:item;position:absolute;top:14px;left:15px;display:block;width:17px;height:16px;line-height:16px;background:#8c8c8c;color:#fff;text-align:center}
+.home_model .contents li:first-child{border-top:0}
+.home_model .contents a{display:block}
+.home_model .model{position:absolute;top:14px;left:36px;display:block;width:130px;height:65px;}
+.home_model .model > img{display:block;padding-top:10px;width:100%;height:100%}
+.home_model .model .brand{position:absolute;top:0;right:0;padding-top:0;width:30px;height:auto}
+.home_model .info{padding-left:143px}
+.home_model .subj{display:block;margin-bottom:3px;font-size:14px;}
+.home_model .price .num{display:inline-block;padding-right:3px;height:17px;line-height:14px;font-weight:bold;font-size:16px;font-family:"Century Gothic","Malgun Gothic",Dotum,"돋움","Apple SD Gothic Neo",Helvetica,Sans-serif;}
+.home_model .etc{margin-top:2px;line-height:130%}
+.home_model .etc span{position:relative;display:inline-block;padding-left:17px;color:#666}
+.home_model .etc span:before{content:'';position:absolute;top:4px;left:8px;width:1px;height:11px;background:#ccc}
+.home_model .etc span:first-child{padding-left:0}
+.home_model .etc span:first-child:before{width:0;height:0}
+.home_model .contents a:hover:after{content:'';position:absolute;top:-1px;left:-1px;width:427px;height:99px;border:1px solid #2964e0;z-index:5}
+.home_model .contents a:hover{text-decoration:none}
+.home_model .contents a:hover .subj{text-decoration:underline}
+
+.home_channel{margin:20px 0 50px}
+.home_channel .contents:after{content:"";display:block;height:0;clear:both;visibility:hidden}
+.home_channel li{float:left;width:204px;height:126px;margin-left:21px}
+.home_channel li:first-child{margin-left:0}
+.home_channel li:nth-child(3){margin-left:22px}
+.home_channel li a{display:block;width:100%;height:100%;color:#fff;}
+.home_channel li span{display:block;margin:0 auto;padding:81px 0 0;width:154px;text-align:center;line-height:140%}
+.home_channel .facebook{background:url(//autoimg.danawa.com/html/images/common/home_channel_facebook.jpg) 0 0 no-repeat}
+.home_channel .youtube{background:url(//autoimg.danawa.com/html/images/common/home_channel_youtube.jpg) 0 0 no-repeat}
+.home_channel .instagram{background:url(//autoimg.danawa.com/html/images/common/home_channel_instagram.jpg) 0 0 no-repeat}
+.home_channel .naverblog{background:url(//autoimg.danawa.com/html/images/common/home_channel_naverblog2.jpg) 0 0 no-repeat}
+.home_channel li .mobile{display:none}
+
+.home_usedcar{margin:20px 0;}
+.home_usedcar .contents li{float:left;}
+.home_usedcar .contents li{float:left;padding-left:21px}
+.home_usedcar .contents li:first-child{padding-left:0}
+.home_usedcar .contents li a{position:relative;display:block;width:204px;height:227px}
+.home_usedcar .contents li a:hover:after{content:'';position:absolute;top:0;left:0;width:202px;height:226px;border:1px solid #2964e0;}
+.home_usedcar .contents li a:hover{text-decoration:none}
+.home_usedcar .contents li a:hover .model{text-decoration:underline}
+.home_usedcar .contents li a:hover .etc span{text-decoration:none}
+.home_usedcar .contents li .photo{position:relative;width:204px;height:125px;overflow:hidden}
+.home_usedcar .contents li img{position:absolute;top:-100%;bottom:-100%;left:-100%;right:-100%;display:block;margin:auto;width: 100%;min-height: 100%}
+.home_usedcar .contents li .info{position:relative;padding:10px 15px;width:172px;height:82px;border:1px solid #e5e5e5;border-top:0;background:#f9f9f9}
+.home_usedcar .contents li .model{display:block;height:38px;overflow:hidden;font-size:14px;line-height:140%;}
+.home_usedcar .contents li .etc{margin-top:3px;font-size:13px;color:#666}
+.home_usedcar .contents li .km{position:relative;display:inline-block;padding-left:21px;vertical-align:top;color:#4b89c3}
+.home_usedcar .contents li .km:before{content:'';position:absolute;top:7px;left:10px;width:1px;height:10px;background:#ccc}
+.home_usedcar .contents li .price{font-size:13px;line-height:130%}
+.home_usedcar .contents li .num{display:inline-block;padding-right:3px;padding-bottom:0;line-height:130%;font-size:15px;font-weight:bold;font-family:"Century Gothic","Malgun Gothic",Dotum,"돋움","Apple SD Gothic Neo",Helvetica,Sans-serif;}
+
+/* 오늘의 핫이슈 개선 */
+.home_hotissue .mc_list{margin-top:12px}
+.home_hotissue .mc_list:nth-child(odd){margin-top:0}
+.home_hotissue .mc_list:after{content:"";display:block;clear:both}
+.home_hotissue .mc_item{float:left;width:204px;margin-left:20PX}
+.home_hotissue .mc_item:first-child{margin-left:0}
+.home_hotissue .mc_link{position:relative;display:block}
+.home_hotissue .mc_lw{position:absolute;top:0;left:0;z-index:5;max-width:100%;overflow:hidden}
+.home_hotissue .mc_l{display:inline-block;padding:8px;word-break:break-all;font-size:13px;color:#fff;line-height:1;white-space:nowrap;background:#33383e;opacity:0.9;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"}
+.home_hotissue .mc_l:hover{text-decoration:none}
+.home_hotissue .mc_iw{position:relative;padding-top:60%;overflow:hidden;}
+.home_hotissue .mc_i{position:absolute;top:-50%;right:-50%;left:-50%;bottom:-50%;width:100%;height:auto;margin:auto;}
+.home_hotissue .mc_tw{padding:6px 0;letter-spacing:-0.2px;}
+.home_hotissue .mc_t_l2{display:block;font-size:14px;line-height:20px;height:40px;overflow:hidden;}
+.home_hotissue .mc_tp{color:#2964e0;line-height:20px}
+.home_hotissue .mc_p{display:block;margin-top:-1px;font-size:13px;font-weight:bold;color:#0f0f0f}
+.home_hotissue .mc_p_num{font-size:15px;vertical-align:top;line-height:1.134em;}

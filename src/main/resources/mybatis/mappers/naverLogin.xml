@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                        
+<mapper namespace="com.kosta.serocar.dao.NaverLoginDAO">
+
+   <insert id="insertNaver" parameterType="NaverLogin">
+      <![CDATA[
+         insert into naverLogin(memberEmail, membernickname, memberDate)
+         values(#{memberEmail}, #{memberNickname}, sysdate)
+      ]]>
+   </insert>
+   
+   <select id="findNaverEmail" resultType="NaverLogin">
+      <![CDATA[
+         select * from naverLogin where memberEmail = #{value}
+      ]]>
+   </select>
+   
+      	<insert id="naverJoinMember" parameterType="member">
+      <![CDATA[
+         insert into member(membernum, memberpassword, memberemail, memberbirth, membergender, membernickname, memberdate)
+         values(seq_memberNum.nextval, #{memberPassword},#{memberEmail}, #{memberBirth}, #{memberGender}, #{memberNickname}, sysdate)
+      ]]>
+	</insert>
+   
+</mapper>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+	<definition name="home.tiles" 	template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header"  value="/WEB-INF/views/header.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/views/index.jsp"/>
+		<put-attribute name="footer"  value="/WEB-INF/views/footer.jsp"/>
+	</definition>
+	
+ 	<definition name="member.tiles" 	template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header"  value="/WEB-INF/views/header.jsp"/>
+	  	<put-attribute name="body" value="/WEB-INF/views/member/index.jsp" />
+	  	<put-attribute name="footer"  value=""/>
+	</definition>
+	
+ 	<definition name="community.tiles" 	template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header"  value="/WEB-INF/views/header.jsp"/>
+	  	<put-attribute name="body" value="/WEB-INF/views/community/index.jsp" />
+	  	<put-attribute name="footer"  value=""/>
+	</definition>
+	
+	 	<definition name="news.tiles" 	template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header"  value="/WEB-INF/views/header.jsp"/>
+	  	<put-attribute name="body" value="/WEB-INF/views/news/index.jsp" />
+	  	<put-attribute name="footer"  value=""/>
+	</definition>
+	
+	<definition name="mypage.tiles" 	template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header"  value="/WEB-INF/views/header.jsp"/>
+	  	<put-attribute name="body" value="/WEB-INF/views/mypage/index.jsp" />
+	  	<put-attribute name="footer"  value=""/>
+	</definition>
+	
+	<definition name="dealer.tiles" 	template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header"  value="/WEB-INF/views/header.jsp"/>
+	  	<put-attribute name="body" value="/WEB-INF/views/dealer/index.jsp" />
+	  	<put-attribute name="footer"  value=""/>
+	</definition>
+	
+	<definition name="detail.tiles" 	template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header"  value="/WEB-INF/views/header.jsp"/>
+	  	<put-attribute name="body" value="/WEB-INF/views/detail/index.jsp" />
+	  	<put-attribute name="footer"  value=""/>
+	</definition>
+	
+	<definition name="manager.tiles" 	template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header"  value="/WEB-INF/views/header.jsp"/>
+	  	<put-attribute name="body" value="/WEB-INF/views/manager/index.jsp" />
+	  	<put-attribute name="footer"  value=""/>
+	</definition>
+
+	<definition name="*.tiles"  		extends="home.tiles">
+	  	<put-attribute name="body"    	value="/WEB-INF/views/{1}.jsp" />
+	</definition>
+
+	<definition name="*/*.tiles"  		extends="member.tiles">
+	  	<put-attribute name="body"    	value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
+	
+	<definition name="*/*.tiles"  		extends="community.tiles">
+	  	<put-attribute name="body"    	value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="*/*.tiles"  		extends="news.tiles">
+	  	<put-attribute name="body"    	value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="*/*.tiles"  		extends="mypage.tiles">
+	  	<put-attribute name="body"    	value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="*/*.tiles"  		extends="dealer.tiles">
+	  	<put-attribute name="body"    	value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="*/*.tiles"  		extends="detail.tiles">
+	  	<put-attribute name="body"    	value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="*/*.tiles"  		extends="manager.tiles">
+	  	<put-attribute name="body"    	value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+</tiles-definitions>

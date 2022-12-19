@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kosta.serocar.dao.MemberDAO">
+
+	<insert id="insertMember" parameterType="Member">
+      <![CDATA[
+         insert into member(membernum, memberpassword, memberemail, memberbirth, membergender, membernickname, memberdate, businessNum)
+         values(seq_memberNum.nextval, #{memberPassword},#{memberEmail}, #{memberBirth}, #{memberGender}, #{memberNickname}, sysdate, #{businessNum})
+      ]]>
+	</insert>
+
+	<select id="selectMember" resultType="Member">
+      <![CDATA[
+         SELECT * FROM MEMBER
+			WHERE memberemail = #{memberEmail} and memberpassword=#{memberPassword}
+      ]]>
+	</select>
+
+	<select id="findMemberEmail" resultType="Member">
+		select * from member where memberEmail = #{value}
+	</select>
+	
+ 	<update id="updatePassword" parameterType="Member">
+	<![CDATA[
+		update member
+		set memberPassword = #{memberPassword}
+		where memberEmail = #{memberEmail}
+	]]>
+	</update>
+
+	<select id="check" resultType="Member">
+      <![CDATA[
+         SELECT * FROM MEMBER
+			WHERE memberemail = #{memberEmail} and memberpassword=#{memberPassword}
+      ]]>
+	</select>
+
+ 	<update id="updateProFile" parameterType="Member">
+	<![CDATA[
+		update member
+		set proFile = #{profile}, memberNickname = #{memberNickname}, memberEmail = #{memberEmail}
+		where memberEmail = #{memberEmail}
+	]]>
+	</update>
+	
+	
+	
+	<select id="selectMemberList" resultType="Member" parameterType="Integer"> 
+   <![CDATA[
+		select *
+      from (select rownum as num, member.* from member)
+      where num between #{row} and #{row}+9
+   ]]> 
+   </select>	
+   
+    <select id="selectMemberList2" resultType="Member" parameterType="hashmap"> 
+   <![CDATA[
+      		select *
+      from (select rownum as num, member.* from member)
+      where num between #{row1} and #{row1}+9 and memberEmail like '%'||#{keyword}||'%'
+   ]]>
+   </select>
+   
+	<select id="selectMemberCount" resultType="Integer" >
+		<![CDATA[
+			select count(*) from member
+		]]>	
+	</select>
+	
+	<select id="selectMemberCount2" resultType="Integer" >
+      <![CDATA[
+         select count(*) from member where memberEmail like '%'||#{keyword}||'%'
+      ]]>   
+   </select>
+
+	<select id="findMemberBusiness" resultType="Member">
+		<![CDATA[
+		select * from member where businessNum=#{value}
+		]]>
+	</select>
+
+</mapper>

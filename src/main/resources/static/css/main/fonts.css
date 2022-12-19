@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/* font family : Kia Signature */
+@font-face {
+    font-family: "KiaSignature";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: local("KiaSignature"), url("/resources/fonts/KiaSignatureBoldLow.eot"), url("/resources/fonts/KiaSignatureBoldLow?#iefix") format("embedded-opentype"), url("/resources/fonts/KiaSignatureBold.woff2") format("woff2"), url("../fonts/KiaSignatureBold.woff") format("woff")
+}
+
+@font-face {
+    font-family: "KiaSignature";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: local("KiaSignature"), url("/resources/fonts/KiaSignatureRegularLow.eot"), url("/resources/fonts/KiaSignatureRegularLow?#iefix") format("embedded-opentype"), url("/resources/fonts/KiaSignatureRegular.woff2") format("woff2"), url("/resources/fonts/KiaSignatureRegular.woff") format("woff")
+}
+
+@font-face {
+    font-family: "KiaSignature";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100;
+    src: local("KiaSignature"), url("/resources/fonts/KiaSignatureLightLow.eot"), url("/resources/fonts/KiaSignatureLightLow?#iefix") format("embedded-opentype"), url("/resources/fonts/KiaSignatureLight.woff2") format("woff2"), url("/resources/fonts/KiaSignatureLight.woff") format("woff")
+}
+
+@font-face {
+    font-family: "KiaSignatureB";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: local("KiaSignature"), url("/resources/fonts/KiaSignatureBoldLow.eot"), url("/resources/fonts/KiaSignatureBoldLow?#iefix") format("embedded-opentype"), url("/resources/fonts/KiaSignatureBold.woff2") format("woff2"), url("/resources/fonts/KiaSignatureBold.woff") format("woff")
+}
+
+@font-face {
+    font-family: "KiaSignatureR";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: local("KiaSignature"), url("/resources/fonts/KiaSignatureRegularLow.eot"), url("/resources/fonts/KiaSignatureRegularLow?#iefix") format("embedded-opentype"), url("/resources/fonts/KiaSignatureRegular.woff2") format("woff2"), url("/resources/fonts/KiaSignatureRegular.woff") format("woff")
+}
+
+@font-face {
+    font-family: "KiaSignatureL";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100;
+    src: local("KiaSignature"), url("/resources/fonts/KiaSignatureLightLow.eot"), url("/resources/fonts/KiaSignatureLightLow?#iefix") format("embedded-opentype"), url("../fonts/KiaSignatureLight.woff2") format("woff2"), url("../fonts/KiaSignatureLight.woff") format("woff")
+}

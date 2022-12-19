@@ -1,0 +1,326 @@
+@charset "utf-8";
+
+/*============================================================
+common element
+============================================================*/
+.main-cmn-area {
+    padding: 5rem 0;
+}
+
+@media screen and (min-width: 1200px) {
+    .pagelink-btn__md:focus {
+        outline-color: #fff;
+    }
+}
+
+/*============================================================
+visual slider
+============================================================*/
+.main-swiper-item {
+    position: relative;
+    height: 33rem;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+.main-swiper-item img {
+    display: none;
+}
+#mainVslSwiperNext,
+#mainVslSwiperPrev {
+    width: 4rem;
+    height: 4rem;
+    background-color: rgba(5, 20, 31, 0.2);
+    border-radius: 100%;
+}
+#mainVslSwiperNext {
+    right: 2%;
+    background-image: url("../images/main/visual-slider-arw-next.png");
+}
+#mainVslSwiperPrev {
+    left: 2%;
+    background-image: url("../images/main/visual-slider-arw-prev.png");
+}
+#mainVslSwiperPaging {
+    bottom: 3rem;
+    font-size: 0;
+}
+#mainVslSwiperPaging .swiper-pagination-bullet {
+    margin: 0 5px;
+    width: 40px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 0;
+}
+.main-vsl-cont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 1170px;
+    color: #fff;
+}
+.main-vsl-tit {
+    max-width: 35rem;
+    word-break: break-all; /* 0322 zoe 추가 */
+}
+.main-vsl-txt {
+    padding-top: 1.5rem;
+    max-width: 24rem;
+}
+
+@media screen and (min-width: 1200px) {
+    #mainVslSwiperNext,
+    #mainVslSwiperPrev {
+        outline-color: #fff;
+    }
+}
+@media screen and (max-width: 1169.98px) {
+    #mainVslSwiperNext,
+    #mainVslSwiperPrev {
+        display: none;
+    }
+    .main-vsl-cont {
+        padding: 0 30px;
+        top: 50%;
+        left: 0;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 100%;
+    }
+}
+@media screen and (max-width: 575.98px) {
+    .main-swiper-item {
+        height: auto;
+        background-image: none;
+    }
+    .main-swiper-item img {
+        display: block;
+    }
+    .main-vsl-cont {
+        top: auto;
+        bottom: 8rem;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        text-align: center;
+    }
+    .main-vsl-tit,
+    .main-vsl-txt {
+        max-width: none;
+    }
+}
+
+/*============================================================
+join the movement
+============================================================*/
+.join-area { /* 0322 zoe 추가 */
+    background: #fff url("../images/main/join-bg.jpg") no-repeat center top;
+    background-size: 100%;
+}
+.join-card-list .cmn-list-item.col3 {
+    margin-top: 2.5rem;
+}
+[class^="join-card__"] {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    font-size: 0;
+    text-align: left;
+    background-color: #eaebec;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+[class^="join-card__"] img {
+    -webkit-transition: opacity .25s ease;
+    transition: opacity .25s ease;
+}
+.join-card-hd {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: transform .5s ease;
+    transition: transform .5s ease;
+}
+.join-card-hd span {
+    display: block;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+}
+.join-card-hd__btn {
+    position: relative;
+    margin-top: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #333f48;
+    border: 2px solid #fff;
+    border-radius: 100%;
+}
+.join-card-hd__btn::before,
+.join-card-hd__btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+}
+.join-card-hd__btn::before {
+    width: 1.2rem;
+    height: 2px;
+}
+.join-card-hd__btn::after {
+    width: 2px;
+    height: 1.2rem;
+}
+.join-card-cont {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 3rem 2rem;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateY(100%);
+    -webkit-transition: transform .5s ease;
+    transform: translateY(100%);
+    transition: transform .5s ease;
+}
+.join-card-cont strong {
+    display: block;
+    padding-bottom: 0.75rem;
+}
+
+[class^="join-card__"]:hover img,
+[class^="join-card__"]:focus img {
+    opacity: 0;
+}
+[class^="join-card__"]:hover::before,
+[class^="join-card__"]:focus::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+.join-card__inventive:hover::before,
+.join-card__inventive:focus::before {
+    background-image: url("../images/main/join-inventive-bg.png");
+}
+.join-card__curios:hover::before,
+.join-card__curios:focus::before {
+    background-image: url("../images/main/join-curios-bg.png");
+}
+.join-card__openmind:hover::before,
+.join-card__openmind:focus::before {
+    background-image: url("../images/main/join-openmind-bg.png");
+}
+[class^="join-card__"]:hover .join-card-hd,
+[class^="join-card__"]:focus .join-card-hd {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+[class^="join-card__"]:hover .join-card-cont,
+[class^="join-card__"]:focus .join-card-cont {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { /* for IE */
+   .join-card__inventive:hover::before,
+    .join-card__inventive:focus::before {
+        background-image: url("../images/main/join-inventive-blur-bg.png");
+    }
+    .join-card__curios:hover::before,
+    .join-card__curios:focus::before {
+        background-image: url("../images/main/join-curios-blur-bg.png");
+    }
+    .join-card__openmind:hover::before,
+    .join-card__openmind:focus::before {
+        background-image: url("../images/main/join-openmind-blur-bg.png");
+    }
+}
+@media screen and (max-width: 1199.98px) and (min-width: 769px) {
+    .join-card-hd,
+    .join-card-cont {
+        padding: 2rem 1.5rem;
+    }
+}
+@media screen and (max-width: 768.98px) and (min-width: 576px) {
+    .join-card-hd,
+    .join-card-cont {
+        padding: 1.5rem 1rem;
+    }
+    .join-card-hd strong {
+        font-size: 1.3rem;
+    }
+    .join-card-cont p {
+        font-size: 0.7rem;
+    }
+}
+@media screen and (max-width: 575.98px) {
+    .join-area { /* 0322 zoe 추가 */
+        padding-bottom: 20rem;
+        background: #fff url("../images/main/join-bg-mo.jpg") no-repeat center bottom;
+    }
+    .join-card-list {
+        padding-top: 1.25rem;
+    }
+    .join-card-list .cmn-list-item.col3 {
+        margin-top: 1.25rem;
+    }
+    .join-card-hd__btn::before {
+        height: 1px;
+    }
+    .join-card-hd__btn::after {
+        width: 1px;
+    }
+}
+
+/*============================================================
+make an inspired move
+============================================================*/
+.main-move-area {
+    padding: 8.5rem 0;
+    text-align: center;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-image: url("../images/main/move-bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;  
+}
+
+@media screen and (max-width: 575.98px) {
+    .main-move-area {
+        padding: 6rem 0;
+        background-image: url("../images/main/move-bg-mo.jpg");
+    }
+    .main-move-area .main-cmn-txt {
+        font-size: 1.1rem;
+    }
+    .iphone .main-move-area {
+        background-attachment: initial;
+        background-position: center !important;
+    }
+}
+
+/*============================================================
+join member
+============================================================*/
+.main-member-area {
+    padding: 4rem 0;
+    text-align: center;
+}
+.main-member-area p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}

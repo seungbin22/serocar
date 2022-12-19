@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kosta.serocar.dao.DetailDAO">
+	<select id="selectCarList2" resultType="Detail"
+		parameterType="HashMap"> 
+   <![CDATA[
+      select *
+      from (select rownum as num, detail.* from detail where carname like '%'||#{keyword}||'%')
+      where num between #{row} and #{row}+9 
+   ]]>
+	</select>
+	
+	<select id="selectCarList" resultType="Detail"
+		parameterType="HashMap"> 
+   <![CDATA[
+      select *
+      from (select rownum as num, detail.* from detail)
+      where num between #{row} and #{row}+9
+   ]]>
+	</select>
+
+	<select id="selectCarCount" resultType="Integer">
+		<![CDATA[
+			select count(*) from detail
+		]]>
+	</select>
+	
+	<select id="selectCarKeywordCount" resultType="Integer">
+		<![CDATA[
+			select count(*) from detail where carname like '%'||#{keyword}||'%'
+		]]>
+	</select>
+	
+	<select id="selectCarBrandList" resultType="Detail"
+		parameterType="HashMap"> 
+   <![CDATA[
+      select *
+      from (select rownum as num, detail.* from detail where carbrand like '%'||#{carBrand}||'%')
+      where num between #{row} and #{row}+9 
+		]]>
+	</select>
+
+	<select id="selectCarBrandCount" resultType="Integer">
+		<![CDATA[
+			select count(*) from detail where carbrand like '%'||#{carBrand}||'%'
+		]]>
+	</select>
+	
+	<select id="selectCarTypeList" resultType="Detail"
+		parameterType="HashMap"> 
+   <![CDATA[
+      select *
+      from (select rownum as num, detail.* from detail where cartype like '%'||#{carType}||'%')
+      where num between #{row} and #{row}+9 
+		]]>
+	</select>
+
+	<select id="selectCarTypeCount" resultType="Integer">
+		<![CDATA[
+			select count(*) from detail where cartype like '%'||#{carType}||'%'
+		]]>
+	</select>
+	
+	<select id="selectCarMoneyList" resultType="Detail"
+		parameterType="HashMap"> 
+   <![CDATA[
+      select *
+      from (select rownum as num, detail.* from detail where carmoney between #{minMoney} and #{maxMoney})
+      where num between #{row} and #{row}+9 
+		]]>
+	</select>
+
+	<select id="selectCarMoneyCount" parameterType="HashMap" resultType="Integer">
+		<![CDATA[
+			select count(*) from detail where carmoney between #{minMoney} and #{maxMoney}
+		]]>
+	</select>
+	
+	   <!-- 좋아요 눌럿는지 안눌럿는지 -->
+   <select id="findLike" resultType="int">
+         <![CDATA[
+            select count(*) from carlike where carNum = #{carNum} and memberEmail = #{memberEmail}
+         ]]>
+   </select>
+   
+   <!-- 좋아요 불러오기 -->  
+     <select id="getLike" resultType="int">
+        <![CDATA[
+           select count(*) from carlike where carNum = #{carNum} and carlikeN =#{carLikeN}
+        ]]>
+     </select>
+   
+   <insert id="likeUp">
+         <![CDATA[
+            insert into carlike (carLikeNum ,carNum , memberEmail,likeN)
+            values((select * from (select NVL (max(carLikeNum),0)+1 from carlike)), #{carNum},#{memberEmail},1)
+         ]]>
+   </insert>
+   
+    <delete id="likeDown">
+       <![CDATA[
+           delete from carlike where carNum = #{carNum} and memberEmail = #{memberEmail} 
+        ]]>
+     </delete>
+     
+     <!-- <update id="hit">
+        <![CDATA[
+           update detail
+            set carviews = carviews + 1
+            where carNum = #{carNum}
+      ]]>
+   </update> -->
+	
+</mapper>

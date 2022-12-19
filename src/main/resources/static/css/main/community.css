@@ -1,0 +1,294 @@
+.sub_contents {
+	padding-bottom: 50px;
+	position: relative;
+}
+
+.login_contents {
+	padding: 100px 0;
+	text-align: center;
+	font-size: 16px;
+}
+
+.login_contents p {
+	font-size: 18px;
+	margin-top: 25px;
+	word-break: keep-all;
+}
+
+.login_contents input[type="text"],
+.login_contents input[type="password"] {
+	width: 100%;
+	height: 65px;
+	margin-top: 20px;
+	padding-left: 90px;
+	background-color: #fff;
+}
+
+.login_contents input[type="text"] {
+	background-image: url("../assets/img/sub/login_id_icon.png");
+	background-position: 35px center;
+	background-repeat: no-repeat;
+}
+
+.login_contents input[type="password"] {
+	background-image: url("../assets/img/sub/login_pw_icon.png");
+	background-position: 35px center;
+	background-repeat: no-repeat;
+}
+
+.login_contents input[type="submit"] {
+	height: 65px;
+	background: #2E3E56;
+	color: #fff;
+	font-size: 16px;
+	transition-duration: 0.5s;
+}
+
+.login_contents input[type="submit"]:hover {
+	background: #3D9EB7;
+}
+
+.login_form {
+	text-align: left;
+}
+
+.login_contents .login_btn_area {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.login_contents .login_btn_area div {
+	float: right;
+}
+
+/* 11���� ȸ������ */
+.login_contents h3 {
+	font-size: 26px;
+}
+
+.login_contents h3 img {
+	max-width: 250px;
+	margin-right: 15px;
+}
+
+.join_form>ul>li:after,
+.join_form>ul>li>div:after {
+	content: '';
+	display: block;
+	clear: both;
+	float: none;
+}
+
+.join_form>ul>li input,
+.join_form>ul>li .btn {
+	float: left;
+	vertical-align: bottom;
+	margin-top: 20px;
+}
+
+.join_form input[type="text"],
+.join_form input[type="password"] {
+	width: 345px;
+}
+
+.join_form>ul>li .btn {
+	margin-left: 12px;
+	width: 100px;
+	line-height: 65px;
+}
+
+.join_form>ul>li p {
+	font-size: 16px;
+	text-align: left;
+	margin-top: 10px;
+}
+
+.join_form .btn_area li {
+	display: inline-block;
+	padding: 0 15px;
+}
+
+.join_form .btn_area li a:before {
+	width: 11px;
+	height: 11px;
+	content: '';
+	display: inline-block;
+	background: #000;
+	margin-right: 10px;
+}
+
+.join_form .btn_area li a:hover {
+	text-decoration: underline;
+}
+
+#sub_nav ul:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+
+#sub_nav li {
+	float: left;
+	position: relative;
+	border-bottom: 1px solid #F9F9FA;
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+#sub_nav li.active:after {
+	display: block;
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	background: #A26928;
+	bottom: 0;
+}
+
+#sub_nav li.new a:after {
+	content: 'N';
+	font-size: 12px;
+	color: #58AEE6;
+	font-weight: bold;
+	vertical-align: top;
+	margin-left: 2px;
+	margin-top: -2px;
+	display: inline-block;
+}
+
+#sub_nav li a {
+	text-align: center;
+	display: block;
+	padding: 14px 14px 18px 14px;
+}
+
+#sub_contents {
+	padding-top: 70px;
+}
+
+#sub_contents:after {
+	content: '';
+	display: block;
+	clear: both;
+	float: none;
+}
+
+#sub_content_left {
+	float: left;
+	width: 1200px;
+}
+
+/* `{box-sizing:border-box;padding:15px 15px 30px 15px;background:#fff;border: 1px solid #E8EAEB;} */
+#sub_content_inner h3 {
+	font-size: 24px;
+	color: #303030;
+	margin-bottom: 25px;
+}
+
+#sub_content_inner h4 {
+	font-size: 20px;
+	border-bottom: 5px solid #707070;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+#sub_content_right {
+	float: left;
+	width: 260px;
+	margin-left: 40px;
+}
+
+#sub_recommend_zone {
+	background: #fff;
+	margin-bottom: 25px;
+}
+
+#sub_recommend_zone h3 {
+	padding: 8px 20px;
+	border-bottom: 1px solid #E8EAEB;
+}
+
+#sub_recommend_zone .tab_content li a {
+	display: block;
+	padding: 8px 20px;
+}
+
+#sub_banner_zone a {
+	display: block;
+	margin-bottom: 25px;
+}
+
+#sub_banner_zone a:last-child {
+	margin-bottom: 0;
+}
+
+.title {
+	font-weight: 400;
+}
+
+/* wide xl */
+@media(max-width:1200px) {
+	#sub_nav {
+		padding: 0 10px;
+		box-sizing: border-box;
+	}
+
+	#sub_content_left {
+		padding: 0 10px;
+		width: 75%;
+		box-sizing: border-box;
+	}
+
+	#sub_content_right {
+		padding: 0 10px;
+		width: 25%;
+		box-sizing: border-box;
+		margin-left: 0;
+	}
+}
+
+/* tablet ���� lg */
+@media(max-width:1024px) {
+	#sub_nav {
+		overflow-x: auto;
+		font-size: 16px;
+	}
+
+	#sub_nav ul>li {
+		width: auto !important;
+		display: table-cell;
+		white-space: nowrap;
+		float: none;
+	}
+}
+
+/* 11���� ȸ������ */
+@media(max-width:786px) {
+	.join_form>ul>li .btn {
+		margin-left: 0;
+	}
+}
+
+@media(max-width:520px) {
+	.login_contents .login_btn_area div {
+		float: none;
+		margin-top: 10px;
+	}
+
+	.login_contents img {
+		width: 220px;
+	}
+
+	/* 11���� ȸ������ */
+	.login_contents h3 img {
+		display: block;
+		margin: 0 auto 10px auto;
+	}
+}
+
+/* phone sm */
+@media(max-width:480px) {
+	#sub_contents {
+		margin-top: 10px;
+	}
+}

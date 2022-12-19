@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                        
+<mapper namespace="com.kosta.serocar.dao.NewsDAO">
+	<insert id = "insertNews" parameterType="News">
+		<![CDATA[
+			insert into news(newsnum, newsimage, title, content, newsdate, newsreco)
+			values(seq_newsNum.nextval, #{newsImge}, #{newsTile}, #{newsContent}, sysdate, 0)
+		]]>
+	</insert>
+	
+	<select id="selectNewsList" resultType="News">
+		<![CDATA[
+			select * from news
+		]]>	
+	</select>
+	
+	<select id="selectNews" parameterType="Integer" resultType="News">
+		<![CDATA[
+			select * from news where newsnum = #{newsnum}	
+		]]>	
+	</select>
+	
+</mapper>

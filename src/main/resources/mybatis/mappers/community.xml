@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                        
+<mapper namespace="com.kosta.serocar.dao.CommunityDAO">
+	<insert id = "insertCommunity" parameterType="Community">
+		<![CDATA[
+			insert into community(comnum, membernickname, memberEmail, comtitle, comcontent, comreco, com_re_ref, com_re_lev, com_re_seq, comviews, comdate)
+			values(seq_comNum.nextval, #{memberNickname}, #{memberEmail},#{comTitle}, #{comContent}, 0, #{com_re_ref}, #{com_re_lev}, #{com_re_seq}, #{comViews}, sysdate)
+		]]>
+	</insert>
+
+
+	<select id="selectMaxCommunityNum" resultType="Integer">
+		<![CDATA[
+			select max(comnum) from community		
+		]]>	
+	</select>
+	
+	 <select id="selectCommunityList" resultType="Community" parameterType="Integer"> 
+   <![CDATA[
+      select comnum, comtitle, membernickname, memberEmail, comcontent, com_re_ref,
+            com_re_lev, com_re_seq, comviews, comdate
+      from (select row_number() over (order by com_re_ref desc, com_re_seq asc) num, B.*
+            from community B order by com_re_ref desc, com_re_seq asc)
+      where num between #{row} and #{row}+9
+   ]]> 
+   </select>	
+   
+    <select id="selectCommunityList2" resultType="Community" parameterType="hashmap"> 
+   <![CDATA[
+      select comnum, comtitle, membernickname, comcontent, com_re_ref,
+            com_re_lev, com_re_seq, comviews, comdate
+      from (select row_number() over (order by com_re_ref desc, com_re_seq asc) num, B.*
+            from community B where comtitle like '%'||#{keyword}||'%' order by com_re_ref desc, com_re_seq asc)
+      where num between #{row1} and #{row1}+9
+   ]]>
+   </select>
+   
+	<select id="selectCommunityCount" resultType="Integer" >
+		<![CDATA[
+			select count(*) from community
+		]]>	
+	</select>
+	
+	<select id="selectCommunityCount2" resultType="Integer" >
+      <![CDATA[
+         select count(*) from community where comtitle like '%'||#{keyword}||'%'
+      ]]>   
+   </select>
+	
+	<select id="selectCommunity" resultType="Community" parameterType="Integer">
+		<![CDATA[
+			select * from community where comnum = #{comNum}
+		]]>	
+	</select>
+	
+	<update id="updateCommunity" parameterType="Community">
+		<![CDATA[
+			update community set comtitle=#{comTitle}, comcontent=#{comContent}
+			where comnum=#{comNum}
+		]]>	
+	</update>
+	
+	<update id="updateCommunityReReq" parameterType="Community">
+		<![CDATA[
+			update community set com_re_ref=com_re_ref+1
+			where com_re_ref=#{com_re_ref} and com_re_seq>#{com_re_seq}
+		]]>	
+	</update>
+	
+	<delete id="deleteCommunity" parameterType="Integer">
+		<![CDATA[
+		delete from community where comnum=#{comNum}
+		]]>
+	</delete>
+	
+	<!-- 좋아요 눌럿는지 안눌럿는지 -->
+   <select id="findLike" resultType="int">
+   		<![CDATA[
+      		select count(*) from comlike where comNum = #{comNum} and memberEmail = #{memberEmail}
+      	]]>
+   </select>
+   
+   <!-- 좋아요 불러오기 -->  
+     <select id="getLike" resultType="int">
+     	<![CDATA[
+        	select count(*) from comlike where comNum = #{comNum} and likeN =#{likeN}
+        ]]>
+     </select>
+   
+   <insert id="likeUp">
+   		<![CDATA[
+      		insert into comlike (likenum ,comNum , memberEmail,likeN)
+      		values((select * from (select NVL (max(likenum),0)+1 from comlike)), #{comNum},#{memberEmail},1)
+      	]]>
+   </insert>
+   
+    <delete id="likeDown">
+    	<![CDATA[
+        	delete from comlike where comNum = #{comNum} and memberEmail = #{memberEmail} 
+        ]]>
+     </delete>
+     
+     <update id="hit">
+     	<![CDATA[
+     		update community
+      		set comviews = comviews + 1
+      		where comNum = #{comNum}
+      ]]>
+   </update>
+</mapper>

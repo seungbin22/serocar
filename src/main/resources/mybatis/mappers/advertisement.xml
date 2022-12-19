@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                        
+<mapper namespace="com.kosta.serocar.dao.AdvertisementDAO">
+	<insert id = "insertAdvertisement" parameterType="Advertisement">
+		<![CDATA[
+			insert into advertisement(ad_num, membernickname, memberEmail,businessNum, ad_title, ad_content, ad_reco, ad_re_ref, ad_re_lev, ad_re_seq, ad_views, ad_date)
+			values(seq_ad_num.nextval, #{memberNickname}, #{memberEmail},#{businessNum} ,#{ad_title}, #{ad_content}, 0, #{ad_re_ref}, #{ad_re_lev}, #{ad_re_seq}, #{ad_views}, sysdate)
+		]]>
+	</insert>
+
+
+	<select id="selectMaxAdvertisementNum" resultType="Integer">
+		<![CDATA[
+			select max(ad_num) from advertisement		
+		]]>	
+	</select>
+	
+	 <select id="selectAdvertisementList" resultType="Advertisement" parameterType="Integer"> 
+   <![CDATA[
+      select * from (select row_number() over (order by ad_re_ref desc, ad_re_seq asc) num, B.*
+            from advertisement B order by ad_re_ref desc, ad_re_seq asc)
+      where num between #{row} and #{row}+9
+   ]]> 
+   </select>	
+   
+    <select id="selectAdvertisementList2" resultType="Advertisement" parameterType="hashmap"> 
+   <![CDATA[
+      select ad_num, ad_title, membernickname, ad_content, ad_re_ref,
+            ad_re_lev, ad_re_seq, ad_views, ad_date
+      from (select row_number() over (order by ad_re_ref desc, ad_re_seq asc) num, B.*
+            from advertisement B order by ad_re_ref desc, ad_re_seq asc)
+      where num between #{row1} and #{row1}+9 and ad_title like '%'||#{keyword}||'%'
+   ]]>
+   </select>
+   
+	<select id="selectAdvertisementCount" resultType="Integer" >
+		<![CDATA[
+			select count(*) from advertisement
+		]]>	
+	</select>
+	
+	<select id="selectAdvertisementCount2" resultType="Integer" >
+      <![CDATA[
+         select count(*) from advertisement where ad_title like '%'||#{keyword}||'%'
+      ]]>   
+   </select>
+	
+	<select id="selectAdvertisement" resultType="Advertisement" parameterType="Integer">
+		<![CDATA[
+			select * from advertisement where ad_num = #{ad_num}
+		]]>	
+	</select>
+	
+	<update id="updateAdvertisement" parameterType="Advertisement">
+		<![CDATA[
+			update advertisement set ad_title=#{ad_title}, ad_content=#{ad_content}
+			where ad_num=#{ad_num}
+		]]>	
+	</update>
+	
+	<update id="updateAdvertisementReReq" parameterType="Advertisement">
+		<![CDATA[
+			update advertisement set ad_re_ref=ad_re_ref+1
+			where ad_re_ref=#{ad_re_ref} and ad_re_seq>#{ad_re_seq}
+		]]>	
+	</update>
+	
+	<delete id="deleteAdvertisement" parameterType="Integer">
+		<![CDATA[
+		delete from advertisement where ad_num=#{ad_num}
+		]]>
+	</delete>
+     
+     <update id="hit2">
+     	<![CDATA[
+     		update advertisement
+      		set ad_views = ad_views + 1
+      		where ad_num = #{ad_num}
+      ]]>
+   </update>
+</mapper>

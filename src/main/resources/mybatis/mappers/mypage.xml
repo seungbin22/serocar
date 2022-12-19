@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                        
+<mapper namespace="com.kosta.serocar.dao.MyPageDAO">
+    <select id="selectCommunityList2" resultType="Community" parameterType="hashmap"> 
+   <![CDATA[
+      select comnum, comtitle, membernickname, comcontent, com_re_ref,
+            com_re_lev, com_re_seq, comviews, comdate, memberEmail
+      from (select row_number() over (order by com_re_ref desc, com_re_seq asc) num, B.*
+            from community B where memberEmail = #{memberEmail} order by com_re_ref desc, com_re_seq asc)
+      where num between #{row1} and #{row1}+9
+   ]]>
+   </select>
+   
+	<select id="selectCommunityCount2" resultType="Integer" >
+      <![CDATA[
+         select count(*) from community where memberEmail = #{memberEmail}
+      ]]>   
+   </select>
+   
+   
+   
+   <select id="selectAdvertisementList2" resultType="Advertisement" parameterType="hashmap"> 
+   <![CDATA[
+      select ad_num, ad_title, membernickname, ad_content, ad_re_ref,
+            ad_re_lev, ad_re_seq, ad_views, ad_date
+      from (select row_number() over (order by ad_re_ref desc, ad_re_seq asc) num, B.*
+            from advertisement B where memberEmail = #{memberEmail} order by ad_re_ref desc, ad_re_seq asc)
+      where num between #{row1} and #{row1}+9
+   ]]>
+   </select>
+   
+	<select id="selectAdvertisementCount2" resultType="Integer" >
+      <![CDATA[
+         select count(*) from advertisement where memberEmail = #{memberEmail}
+      ]]>   
+   </select>
+</mapper>

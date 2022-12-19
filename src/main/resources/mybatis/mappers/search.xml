@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                        
+<mapper namespace="com.kosta.serocar.dao.SearchDAO">
+	<insert id = "insertCar" parameterType="Search">
+		<![CDATA[
+			insert into detail(carnum, carname, carmoney, cartype, carbrand, carimage,carlink)
+			values(seq_carnum.nextval, #{carname}, #{carmoney}, #{cartype}, #{carbrand}, #{carimage}, #{carlink})
+		]]>
+	</insert>
+	
+	<select id="selectSearchCount" resultType="Integer" >
+		<![CDATA[
+			select count(*) from detail
+		]]>	
+	</select>
+	
+	<select id="selectSearch" resultType="Search" parameterType="Integer">
+		<![CDATA[
+			select * from detail where carnum = #{carnum}
+		]]>	
+	</select>
+
+	<delete id="deleteSearch" parameterType="Integer">
+		<![CDATA[
+		delete from detail where carnum=#{carnum}
+		]]>
+	</delete>
+	
+	 <select id="selectSearchList" resultType="Search" parameterType="Integer"> 
+   <![CDATA[
+      select carnum, carname, carmoney, cartype, carbrand, carimage, carlink
+      from detail
+      where carnum between #{row} and #{row}+9
+      and money between #{minmoney} and #{maxmoney}
+      and brand = #{brand}
+   ]]> 
+   </select>
+</mapper>

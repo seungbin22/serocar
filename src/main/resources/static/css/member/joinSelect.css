@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    width: 100%;
+    background: #fff;
+    color: #000;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    min-height: 100vh;
+    padding: 100px 30px;
+}
+.top-background-div {
+    height: 140px;
+    background-color: #fff;
+}
+@media (max-width: 600px) {
+    .top-background-div {
+        height: 80px;
+    }
+}
+.top-container {
+    margin-top: 40px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: #000;
+}
+.top-container .text {
+    font-size: 40px;
+    text-align: center; 
+    color: #000;
+    letter-spacing: 1px;
+    padding: 8px;
+
+}
+.top-container .small-text {
+    font-family: 'Montserrat';
+    font-size: 39px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+}
+
+.container {
+    margin: 5% auto;
+    display: flex;
+}
+
+.container1 {
+    margin: 0 auto;
+    display: block;
+    background: #fff;
+    width: 500px;
+    height: 400px;
+    padding: 70px;
+     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.container2 {
+    margin: 0 auto;
+    display: block;
+    background: #fff;
+    width: 500px;
+    height: 400px;
+    padding: 70px;
+     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+    body {
+        background: #fff;
+    }
+    .container {
+        width: 60vw;
+        box-shadow: unset;
+        display: block;
+        justify-content: center;
+    }
+
+}
+
+.container .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.container .close-btn:hover {
+    color: #3498db;
+}
+.container .text {
+    margin-top: 4px;
+    font-family: 'Montserrat';
+    font-size: 27px;
+    font-weight: 600;
+    text-align: center;
+    color: #000000;
+}
+.container .form-container {
+    margin-top: -20px;
+}
+.container .form-container .data {
+    height: 45px;
+    width: 100%;
+    margin: 40px 0;
+}
+.form-container .data label {
+    font-size: 14px;
+}
+.form-container .data input {
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 17px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0 !important;
+}
+.form-container .data input:focus {
+    border-color: #3498db;
+    border-bottom-width: 2px;
+}
+.form-container .forgot-pass {
+    margin-top: -8px;
+    font-size: 14px;
+}
+.form-container .forgot-pass a {
+    color: #3498db;
+    text-decoration: none;
+}
+.form-container .forgot-pass a:hover {
+    text-decoration: underline;
+}
+.form-container .btn {
+    margin: 30px 0;
+    height: 45px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.form-container .btn .inner {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    /* left: -100%; */
+    z-index: -1;
+    border-radius: 10px;
+
+    background: -webkit-linear-gradient(right, #56d8e4, #26dbe1, #56d8e4, #26dbe1);
+    /* transition: all 0.4s; */
+}
+.form-container .btn:hover .inner {
+    left: 0;
+}
+.form-container .btn button {
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #000;
+}
+.form-container .signup-link {
+    text-align: center;
+    font-size: 14px;
+}
+.form-container .signup-link a {
+    color: #3498db;
+    text-decoration: none;
+}
+.form-container .signup-link a:hover {
+    text-decoration: underline;
+}
+
+.small-text {
+    font-size: 14px;
+    text-align: center;
+    color: #616161;
+    letter-spacing: 1px;
+}
+
+.sns-text {
+    font-size: 12px;
+    text-align: center;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+.divider-container {
+    position: relative;
+    text-align: center;
+    margin: 8px;
+}
+.divider-container span {
+    position: relative;
+    width: 10vw;
+    background-color: #fff;
+    display: inline-block;
+    color: #616161;
+}
+
+.divider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1px;
+    width: 100%;
+    background-color: #e0e0e0;
+}
