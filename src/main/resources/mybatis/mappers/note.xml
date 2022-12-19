@@ -8,15 +8,23 @@
   <insert id="insertNote">
   <![CDATA[
   	INSERT INTO NOTE
-  	(note_no, note_to, note_from, note_content, memberemail)
-  	VALUES(seq_note_no.NEXTVAL, #{note_to}, #{note_from,}, #{note_content}, #{memberEmail})
+  	(note_no, note_to, note_from, note_content, memberemail, note_date)
+  	VALUES(seq_note_no.NEXTVAL, #{note_to}, #{note_from,}, #{note_content}, #{memberEmail}, sysdate)
   	]]>
   </insert>
   
-  <select id="myRecord" resultType="Note">
+  <select id="myRecord" resultType="hashmap">
   <![CDATA[
-  	SELECT * FROM NOTE
-  	WHERE note_to = #{note_to}
+  	select *
+      from (select rownum as num, note.* from note where memberEmail = #{memberEmail})
+      where num between #{row1} and #{row1}+9
+  	]]>
+  </select>
+  
+  <select id="myRecordCount" resultType="Integer">
+  <![CDATA[
+  	SELECT count(*) FROM NOTE
+  	WHERE memberEmail = #{memberEmail}
   	]]>
   </select>
   

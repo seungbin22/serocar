@@ -1,5 +1,7 @@
 package com.kosta.serocar.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,18 +10,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.serocar.bean.Note;
+import com.kosta.serocar.bean.PageInfo;
+import com.kosta.serocar.dao.NoteDAO;
 import com.kosta.serocar.service.NoteService;
 
 
 @Controller
-@RequestMapping("/note")
 public class NoteController {
 	@Autowired 
 	private NoteService noteService;
+	
+	@Autowired 
+	NoteDAO noteDAO;
 
 	@ResponseBody
 	@PostMapping("/insertNote")
@@ -41,13 +48,23 @@ public class NoteController {
 	
 	//받은 쪽지 불러오기
 	@GetMapping("/myRecord")
-	public void myRecord(String note_to, Model model) {
-		System.out.println("받은 쪽지 불러오기");
-		System.out.println("userId:" + note_to);
+	public ModelAndView myRecord(@RequestParam(value = "page", required = false, defaultValue = "1") Integer page,@RequestParam(value = "memberEmail", required = false, defaultValue = "1") String memberEmail
+		,Note note, Model model, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		PageInfo pageInfo = new PageInfo();
 		
-		model.addAttribute("userId",note_to);
-		model.addAttribute("note", noteService.myRecord(note_to));
-		System.out.println(noteService.myRecord(note_to));
+		System.out.println("받은 쪽지 불러오기");
+		//String memberEmail =(String) session.getAttribute("memberEmail");
+		note.setMemberEmail(memberEmail);
+		
+		List<Note> noteList = noteService.myRecord(page, memberEmail, pageInfo);
+		System.out.println(noteList);
+		mav.addObject("noteList",noteList);
+		mav.addObject("pageInfo", pageInfo);
+		mav.setViewName("myPage/myPageChatting.tiles");
+		int myRecordCount = noteDAO.myRecordCount(memberEmail);
+		mav.addObject("chatCount", myRecordCount);
+		return mav;
 	}
-
+	
 }

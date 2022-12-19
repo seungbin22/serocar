@@ -22,6 +22,7 @@ import com.kosta.serocar.bean.Community;
 import com.kosta.serocar.bean.Member;
 import com.kosta.serocar.bean.PageInfo;
 import com.kosta.serocar.dao.MyPageDAO;
+import com.kosta.serocar.dao.NoteDAO;
 import com.kosta.serocar.service.MemberService;
 import com.kosta.serocar.service.MyPageService;
 
@@ -39,6 +40,9 @@ public class MyPageController {
 	
 	@Autowired
 	MyPageDAO myPageDAO;
+	
+	@Autowired
+	NoteDAO noteDAO;
 
 	@RequestMapping(value = "/myPage", method=RequestMethod.GET)
 	public ModelAndView myPage(@RequestParam(value="memberEmail") String memberEmail, Model model, Member member) throws Exception {
@@ -46,6 +50,8 @@ public class MyPageController {
 		System.out.println(memberEmail);
 		String businessNum = member.getBusinessNum();
 		System.out.println(businessNum);
+		int myRecordCount = noteDAO.myRecordCount(memberEmail);
+		mav.addObject("chatCount", myRecordCount);
 		
 		if(businessNum=="") {
 			businessNum=null;

@@ -1,5 +1,6 @@
 package com.kosta.serocar.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -12,5 +13,8 @@ import com.kosta.serocar.bean.Note;
 public interface NoteDAO {
 	void insertNote(Note note);
 	
-	List<Note> myRecord(String userId);
+	List<Note> myRecord(HashMap<String, String> map);
+	
+	Integer myRecordCount(String memberEmail);
+	
 }

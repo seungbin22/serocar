@@ -41,37 +41,37 @@
                         </div>
                      </div>
 						<c:choose>
-						<c:when test="${sessionScope.businessNum == null}">
-						<div class="index-circle"
-						                        onclick="location.href='./myPageList?memberEmail=${memberEmail}&businessNum=${businessNum}'">
-						                        <h5 style="font-family: 'Montserrat' !important">
-						                           <b>내가 쓴 글</b>
-						                        </h5>
-						                        <div>
-						                           <h2 style="line-height: 1; font-weight: 700" id="myReview">${count2}</h2>
-						                        </div>
-						                     </div>
-						</c:when>
-						
-						<c:when test="${sessionScope.businessNum != null}">
-						<div class="index-circle"
-						                        onclick="location.href='./myPageList_ad?memberEmail=${memberEmail}&businessNum=${businessNum}'">
-						                        <h5 style="font-family: 'Montserrat' !important">
-						                           <b>내가 쓴 글</b>
-						                        </h5>
-						                        <div>
-						                           <h2 style="line-height: 1; font-weight: 700" id="myReview">${count_ad}</h2>
-						                        </div>
-						                     </div>
-						</c:when>
+							<c:when test="${sessionScope.businessNum == null}">
+							<div class="index-circle"
+							                        onclick="location.href='./myPageList?memberEmail=${memberEmail}&businessNum=${businessNum}'">
+							                        <h5 style="font-family: 'Montserrat' !important">
+							                           <b>내가 쓴 글</b>
+							                        </h5>
+							                        <div>
+							                           <h2 style="line-height: 1; font-weight: 700" id="myReview">${count2}</h2>
+							                        </div>
+							                     </div>
+							</c:when>
+							
+							<c:when test="${sessionScope.businessNum != null}">
+							<div class="index-circle"
+							                        onclick="location.href='./myPageList_ad?memberEmail=${memberEmail}&businessNum=${businessNum}'">
+							                        <h5 style="font-family: 'Montserrat' !important">
+							                           <b>내가 쓴 글</b>
+							                        </h5>
+							                        <div>
+							                           <h2 style="line-height: 1; font-weight: 700" id="myReview">${count_ad}</h2>
+							                        </div>
+							                     </div>
+							</c:when>
 						</c:choose>
 
-                     <div class="index-circle" onclick="myChattingData()">
+                     <div class="index-circle" onclick="location.href='./myRecord?memberEmail=${memberEmail}&businessNum=${businessNum}'">
                         <h5 style="font-family: 'Montserrat' !important">
                            <b>쪽지함</b>
                         </h5>
                         <div>
-                           <h2 style="line-height: 1; font-weight: 700" id="myChatting">0</h2>
+                           <h2 style="line-height: 1; font-weight: 700" id="myChatting">${chatCount }</h2>
                         </div>
                      </div>
                   </div>
