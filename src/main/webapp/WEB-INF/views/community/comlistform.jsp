@@ -46,10 +46,6 @@
 
                         </ul>
                      </div>
-                     memberEmail:${memberEmail }<br>
-                     article.memberEmail:${article.memberEmail }<br>
-                     businessNum:${businessNum }<br>
-                     article.businessNum:${article.businessNum }<br>
                      <div class="btn_area row">
                         <div class="drop_menu mouse_click">
                            <div class="board">
@@ -217,7 +213,7 @@
            //쪽지 보내기 비동기
            $.ajax({
               type:'post',
-              url:'<c:url value="/note/insertNote" />',
+              url:'<c:url value="/insertNote" />',
               data: JSON.stringify({
                  "note_to":note_to,
                  "note_content":note_content

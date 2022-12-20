@@ -45,12 +45,12 @@ public class MyPageController {
 	NoteDAO noteDAO;
 
 	@RequestMapping(value = "/myPage", method=RequestMethod.GET)
-	public ModelAndView myPage(@RequestParam(value="memberEmail") String memberEmail, Model model, Member member) throws Exception {
+	public ModelAndView myPage(@RequestParam(value="memberEmail") String memberEmail,@RequestParam(value="memberNickname") String memberNickname, Model model, Member member) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		System.out.println(memberEmail);
 		String businessNum = member.getBusinessNum();
 		System.out.println(businessNum);
-		int myRecordCount = noteDAO.myRecordCount(memberEmail);
+		int myRecordCount = noteDAO.myRecordCount(memberNickname);
 		mav.addObject("chatCount", myRecordCount);
 		
 		if(businessNum=="") {
@@ -81,7 +81,7 @@ public class MyPageController {
 	
 	
 	@RequestMapping(value = "/profile", method=RequestMethod.POST)
-	public String profile(@RequestParam(value="memberEmail", required = false) String memberEmail, @ModelAttribute Member member, HttpSession session){
+	public String profile(@RequestParam(value="memberEmail", required = false) String memberEmail,@RequestParam(value="memberNickname") String memberNickname, @ModelAttribute Member member, HttpSession session){
 		try {
 			MultipartFile file = member.getImageFile();
 			
@@ -106,12 +106,12 @@ public class MyPageController {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return "redirect:/myPage?memberEmail="+memberEmail;
+		return "redirect:/myPage?memberEmail="+memberEmail+"&memberNickname="+memberNickname;
 	}
 
 	@RequestMapping(value = "/myPageList", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView communityList(
-			@RequestParam(value = "page", required = false, defaultValue = "1") Integer page, @RequestParam(value="memberEmail") String memberEmail, HttpServletRequest request) {
+			@RequestParam(value = "page", required = false, defaultValue = "1") Integer page, @RequestParam(value="memberEmail") String memberEmail, @RequestParam(value="memberNickname") String memberNickname,HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		PageInfo pageInfo = new PageInfo();
 		try {
@@ -122,6 +122,11 @@ public class MyPageController {
 			System.out.println("멤버이메일:" + request.getParameter("memberEmail"));
 			int listCount = myPageDAO.selectCommunityCount2(memberEmail);
 			mav.addObject("count2",listCount);
+			
+			int listCount_ad = myPageDAO.selectAdvertisementCount2(memberEmail);
+			mav.addObject("count_ad",listCount_ad);
+			int myRecordCount = noteDAO.myRecordCount(memberNickname);
+			mav.addObject("chatCount", myRecordCount);
 		} catch (Exception e) {
 			e.printStackTrace();
 			mav.addObject("err", e.getMessage());
@@ -132,7 +137,7 @@ public class MyPageController {
 	
 	@RequestMapping(value = "/myPageList_ad", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView advertisementList(
-			@RequestParam(value = "page", required = false, defaultValue = "1") Integer page, @RequestParam(value="memberEmail") String memberEmail, HttpServletRequest request) {
+			@RequestParam(value = "page", required = false, defaultValue = "1") Integer page, @RequestParam(value="memberEmail") String memberEmail, @RequestParam(value="memberNickname") String memberNickname,HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		PageInfo pageInfo = new PageInfo();
 		try {
@@ -142,8 +147,13 @@ public class MyPageController {
 			mav.setViewName("myPage/myPageWrite.tiles");
 			System.out.println("멤버이메일:" + request.getParameter("memberEmail"));
 			System.out.println("홍보글 리스트: "+articleList);
+			int listCount = myPageDAO.selectCommunityCount2(memberEmail);
+			mav.addObject("count2",listCount);
+			
 			int listCount_ad = myPageDAO.selectAdvertisementCount2(memberEmail);
 			mav.addObject("count_ad",listCount_ad);
+			int myRecordCount = noteDAO.myRecordCount(memberNickname);
+			mav.addObject("chatCount", myRecordCount);
 		} catch (Exception e) {
 			e.printStackTrace();
 			mav.addObject("err", e.getMessage());

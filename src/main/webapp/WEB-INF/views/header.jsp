@@ -17,6 +17,7 @@
 <body>
 <form action="./logout" method="post">
 <input type="hidden" id="memberEmail" name="memberEmail">
+<input type="hidden" id="memberNickname" name="memberNickname">
    <c:choose>
       <c:when test="${sessionScope.memberEmail == null}">
       
@@ -75,7 +76,7 @@
                               </button>
                               <div uk-dropdown="mode: hover" class="header-dropdown-style uk-dropdown uk-dropdown-bottom-right">
                                  <ul style="color: #000; text-align: center">
-                                    <li><a href="./myPage?memberEmail=${memberEmail }&businessNum=${businessNum}">마이페이지</a></li>
+                                    <li><a href="./myPage?memberEmail=${memberEmail }&businessNum=${businessNum}&memberNickname=${memberNickname}">마이페이지</a></li>
                                     <li><a href="./logout">로그아웃</a></li>
                                  </ul>
                               </div> 

@@ -80,5 +80,12 @@
 		select * from member where businessNum=#{value}
 		]]>
 	</select>
+	
+	 <select id="getprofile" parameterType="Integer" resultType="String">
+      <![CDATA[
+      select profile from community c full outer join member m on c.memberEmail = m.memberEmail
+      where c.comnum=#{comNum}
+      ]]>
+   </select>
 
 </mapper>

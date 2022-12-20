@@ -15,6 +15,6 @@ public interface NoteDAO {
 	
 	List<Note> myRecord(HashMap<String, String> map);
 	
-	Integer myRecordCount(String memberEmail);
+	Integer myRecordCount(String memberNickname);
 	
 }

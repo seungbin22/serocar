@@ -13,10 +13,10 @@
   	]]>
   </insert>
   
-  <select id="myRecord" resultType="hashmap">
+  <select id="myRecord" resultType="Note" parameterType="hashmap">
   <![CDATA[
   	select *
-      from (select rownum as num, note.* from note where memberEmail = #{memberEmail})
+      from (select rownum as num, note.* from note where note_to = #{memberNickname})
       where num between #{row1} and #{row1}+9
   	]]>
   </select>
@@ -24,7 +24,7 @@
   <select id="myRecordCount" resultType="Integer">
   <![CDATA[
   	SELECT count(*) FROM NOTE
-  	WHERE memberEmail = #{memberEmail}
+  	WHERE note_to = #{memberNickname}
   	]]>
   </select>
   

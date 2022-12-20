@@ -20,6 +20,7 @@
 <form action="./myPageList" name="search-form" autocomplete="off">
 	<input type="hidden" id="memberEmail" name="memberEmail" value="" />
 	<input type="hidden" id="businessNum" name="businessNum" value="" />
+	<input type="hidden" id="memberNickname" name="memberNickname" value="" />
 		<div class="wrapper">
 			<div class="container">
 				<div class="top-background-div"></div>
@@ -29,14 +30,13 @@
                   <img style="border-radius: 50%; width:180px; height: 180px; max-width:fit-content; hidden; object-fit: cover; " src="profile/${memberProfile}" />
                   </div>
                </div><br><br>
-						${memberEmail }
 					<div class="text" value="memberNickname">${memberNickname}</div>
 					<button type="button" class="btn-normal" onclick="location.href='/profile'">프로필 수정</button>
 				</div>
 				<div>
 					<div class="row">
 						<div class="index-section">
-							<div class="index-circle" onclick="location.href='./myPage?memberEmail=${memberEmail}&businessNum=${businessNum}'">
+							<div class="index-circle" onclick="location.href='./myPage?memberEmail=${memberEmail}&businessNum=${businessNum}&memberNickname=${memberNickname }'">
 								<h5 style="font-family: 'Montserrat' !important">
 									<b>즐겨찾기</b>
 								</h5>
@@ -48,7 +48,7 @@
 							<c:choose>
 								<c:when test="${sessionScope.businessNum == null}">
 								<div class="index-circle"
-								                        onclick="location.href='./myPageList?memberEmail=${memberEmail}'">
+								                        onclick="location.href='./myPageList?memberEmail=${memberEmail}&businessNum=${businessNum}&memberNickname=${memberNickname }'">
 								                        <h5 style="font-family: 'Montserrat' !important">
 								                           <b>내가 쓴 글</b>
 								                        </h5>
@@ -60,7 +60,7 @@
 								
 								<c:when test="${sessionScope.businessNum != null}">
 								<div class="index-circle"
-								                        onclick="location.href='./myPageList_ad?memberEmail=${memberEmail}'">
+								                        onclick="location.href='./myPageList_ad?memberEmail=${memberEmail}&businessNum=${businessNum}&memberNickname=${memberNickname }'">
 								                        <h5 style="font-family: 'Montserrat' !important">
 								                           <b>내가 쓴 글</b>
 								                        </h5>
@@ -71,12 +71,12 @@
 								</c:when>
 							</c:choose>
 							
-							<div class="index-circle" onclick="myChattingData()">
+							<div class="index-circle" onclick="location.href='./myRecord?memberEmail=${memberEmail}&businessNum=${businessNum}&memberNickname=${memberNickname }'">
                         <h5 style="font-family: 'Montserrat' !important">
                            <b>쪽지함</b>
                         </h5>
                         <div>
-                           <h2 style="line-height: 1; font-weight: 700" id="myChatting">0</h2>
+                           <h2 style="line-height: 1; font-weight: 700" id="myChatting">${chatCount }</h2>
                         </div>
                      </div>
 						</div>

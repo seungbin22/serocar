@@ -47,10 +47,6 @@
 
                         </ul>
                      </div>
-                     memberEmail:${memberEmail }<br>
-                     article.memberEmail:${article.memberEmail }<br>
-                     businessNum:${businessNum }<br>
-                     article.businessNum:${article.businessNum }<br>
                      <div class="btn_area row">
                         <div class="drop_menu mouse_click">
                            <div class="board">
@@ -97,10 +93,10 @@
                                              <td class="display_md_none">1</td>
                                           </tr>
                                           <c:forEach var="article" items="${articleList2 }">
-                                             <input type="hidden" href="./comDetail?memberEmail=${memberEmail }">
+                                             <input type="hidden" href="./comDetail_ad?memberEmail=${memberEmail }">
                                              <tr>
                                                 <td class="num display_sm_none">${article.ad_num }</td>
-                                                <td class="text_left color_black"><a href="./comDetail?comNum=${article.ad_num}&memberEmail=${memberEmail }"
+                                                <td class="text_left color_black"><a href="./comDetail_ad?ad_num=${article.ad_num}&memberEmail=${memberEmail }"
                                                    class="subject"> ${article.ad_title}
                                                 </a></td>
                                                 <td class="text_left color_black"><a href="#"
@@ -219,7 +215,7 @@
            //쪽지 보내기 비동기
            $.ajax({
               type:'post',
-              url:'<c:url value="/note/insertNote" />',
+              url:'<c:url value="/insertNote" />',
               data: JSON.stringify({
                  "note_to":note_to,
                  "note_content":note_content

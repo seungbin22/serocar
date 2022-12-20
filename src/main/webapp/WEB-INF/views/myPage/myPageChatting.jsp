@@ -31,7 +31,7 @@
 								src="profile/${memberProfile}" />
 						</div>
 					</div>
-					<br> <br> ${memberEmail }
+					<br> <br> 
 					<div class="text" value="memberNickname">${memberNickname}</div>
 					<button type="button" class="btn-normal"
 						onclick="location.href='/profile'">프로필 수정</button>
@@ -52,7 +52,7 @@
 							<c:choose>
 								<c:when test="${sessionScope.businessNum == null}">
 									<div class="index-circle"
-										onclick="location.href='./myPageList?memberEmail=${memberEmail}&businessNum=${businessNum}'">
+										onclick="location.href='./myPageList?memberEmail=${memberEmail}&businessNum=${businessNum}&memberNickname=${memberNickname }'">
 										<h5 style="font-family: 'Montserrat' !important">
 											<b>내가 쓴 글</b>
 										</h5>
@@ -64,7 +64,7 @@
 
 								<c:when test="${sessionScope.businessNum != null}">
 									<div class="index-circle"
-										onclick="location.href='./myPageList_ad?memberEmail=${memberEmail}&businessNum=${businessNum}'">
+										onclick="location.href='./myPageList_ad?memberEmail=${memberEmail}&businessNum=${businessNum}&memberNickname=${memberNickname }'">
 										<h5 style="font-family: 'Montserrat' !important">
 											<b>내가 쓴 글</b>
 										</h5>
@@ -116,13 +116,13 @@
 								<tbody>
 									<c:choose>
 										<c:when test="${noteList!=null && pageInfo.listCount>0 }">
-											<c:forEach var="note" items="${noteList }">
+											<c:forEach var="note" items="${noteList}">
 												<input type="hidden"
-													href="./comDetail?memberEmail=${memberEmail }">
+													href="./comDetail?memberEmail=${memberEmail }"/>
 												<tr>
 													<td class="text_left color_black">
 														${note.note_content}</td>
-													<td class="text_left color_black">${note.note_to}</td>
+													<td class="text_left color_black">${note.note_from}</td>
 													<td class="display_sm_none">${note.note_date}</td>
 
 												</tr>

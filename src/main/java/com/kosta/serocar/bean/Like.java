@@ -12,4 +12,6 @@ public class Like {
 	private int comNum;
 	private String memberEmail;
 	private int likeN;
+	private int ad_num;
+	private int notice_num;
 }

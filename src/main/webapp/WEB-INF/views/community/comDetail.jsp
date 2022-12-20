@@ -38,7 +38,7 @@
                               </div>
                               <div class="userInfo">
                                  <img
-                                    src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png"
+                                    src="/profile/${profile}"
                                     width="36" height="36" alt="프로필사진" class="profileImg">
                                  <div class="userNickname">
                                     <div class="nick">

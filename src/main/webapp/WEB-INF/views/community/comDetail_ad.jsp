@@ -24,21 +24,21 @@
                <div class="row">
                   <div class="mainBoard">
                      <div class="detailHead">
-                        <input type="hidden" value="${article.comNum }"/>
+                        <input type="hidden" value="${article.ad_num }"/>
                            <div class="detailTitle">
                               <div class="boardList">
                                  <a href="./advertisementList">현재게시판 목록으로 ></a>
                                  <c:if test="${ memberEmail != null && memberEmail == article.memberEmail }">
-                                       <a href="/modifyform?comNum=${article.ad_num }">수정</a>
-                                       <a href="/delete?comNum=${article.ad_num }">삭제</a>
+                                       <a href="/modifyform_ad?ad_num=${article.ad_num }">수정</a>
+                                       <a href="/delete_ad?ad_num=${article.ad_num }">삭제</a>
                                     </c:if>
                               </div>
                               <div style="height: 30px;">
-                                 <h3>${article.comTitle}</h3>
+                                 <h3>${article.ad_title}</h3>
                               </div>
                               <div class="userInfo">
                                  <img
-                                    src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png"
+                                    src="/profile/${profile}"
                                     width="36" height="36" alt="프로필사진" class="profileImg">
                                  <div class="userNickname">
                                     <div class="nick">
@@ -101,16 +101,16 @@ $('#Comment_regist').click(function() {
       //Json으로 전달할 파라미터 변수선언
       const ad_num = ${article.ad_num};
       const memberNickname = $('#commentWriter').val();
-      const ad_content = $('#ad_content').val();
+      const com_content = $('#com_content').val();
       
       console.log(ad_num);
       console.log(memberNickname);
-      console.log(ad_content);
+      console.log(com_content);
    
       if(memberNickname == ''){
          alert('로그인 후 이용해주세요');
          return;
-      }else if(ad_content == '') {
+      }else if(com_content == '') {
          alert('내용을 입력하세요');
       }
       
@@ -119,7 +119,7 @@ $('#Comment_regist').click(function() {
          url:"<c:url value='/Comment/InsertComment_ad'/>",
          data: JSON.stringify(
             {
-               "comNum":comNum,
+               "ad_num":ad_num,
                "memberNickname":memberNickname,
                "com_content":com_content
             }      
@@ -132,7 +132,7 @@ $('#Comment_regist').click(function() {
                console.log('댓글 등록 완료');
                $('#commentWriter').val(memberNickname);
                  $('#com_content').val('');
-                 getList();
+                 getList_ad();
             } else {
                alert('로그인 이후 이용해주시기 바랍니다.');
                console.log('댓글 등록 실패');
@@ -145,15 +145,15 @@ $('#Comment_regist').click(function() {
       
 });// 댓글등록 이벤트 끝
 
-getList();
-function getList() {
+getList_ad();
+function getList_ad() {
    
-   const comNum = ${article.comNum};
+   const ad_num = ${article.ad_num};
    const memberNickname = $('#commentWriter').val();
       const com_content = $('#com_content').val();
       /* const com_no = ${com}; */
    $.getJSON(
-      "<c:url value='/Comment/CommentList/'/>"+comNum,
+      "<c:url value='/Comment/CommentList_ad/'/>"+ad_num,
       function(data) {
          if(data.total > 0){
             var list = data.list;
@@ -190,7 +190,7 @@ function getList() {
 //좋아요 
 var likeval = ${like};
 
-let comNum = ${article.comNum};
+let ad_num = ${article.ad_num};
 let memberEmail = "${memberEmail}";
 let likeN = 1;
 
@@ -200,11 +200,11 @@ if(likeval > 0){
    $('.LikeBtn').click(function() {
       $.ajax({
          type :'post',
-         url : '<c:url value ="/likeDown"/>',
+         url : '<c:url value ="/likeDown_ad"/>',
          contentType: 'application/json',
          data : JSON.stringify(
                {
-                  "comNum" : comNum,
+                  "ad_num" : ad_num,
                   "memberEmail" : memberEmail,
                   "likeN" : likeN
                }      
@@ -221,11 +221,11 @@ if(likeval > 0){
    $('.LikeBtn').click(function() {
       $.ajax({
          type :'post',
-         url : '<c:url value ="/likeUp"/>',
+         url : '<c:url value ="/likeUp_ad"/>',
          contentType: 'application/json',
          data : JSON.stringify(
                {
-                  "comNum" : comNum,
+                  "ad_num" : ad_num,
                   "memberEmail" : memberEmail,
                   "likeN" : likeN
                }      

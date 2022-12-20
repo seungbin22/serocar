@@ -16,6 +16,7 @@
    <form action="./myPage" method="POST">
       <input type="hidden" id="memberEmail" name="memberEmail" value=${memberEmail } />
       <input type="hidden" id="businessNum" name="businessNum" value=${businessNum } />
+      <input type="hidden" id="memberNickname" name="memberNickname" value=${memberNickname } />
       <div class="wrapper">
          <div class="container">
             <div class="top-background-div"></div>
@@ -25,7 +26,6 @@
                   <img style="border-radius: 50%; width:180px; height: 180px; max-width:fit-content; hidden; object-fit: cover; " src="profile/${memberProfile}" />
                   </div>
                </div><br><br>
-               ${memberEmail }
                <div class="text" value="memberNickname">${memberNickname}</div>
                <button type="button" class="btn-normal" onclick="location.href='/profile?memberEmail=${memberEmail}'">프로필 수정</button>
             </div>
@@ -43,7 +43,7 @@
 						<c:choose>
 							<c:when test="${sessionScope.businessNum == null}">
 							<div class="index-circle"
-							                        onclick="location.href='./myPageList?memberEmail=${memberEmail}&businessNum=${businessNum}'">
+							                        onclick="location.href='./myPageList?memberEmail=${memberEmail}&businessNum=${businessNum}&memberNickname=${memberNickname}'">
 							                        <h5 style="font-family: 'Montserrat' !important">
 							                           <b>내가 쓴 글</b>
 							                        </h5>
@@ -55,7 +55,7 @@
 							
 							<c:when test="${sessionScope.businessNum != null}">
 							<div class="index-circle"
-							                        onclick="location.href='./myPageList_ad?memberEmail=${memberEmail}&businessNum=${businessNum}'">
+							                        onclick="location.href='./myPageList_ad?memberEmail=${memberEmail}&businessNum=${businessNum}&memberNickname=${memberNickname}'">
 							                        <h5 style="font-family: 'Montserrat' !important">
 							                           <b>내가 쓴 글</b>
 							                        </h5>
@@ -66,7 +66,7 @@
 							</c:when>
 						</c:choose>
 
-                     <div class="index-circle" onclick="location.href='./myRecord?memberEmail=${memberEmail}&businessNum=${businessNum}'">
+                     <div class="index-circle" onclick="location.href='./myRecord?memberEmail=${memberEmail}&memberNickname=${memberNickname}&businessNum=${businessNum}'">
                         <h5 style="font-family: 'Montserrat' !important">
                            <b>쪽지함</b>
                         </h5>

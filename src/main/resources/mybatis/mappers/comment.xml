@@ -4,34 +4,42 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.kosta.serocar.dao.CommentDAO">
-  	
-  	<insert id="CommentRegist">
-  	<![CDATA[
-  		insert into comment1(com_no,memberNickname,com_content,com_like,com_hate,re_com,com_type,com_regdate,comNum)
-		values (seq_com_no.nextval ,#{memberNickname},#{com_content},0,0,1,1,sysdate,#{comNum})
-  	]]>
-  	</insert>
-  	
-  	<select id="getTotal" resultType="int">
-  		select count(*) from comment1 where comNum = #{comNum}
-  	</select>
-  	
-  	<select id="getList" resultType="Comment">
-  		select * from comment1 where comNum = #{comNum}
-  	</select>
-  	
-  	<select id="myRecord" resultType="Comment">
-		SELECT * FROM comment1
-		WHERE memberNickname = #{writer}
-	</select>
-	
-	<delete id="commentDelete">
-		DELETE FROM comment1
-		WHERE memberNickname = #{memberNickname} AND com_content = #{com_content}
-	</delete>
-	
-	<select id="getComList" resultType="Comment">
+     
+     <insert id="CommentRegist">
+     <![CDATA[
+        insert into comment1(com_no,memberNickname,com_content,com_like,com_hate,re_com,com_type,com_regdate,comNum, ad_num, notice_num)
+      values (seq_com_no.nextval ,#{memberNickname},#{com_content},0,0,1,1,sysdate,#{comNum}, #{ad_num}, #{notice_num})
+     ]]>
+     </insert>
+     
+     <select id="getTotal" resultType="int">
+        select count(*) from comment1 where comNum = #{comNum}
+     </select>
+     
+     <select id="getList" resultType="Comment">
+        select * from comment1 where comNum = #{comNum}
+     </select>
+     
+     <select id="myRecord" resultType="Comment">
+      SELECT * FROM comment1
+      WHERE memberNickname = #{writer}
+   </select>
+   
+   <delete id="commentDelete">
+      DELETE FROM comment1
+      WHERE memberNickname = #{memberNickname} AND com_content = #{com_content}
+   </delete>
+   
+   <select id="getComList" resultType="Comment">
         select * from comment1 where memberNickname = #{memberNickname}
      </select>
-	
+     
+          <select id="getTotal_ad" resultType="int">
+        select count(*) from comment1 where ad_num = #{ad_num}
+     </select>
+     
+          <select id="getList_ad" resultType="Comment">
+        select * from comment1 where ad_num = #{ad_num}
+     </select>
+   
   </mapper>

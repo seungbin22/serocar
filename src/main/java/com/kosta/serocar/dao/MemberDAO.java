@@ -31,4 +31,7 @@ public interface MemberDAO {
 	Member check(Member member) throws Exception;
 	//사업자 등록증 중복확인
 	Member findMemberBusiness(String businessNum) throws Exception;
+	
+	//커뮤니티 프로필 불러오기
+	String getprofile(Integer comNum) throws Exception;
 }

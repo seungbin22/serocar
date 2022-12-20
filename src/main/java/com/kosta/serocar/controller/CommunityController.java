@@ -29,11 +29,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kosta.serocar.bean.Advertisement;
 import com.kosta.serocar.bean.Community;
 import com.kosta.serocar.bean.Like;
 import com.kosta.serocar.bean.PageInfo;
-import com.kosta.serocar.service.AdvertisementService;
+import com.kosta.serocar.dao.MemberDAO;
 import com.kosta.serocar.service.CommentService;
 import com.kosta.serocar.service.CommunityService;
 import com.kosta.serocar.service.MemberService;
@@ -46,6 +45,9 @@ public class CommunityController {
 
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	MemberDAO memberDAO;
 
 	@Autowired
 	HttpSession session;
@@ -145,6 +147,8 @@ public class CommunityController {
 		System.out.println("컴넘1= " + comNum);
 		model.addAttribute("comtotal", commentService.getTotal(comNum));
 		try {
+			
+	        model.addAttribute("profile", memberDAO.getprofile(comNum));
 			Like like = new Like();
 
 			like.setComNum(comNum);

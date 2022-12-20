@@ -6,11 +6,15 @@ import com.kosta.serocar.bean.Comment;
 
 public interface CommentService {
 
-	void CommentRegist(Comment comment); //댓글 등록
-	List<Comment> getList(int comNum); //목록 요청
-	int getTotal(int comNum); //댓글 개수
-	List<Comment> myRecord(String writer);
-	void commentDelete(Comment comment);
-	
-	List<Comment> getComList(String membernickname); //어드민용 회원 댓글 불러오긔
+   void CommentRegist(Comment comment); //댓글 등록
+   List<Comment> getList(int comNum); //커뮤니티 목록 요청
+   List<Comment> myRecord(String writer);
+   void commentDelete(Comment comment);
+   
+   List<Comment> getComList(String membernickname); //어드민용 회원 댓글 불러오긔
+   
+   int getTotal(int comNum); //커뮤니티 댓글 개수
+   
+   List<Comment> getList_ad(int ad_num); //홍보글 목록 요청
+   int getTotal_ad(int ad_num); //홍보글 댓글 개수
 }

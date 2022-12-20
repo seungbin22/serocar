@@ -9,6 +9,6 @@ public interface NoteService {
 		//쪽지 보내기
 		void insertNote(Note note);
 		//받은 쪽지 불러오기
-		List<Note> myRecord(int page, String memberEmail, PageInfo pageInfo);
+		List<Note> myRecord(int page, String memberNickname, PageInfo pageInfo);
 		
 }

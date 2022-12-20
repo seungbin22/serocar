@@ -24,8 +24,8 @@ public class NoteServiceImp implements NoteService{
 	}
 	
 	@Override
-	public List<Note> myRecord(int page, String memberEmail, PageInfo pageInfo) {
-		int listCount = noteDAO.myRecordCount(memberEmail); // 전체 게시글 수
+	public List<Note> myRecord(int page, String memberNickname, PageInfo pageInfo) {
+		int listCount = noteDAO.myRecordCount(memberNickname); // 전체 게시글 수
 		int maxPage = (int) Math.ceil((double) listCount / 10.0); // 전체 페이지 수, 올림처리
 		int startPage = page / 10 * 10 + 1; // 현재 페이지에 보여줄 시작페이지 버튼 (1,11,21 등...)
 		int endPage = startPage + 10 - 1; // 현재 페이지에 보여줄 마지막 페이지 버튼 (10,20,30 등 ...)
@@ -37,14 +37,14 @@ public class NoteServiceImp implements NoteService{
 		pageInfo.setMaxPage(maxPage);
 		pageInfo.setStartPage(startPage);
 		pageInfo.setEndPage(endPage);
-		pageInfo.setKeyword(memberEmail);
-		System.out.println("커뮤니티서비스 키워드: " + memberEmail);
+		pageInfo.setKeyword(memberNickname);
+		System.out.println("커뮤니티서비스 키워드: " + memberNickname);
 		int row1 = (page - 1) * 10 + 1;
 		String row = Integer.toString(row1);
 		System.out.println("row : " + row);
 
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("memberEmail", memberEmail);
+		map.put("memberNickname", memberNickname);
 		map.put("row1", row);
 
 		return noteDAO.myRecord(map);
