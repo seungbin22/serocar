@@ -3,6 +3,7 @@ package com.kosta.serocar.service;
 import java.util.List;
 
 import com.kosta.serocar.bean.Comment;
+import com.kosta.serocar.bean.Notice;
 
 public interface CommentService {
 
@@ -17,4 +18,7 @@ public interface CommentService {
    
    List<Comment> getList_ad(int ad_num); //홍보글 목록 요청
    int getTotal_ad(int ad_num); //홍보글 댓글 개수
+   
+   List<Comment> getList_notice(int notice_num); //공지사항 목록 요청
+   int getTotal_notice(int notice_num); //공지사항 댓글 개수
 }

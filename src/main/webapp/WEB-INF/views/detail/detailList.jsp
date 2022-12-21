@@ -30,8 +30,8 @@
 </head>
 
   <body>
+  <input type="hidden" id="memberEmail" name="memberEmail" value="${memberEmail }">
                 <div class="mainContents">
-
                     <div aria-label="어떤 차를 찾으세요?" class="section section3">
                         <div class="secWrap">
                             <h2 class="htit">어떤 차를 찾으세요?</h2>
@@ -256,7 +256,7 @@
                                                                             <span class="el-checkbox__label">경차</span>
                                                                         </label>
                                                                     </button>
-                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list">
+                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list" onclick="location.href='./carList?carType=소형'">
                                                                         <label class="el-checkbox cate-list">
                                                                             <span class="el-checkbox__input">
                                                                                 <span class="el-checkbox__inner"></span><input
@@ -267,7 +267,7 @@
                                                                                     class="el-checkbox__original"></span><span class="el-checkbox__label">소형차</span>
                                                                         </label>
                                                                     </button>
-                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list">
+                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list" onclick="location.href='./carList?carType=준중형'">
                                                                         <label class="el-checkbox cate-list">
                                                                             <span class="el-checkbox__input">
                                                                                 <span class="el-checkbox__inner"></span><input
@@ -278,7 +278,7 @@
                                                                                     class="el-checkbox__original"></span><span class="el-checkbox__label">준중형차</span>
                                                                         </label>
                                                                     </button>
-                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list">
+                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list" onclick="location.href='./carList?carType=중형'">
                                                                         <label class="el-checkbox cate-list">
                                                                             <span class="el-checkbox__input">
                                                                                 <span class="el-checkbox__inner"></span><input
@@ -289,7 +289,7 @@
                                                                                     class="el-checkbox__original"></span><span class="el-checkbox__label">중형차</span>
                                                                         </label>
                                                                     </button>
-                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list">
+                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list" onclick="location.href='./carList?carType=대형'">
                                                                         <label class="el-checkbox cate-list">
                                                                             <span class="el-checkbox__input">
                                                                                 <span class="el-checkbox__inner"></span><input
@@ -300,7 +300,7 @@
                                                                                     class="el-checkbox__original"></span><span class="el-checkbox__label">대형차</span>
                                                                         </label>
                                                                     </button>
-                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list">
+                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list" onclick="location.href='./carList?carType=스포츠카'">
                                                                         <label class="el-checkbox cate-list">
                                                                             <span class="el-checkbox__input">
                                                                                 <span class="el-checkbox__inner"></span><input
@@ -311,7 +311,7 @@
                                                                                     class="el-checkbox__original"></span><span class="el-checkbox__label">스포츠카</span>
                                                                         </label>
                                                                     </button>
-                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list">
+                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list" onclick="location.href='./carList?carType=SUV'">
                                                                         <label class="el-checkbox cate-list">
                                                                             <span class="el-checkbox__input">
                                                                                 <span class="el-checkbox__inner"></span><input
@@ -344,7 +344,7 @@
                                                                                     class="el-checkbox__original"></span><span class="el-checkbox__label">경승합차</span>
                                                                         </label>
                                                                     </button>
-                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list">
+                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list" onclick="location.href='./carList?carType=승합'">
                                                                         <label class="el-checkbox cate-list">
                                                                             <span class="el-checkbox__input">
                                                                                 <span class="el-checkbox__inner"></span><input
@@ -355,7 +355,7 @@
                                                                                     class="el-checkbox__original"></span><span class="el-checkbox__label">승합차</span>
                                                                         </label>
                                                                     </button>
-                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list">
+                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list" onclick="location.href='./carList?carType=화물'">
                                                                         <label class="el-checkbox cate-list">
                                                                             <span class="el-checkbox__input">
                                                                                 <span class="el-checkbox__inner"></span><input
@@ -366,7 +366,7 @@
                                                                                     class="el-checkbox__original"></span><span class="el-checkbox__label">화물차</span>
                                                                         </label>
                                                                     </button>
-                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list">
+                                                                    <button style="margin: 1.6rem 0 0 1.6rem;" class="cate-list" onclick="location.href='./carList?carType=버스'">
                                                                         <label class="el-checkbox cate-list">
                                                                             <span class="el-checkbox__input">
                                                                                 <span class="el-checkbox__inner"></span>
@@ -397,28 +397,28 @@
                                                                     </li>
                                                                     <li>
                                                                         <a
-                                                                            href="http://xn--2n2bn02bojc.com/main.php?m=sale&amp;s=list&amp;carmoney1=400&amp;carmoney2=600">
-                                                                            <span>1000~1500</span>만원</a>
+                                                                             href="./carList?minMoney=3000&maxMoney=3999">
+                                                                            <span>3000</span>만원</a>
                                                                     </li>
                                                                     <li>
                                                                         <a
-                                                                            href="http://xn--2n2bn02bojc.com/main.php?m=sale&amp;s=list&amp;carmoney1=600&amp;carmoney2=1000">
-                                                                            <span>1500~2000</span>만원</a>
+                                                                             href="./carList?minMoney=4000&maxMoney=4999">
+                                                                            <span>4000</span>만원</a>
                                                                     </li>
                                                                     <li>
                                                                         <a
-                                                                            href="http://xn--2n2bn02bojc.com/main.php?m=sale&amp;s=list&amp;carmoney1=1000&amp;carmoney2=1500">
-                                                                            <span>2000~3000</span>만원</a>
+                                                                             href="./carList?minMoney=5000&maxMoney=5999">
+                                                                            <span>5000</span>만원</a>
                                                                     </li>
                                                                     <li>
                                                                         <a
-                                                                            href="http://xn--2n2bn02bojc.com/main.php?m=sale&amp;s=list&amp;carmoney1=1500&amp;carmoney2=3000">
-                                                                            <span>3000~4000</span>만원</a>
+                                                                            href="./carList?minMoney=6000&maxMoney=6999">
+                                                                            <span>6000</span>만원</a>
                                                                     </li>
                                                                     <li>
                                                                         <a
-                                                                            href="http://xn--2n2bn02bojc.com/main.php?m=sale&amp;s=list&amp;carmoney1=3000">
-                                                                            <span>4000이상</span>만원 이상</a>
+                                                                            href="./carList?minMoney=7000&maxMoney=7999">
+                                                                            <span>7000</span>만원 이상</a>
                                                                     </li>
                                                                    
                                                                 </ul>
@@ -442,7 +442,7 @@
                 </div>
             
 
-            <!-- ------------------------다나와-------------------------- -->
+            
 
             <div class="autodanawa_wrap">
                
@@ -511,7 +511,7 @@
                                                                     <a href="javascript:void(0);" model="4188"
                                                                         name="modelDetailLink" class="name">
                                                                         <img src="carBrand/${car.carBrand }"
-                                                                            alt="현대">${car.carName } 카넘:${car.carNum }
+                                                                            alt="현대">${car.carName }
                                                                     </a>
                                                                     <div class="spec">
                                                                         <span>2022.11. 출시</span>
@@ -531,8 +531,8 @@
                                                                     <strong>${car.carMoney }</strong>만 원
                                                                 </div>
                                                                 <div class="action">
-                                                                    <a href="/newcar/?Work=estimate&Model=4188"
-                                                                        class="btn_estm" target="_blank">자세히보기</a>
+                                                                    <a href="/carLink?carLink=${car.carLink }&carNum=${car.carNum}&memberEmail=${memberEmail}"
+                                                                        class="btn_estm">자세히보기</a>
                                                                 </div>
                                                             </div>
                                                                    <div class="likeComment">
@@ -619,15 +619,9 @@
 <script src="./resources/js/searchj.js"></script>
 <script>
       //좋아요 
-      var likeval = $
-      {
-         carLike
-      };
+      var likeval = ${carLike};
 
-      let carNum = $
-      {
-         car.carNum
-      };
+      let carNum = ${car.carNum};
       let memberEmail = "${memberEmail}";
       let carLikeN = 1;
 

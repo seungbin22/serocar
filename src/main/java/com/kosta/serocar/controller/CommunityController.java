@@ -117,7 +117,7 @@ public class CommunityController {
 	// 리스트 호출
 	@RequestMapping(value = "/communityList", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView communityList(
-			@RequestParam(value = "page", required = false, defaultValue = "1") Integer page, @RequestParam(value="keyword", required = false) String keyword, HttpServletRequest request, HttpSession session) {
+			@RequestParam(value = "page", required = false, defaultValue = "1") Integer page, @RequestParam(value="keyword", required = false) String keyword, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		PageInfo pageInfo = new PageInfo();
 		try {

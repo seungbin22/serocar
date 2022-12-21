@@ -4,88 +4,108 @@
 
 <mapper namespace="com.kosta.serocar.dao.MemberDAO">
 
-	<insert id="insertMember" parameterType="Member">
+   <insert id="insertMember" parameterType="Member">
       <![CDATA[
          insert into member(membernum, memberpassword, memberemail, memberbirth, membergender, membernickname, memberdate, businessNum)
          values(seq_memberNum.nextval, #{memberPassword},#{memberEmail}, #{memberBirth}, #{memberGender}, #{memberNickname}, sysdate, #{businessNum})
       ]]>
-	</insert>
+   </insert>
 
-	<select id="selectMember" resultType="Member">
+   <select id="selectMember" resultType="Member">
       <![CDATA[
          SELECT * FROM MEMBER
-			WHERE memberemail = #{memberEmail} and memberpassword=#{memberPassword}
+         WHERE memberemail = #{memberEmail} and memberpassword=#{memberPassword}
       ]]>
-	</select>
+   </select>
 
-	<select id="findMemberEmail" resultType="Member">
-		select * from member where memberEmail = #{value}
-	</select>
-	
- 	<update id="updatePassword" parameterType="Member">
-	<![CDATA[
-		update member
-		set memberPassword = #{memberPassword}
-		where memberEmail = #{memberEmail}
-	]]>
-	</update>
-
-	<select id="check" resultType="Member">
-      <![CDATA[
-         SELECT * FROM MEMBER
-			WHERE memberemail = #{memberEmail} and memberpassword=#{memberPassword}
-      ]]>
-	</select>
-
- 	<update id="updateProFile" parameterType="Member">
-	<![CDATA[
-		update member
-		set proFile = #{profile}, memberNickname = #{memberNickname}, memberEmail = #{memberEmail}
-		where memberEmail = #{memberEmail}
-	]]>
-	</update>
-	
-	
-	
-	<select id="selectMemberList" resultType="Member" parameterType="Integer"> 
+   <select id="findMemberEmail" resultType="Member">
+      select * from member where memberEmail = #{value}
+   </select>
+   
+    <update id="updatePassword" parameterType="Member">
    <![CDATA[
-		select *
+      update member
+      set memberPassword = #{memberPassword}
+      where memberEmail = #{memberEmail}
+   ]]>
+   </update>
+
+   <select id="check" resultType="Member">
+      <![CDATA[
+         SELECT * FROM MEMBER
+         WHERE memberemail = #{memberEmail} and memberpassword=#{memberPassword}
+      ]]>
+   </select>
+
+    <update id="updateProFile" parameterType="Member">
+   <![CDATA[
+      update member
+      set proFile = #{profile}, memberNickname = #{memberNickname}, memberEmail = #{memberEmail}
+      where memberEmail = #{memberEmail}
+   ]]>
+   </update>
+   
+   
+   
+   <select id="selectMemberList" resultType="Member" parameterType="Integer"> 
+   <![CDATA[
+      select *
       from (select rownum as num, member.* from member)
       where num between #{row} and #{row}+9
    ]]> 
-   </select>	
+   </select>   
    
     <select id="selectMemberList2" resultType="Member" parameterType="hashmap"> 
    <![CDATA[
-      		select *
+            select *
       from (select rownum as num, member.* from member)
       where num between #{row1} and #{row1}+9 and memberEmail like '%'||#{keyword}||'%'
    ]]>
    </select>
    
-	<select id="selectMemberCount" resultType="Integer" >
-		<![CDATA[
-			select count(*) from member
-		]]>	
-	</select>
-	
-	<select id="selectMemberCount2" resultType="Integer" >
+   <select id="selectMemberCount" resultType="Integer" >
+      <![CDATA[
+         select count(*) from member
+      ]]>   
+   </select>
+   
+   <select id="selectMemberCount2" resultType="Integer" >
       <![CDATA[
          select count(*) from member where memberEmail like '%'||#{keyword}||'%'
       ]]>   
    </select>
 
-	<select id="findMemberBusiness" resultType="Member">
-		<![CDATA[
-		select * from member where businessNum=#{value}
-		]]>
-	</select>
-	
-	 <select id="getprofile" parameterType="Integer" resultType="String">
+   <select id="findMemberBusiness" resultType="Member">
+      <![CDATA[
+      select * from member where businessNum=#{value}
+      ]]>
+   </select>
+   
+    <select id="getprofile" parameterType="Integer" resultType="String">
       <![CDATA[
       select profile from community c full outer join member m on c.memberEmail = m.memberEmail
       where c.comnum=#{comNum}
       ]]>
    </select>
+   
+       <select id="getprofile_ad" parameterType="Integer" resultType="String">
+      <![CDATA[
+      select profile from advertisement a full outer join member m on a.memberEmail = m.memberEmail
+      where a.ad_num=#{comNum}
+      ]]>
+   </select>
+   
+          <select id="getprofile_notice" parameterType="Integer" resultType="String">
+      <![CDATA[
+      select profile from notice n full outer join member m on n.memberEmail = m.memberEmail
+      where n.notice_num=#{comNum}
+      ]]>
+   </select>
+   
+       <delete id="deleteMember" parameterType="Integer">
+      <![CDATA[
+      delete from member where memberNum=#{memberNum}
+      ]]>
+   </delete>
 
 </mapper>

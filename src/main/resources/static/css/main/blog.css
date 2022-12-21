@@ -2203,7 +2203,7 @@ only screen and (min-width: 768px) and (max-width: 991.98px) {
 
 @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
     .product-wrapper.columns-5 .col {
-        max-width: 25%;
+        max-width: 40%;
         -webkit-flex-basis: 25%;
         -ms-flex-preferred-size: 25%;
         flex-basis: 25%;

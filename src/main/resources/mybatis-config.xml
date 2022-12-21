@@ -17,5 +17,6 @@
 	<mapper resource="mybatis/mappers/news.xml"/>
 	<mapper resource="mybatis/mappers/note.xml"/>
 	<mapper resource="mybatis/mappers/search.xml"/>
+	<mapper resource="mybatis/mappers/notice.xml"/>
 	</mappers>
 </configuration>

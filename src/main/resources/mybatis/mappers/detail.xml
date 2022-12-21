@@ -95,7 +95,7 @@
    
    <insert id="likeUp">
          <![CDATA[
-            insert into carlike (carLikeNum ,carNum , memberEmail,likeN)
+            insert into carlike (carLikeNum ,carNum , memberEmail,carLikeN)
             values((select * from (select NVL (max(carLikeNum),0)+1 from carlike)), #{carNum},#{memberEmail},1)
          ]]>
    </insert>

@@ -19,11 +19,13 @@
 <body>
 		<div class="wrapper">
 <input type="hidden" id="memberEmail" name="memberEmail" value="" />
-			<ul>
-				<li for=""><a href="./managerCom?memberEmail=${memberEmail }">게시물</a></li>
-				<li for=""><a href="">홍보글</a></li>
-				<li for=""><a href="./managerMember?memberEmail=${memberEmail }">회원 관리</a></li>
-			</ul>
+
+			<ul class="tab_menu-1 row-1 type2-1">
+                           <li><a href="./managerCom?memberEmail=${memberEmail }">게시물</a></li>
+                           <li class="active"><a href="">홍보글</a></li>
+                           <li><a href="./managerNotice?memberEmail=${memberEmail }">공지사항</a></li>
+                           <li><a href="./managerMember?memberEmail=${memberEmail }">회원 관리</a></li>
+                        </ul>
 
 			<!-- <div class="section-divider"></div> -->
 			<div class="container uk-container-large" id="mypageData">
@@ -39,21 +41,25 @@
 							<table class="list type1">
 								<caption>전체 게시물 : 번호, 제목, 글쓴이, 날짜, 조회수, 추천수로 구성됨</caption>
 								<colgroup>
-									<col class="width_60 display_sm_none" />
-									<col />
-									<col class="width_100 width_phone_80" />
-									<col class="width_100 width_phone_80 display_sm_none" />
-									<col class="width_80 display_md_none" />
-									<col class="width_80 display_md_none" />
+									<col class="width_30 display_sm_none" />
+									<col class="width_30 display_sm_none" />
+									<col class="width_250 display_lg_none" />
+									<col class="width_250 display_lg_none" />
+									<col class="width_250 display_lg_none" />
+									<col class="width_30 display_md_none" />
+									<col class="width_30 display_md_none" />
+									<col class="width_30 display_md_none" />
 								</colgroup>
 								<thead>
 									<tr>
+										<th scope="col" class ="dispaly_sm_none"><input type="checkbox" name="allCheck" id="cbx_chkAll"></th>
 										<th scope="col" class="display_sm_none">번호</th>
 										<th scope="col">제목</th>
 										<th scope="col">글쓴이</th>
-										<th scope="col" class="display_sm_none">날짜</th>
-										<th scope="col" class="display_md_none">조회 수</th>
-										<th scope="col" class="display_md_none">추천 수</th>
+										<th scope="col" class="dispaly_sm_none">날짜</th>
+										<th scope="col" class="dispaly_sm_none">조회 수</th>
+										<th scope="col" class="dispaly_sm_none">추천 수</th>
+										<th scope="col" class="display_sm_none">삭제</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -61,13 +67,12 @@
                                        <c:when
                                           test="${articleList2!=null && pageInfo2.listCount>0 }">
                                           
-                                          1:${memberEmail }<br>
-                                          2:${article.memberEmail }
                                           <c:forEach var="article" items="${articleList2 }">
-                                             <input type="hidden" href="./comDetail?memberEmail=${memberEmail }">
+                                             <input type="hidden" href="./comDetail_ad?memberEmail=${memberEmail }">
                                              <tr>
+                                             <td class="display_sm_none"><input type="checkbox" name="chk" id="chk" class="checkbox_RecipeBoard" value="${articel.ad_num}" ></td>
                                                 <td class="num display_sm_none">${article.ad_num }</td>
-                                                <td class="text_left color_black"><a href="./comDetail?comNum=${article.ad_num}&memberEmail=${memberEmail }"
+                                                <td class="text_left color_black"><a href="./comDetail_ad?ad_num=${article.ad_num}&memberEmail=${memberEmail }"
                                                    class="subject"> ${article.ad_title}
                                                 </a></td>
                                                 <td class="text_left color_black"><a href="#"
@@ -76,12 +81,14 @@
                                                 <td class="display_sm_none">${article.ad_date}</td>
                                                 <td class="display_md_none">${article.ad_views}</td>
                                                 <td class="display_md_none">${article.ad_reco}</td>
+												<td class="display_sm_none"><a href="./managerDelete_ad?ad_num=${article.ad_num}" ><img src="./resources/images/delete.png" style="width: 40px; height: 30px;"/></a></td>
                                              </tr>
                                           </c:forEach>
                                        </c:when>
                                     </c:choose>
 								</tbody>
 							</table>
+							<input type="submit" class="deleteButton" name="btn" id="deleteButton" value="선택삭제">
 						</div>
 					</div>
 
@@ -115,12 +122,41 @@
 					
 										<form action="./managerAd" name="search-form" autocomplete="off">
                               <input type="text" name="keyword" value="" />
-                              <button type="submit" value="검색">검색</button>
+                              <button class="searchButton" type="submit" value="검색">검색</button>
                     </form>
 					
 				</div>
 			</div>
 		</div>
-	</form>
+		<script type="text/javascript">
+		
+		$(document).ready(function() {
+			$("#cbx_chkAll").click(function() {
+				if($("#cbx_chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
+				else $("input[name=chk]").prop("checked", false);
+			});
+			
+			$("input[name=chk]").click(function() {
+				var total = $("input[name=chk]").length;
+				var checked = $("input[name=chk]:checked").length;
+				
+				if(total != checked) $("#cbx_chkAll").prop("checked", false);
+				else $("#cbx_chkAll").prop("checked", true); 
+			});
+			
+			  $("#deleteButton").click(function(){ 
+		            
+				  var memberEmail = $("#memberEmail").val();
+				  console.log("memberEmail: "+memberEmail);
+		               
+		        });
+		});
+		
+
+
+		
+		</script>
+</body>
+</html>
 </body>
 </html>

@@ -42,7 +42,7 @@
                         <ul class="tab_menu-1 row-1 type2-1">
                            <li class="active"><a>게시글</a></li>
                            <li><a href="/advertisementList">홍보글</a></li>
-                           <li><a href="#">공지사항</a></li>
+                           <li><a href="/noticeList">공지사항</a></li>
 
                         </ul>
                      </div>
@@ -143,7 +143,7 @@
                            <!-- [10주차] 백엔드 메뉴 별 테이블 생성 -->
                            <form action="./communityList" name="search-form" autocomplete="off">
                               <input type="text" name="keyword" />
-                              <button type="submit" value="검색" class= "searchButton">검색</button>
+                                <button type="submit" value="검색" class= "searchButton">검색</button>
                            </form>
                            <!-- [10주차] 게시판 글쓰기 → 쓰기 변경 -->
                            <a href="./comwriteform"

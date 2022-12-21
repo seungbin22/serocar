@@ -671,6 +671,7 @@ span.display_block {
 
 .tab_menu-1.type2-1 {
    margin: 0 -6px;
+   margin-top:50px;
 }
 
 .tab_menu-1.type2-1 li {
@@ -734,13 +735,9 @@ span.display_block {
 .board .list.type1 th,
 .board .list.type1 td {
    text-align: center;
-   padding: 15px 5px;
+   padding: 15px 10px;
    border-bottom: 1px solid #EFF0F1;
    word-break: break-all;
-}
-
-.board .list.type1 td {
-   color: #A5A5A5;
 }
 
 .board .list.type1 .comment {

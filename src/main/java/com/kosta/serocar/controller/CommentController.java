@@ -93,4 +93,39 @@ public class CommentController {
       
       return map;
    }
+   
+   //커뮤니티 게시글 댓글
+   @PostMapping("/InsertComment_notice")
+   public String InsertComment_notice(@RequestBody Comment comment,HttpSession session) {
+      System.out.println("댓글 등록 통신 성공");
+      System.out.println("닉네임코멘드넘버: "+comment);
+      
+      if(session.getAttribute("memberNickname") == null) {
+         return "fail";
+      } else {
+         System.out.println("로긘함. 스크랩 진행");
+         
+         commentService.CommentRegist(comment);
+         System.out.println("댓글 등록 서비스 성공");
+         return "InsertSuccess";
+      }
+   }
+
+   @GetMapping("/CommentList_notice/{notice_num}")
+   public Map<String, Object> getList_notice(@PathVariable int notice_num, Model model) {
+      System.out.println("댓글 목록 컨트롤러 동작");
+      System.out.println(notice_num);
+      List<Comment> list = commentService.getList_notice(notice_num);
+      int total = commentService.getTotal_notice(notice_num);
+      System.out.println(list);
+      System.out.println(total);
+      //ModelAndView view = new ModelAndView();
+      System.out.println("댓글 갯수 " + commentService.getTotal_notice(notice_num));
+      //view.setViewName("/board/JBoardList");
+      Map<String, Object> map = new HashMap<>();
+      map.put("list", list);
+      map.put("total", total);
+      
+      return map;
+   }
 }

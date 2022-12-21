@@ -75,6 +75,16 @@
     box-sizing: border-box;
 }
 
+.deleteButton{
+margin-left: 5px;
+    line-height: 33px;
+    padding: 0 10px;
+    border-radius: 16px 16px;
+    border-style: none;
+    background: #98dde3;
+    color: #fff;
+    transition-duration: 0.5s;
+}
 @media (prefers-reduced-motion: no-preference) {
     :root {
         scroll-behavior: smooth;
@@ -766,7 +776,7 @@ progress {
 }
 
 .row {
-    --bs-gutter-x: 1.5rem;
+   --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
     display: flex;
     flex-wrap: wrap;

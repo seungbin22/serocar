@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import com.kosta.serocar.bean.Comment;
+import com.kosta.serocar.bean.Notice;
 
 @Mapper
 @Repository
@@ -20,4 +21,7 @@ public interface CommentDAO {
    
    public int getTotal_ad(int ad_num); //홍보글 댓글 갯수
    public List<Comment> getList_ad(int ad_num) ;
+   
+   public int getTotal_notice(int notice_num); //공지사항 댓글 갯수
+   public List<Comment> getList_notice(int notice_num) ;
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kosta.serocar.bean.Comment;
+import com.kosta.serocar.bean.Notice;
 import com.kosta.serocar.dao.CommentDAO;
 
 @Service
@@ -53,6 +54,16 @@ public class CommentServiceImpl implements CommentService {
    @Override
    public List<Comment> getList_ad(int ad_num) {
       return commentDAO.getList_ad(ad_num);
+   }
+   
+   @Override
+   public int getTotal_notice(int ad_num) {
+      return commentDAO.getTotal_notice(ad_num);
+   }
+
+   @Override
+   public List<Comment> getList_notice(int notice_num) {
+      return commentDAO.getList_notice(notice_num);
    }
 
 }

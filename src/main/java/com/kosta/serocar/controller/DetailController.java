@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.serocar.bean.CarLike;
@@ -27,7 +27,8 @@ import com.kosta.serocar.bean.Detail;
 import com.kosta.serocar.bean.PageInfo;
 import com.kosta.serocar.service.DetailService;
 
-@RestController
+
+@Controller
 public class DetailController {
 
 	@Autowired
@@ -73,13 +74,7 @@ public class DetailController {
 			mav.setViewName("detail/detailList.tiles");
 			
 			System.out.println("멤버 이메일: "+memberEmail);
-//	         CarLike carlike = new CarLike();
-//	         carlike.setCarNum(carNum);
-//	         carlike.setMemberEmail(memberEmail);
-//	         carlike.setCarLikeN(1);
-//	         mav.addObject("carLike", detailService.findLike(carNum, memberEmail));
-//	         mav.addObject("getCarLike", detailService.getLike(carNum, 1));
-//	         System.out.println("갯라이크 : "+detailService.getLike(carNum, 1));
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			mav.addObject("err", e.getMessage());
@@ -135,5 +130,22 @@ public class DetailController {
 	         System.out.println(vo.getMemberEmail());
 	         System.out.println(vo.getCarLikeN());
 	         detailService.likeDown(vo.getCarNum(), vo.getMemberEmail(),vo.getCarLikeN());
+	      }
+	      
+	      @RequestMapping(value="/carLink" ,method = RequestMethod.GET)
+	     public ModelAndView link(@RequestParam(value="carLink")String carLink, @RequestParam(value="carNum")Integer carNum, @RequestParam(value="memberEmail")String memberEmail) {
+		      ModelAndView mav = new ModelAndView();   
+	    	  CarLike carlike = new CarLike();
+		         carlike.setCarNum(carNum);
+		         carlike.setMemberEmail(memberEmail);
+		         carlike.setCarLikeN(1);
+		         mav.addObject("carNum", carNum);
+		         mav.addObject("carLike", detailService.findLike(carNum, memberEmail));
+		         mav.addObject("getCarLike", detailService.getLike(carNum, 1));
+		         System.out.println("갯라이크 : "+detailService.getLike(carNum, 1));
+		         System.out.println("갯라이크 : "+detailService.findLike(carNum, memberEmail));
+		         System.out.println("카넘 :"+carNum);
+		         mav.setViewName("detail/"+carLink+".tiles");
+	    	  return mav;
 	      }
 }

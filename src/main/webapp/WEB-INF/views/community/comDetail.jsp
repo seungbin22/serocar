@@ -25,6 +25,7 @@
                   <div class="mainBoard">
                      <div class="detailHead">
                         <input type="hidden" value="${article.comNum }"/>
+                        <input type="hidden" value="${comNum }"/>
                            <div class="detailTitle">
                               <div class="boardList">
                                  <a href="./communityList">현재게시판 목록으로 ></a>
@@ -86,8 +87,7 @@
                         <div><input class="commentWriter" id="commentWriter" name="memberNickname" value="${memberNickname }" readonly="readonly"/></div>
                         <textarea rows="1" id="com_content" name="com_content" placeholder="댓글을 남겨보세요"></textarea>
                         <button id="Comment_regist">등록</button>
-                        1:${memberNickname }
-                        2:${article.memberNickname }
+                      
                      </div>
                   </div>
                </div>

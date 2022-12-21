@@ -43,7 +43,7 @@
                         <ul class="tab_menu-1 row-1 type2-1">
                            <li ><a href="/communityList">게시글</a></li>
                            <li class="active"><a>홍보글</a></li>
-                           <li><a href="#">공지사항</a></li>
+                           <li><a href="/noticeList">공지사항</a></li>
 
                         </ul>
                      </div>
@@ -120,7 +120,7 @@
                                  <img src="/resources/images/community/prev.png">&nbsp;
                               </c:when>
                                     <c:otherwise>
-                                       <a href="communityList?page=${pageInfo2.page-1}"><img src="/resources/images/community/prev.png"></a>&nbsp;
+                                       <a href="advertisementList?page=${pageInfo2.page-1}"><img src="/resources/images/community/prev.png"></a>&nbsp;
                               </c:otherwise>
                                  </c:choose>
                               <c:forEach var="i" begin="${pageInfo2.startPage }"
@@ -128,7 +128,7 @@
                                  <c:choose>
                                     <c:when test="${pageInfo2.page==i }">[${i }]</c:when>
                                     <c:otherwise>
-                                       <a href="communityList?page=${i}">[${i }]</a>
+                                       <a href="advertisementList?page=${i}">[${i }]</a>
                                     </c:otherwise>
                                  </c:choose> 
                               </c:forEach>
@@ -137,7 +137,7 @@
                                     <c:when test="${pageInfo2.page>=pageInfo2.maxPage }">
                               </c:when>
                                     <c:otherwise>
-                                       <a href="communityList?page=${pageInfo2.page+1}">&nbsp;<img src="/resources/images/community/next.png"></a>
+                                       <a href="advertisementList?page=${pageInfo2.page+1}">&nbsp;<img src="/resources/images/community/next.png"></a>
                                     </c:otherwise>
                                  </c:choose>
                               </div>
@@ -145,7 +145,7 @@
                            <!-- [10주차] 백엔드 메뉴 별 테이블 생성 -->
                            <form action="./communityList" name="search-form" autocomplete="off">
                               <input type="text" name="keyword" value="" />
-                              <button type="submit" value="검색">검색</button>
+                                <button type="submit" value="검색" class= "searchButton">검색</button>
                            </form>
                            <!-- [10주차] 게시판 글쓰기 → 쓰기 변경 -->
                            <c:if test="${ businessNum != null}">

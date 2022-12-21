@@ -34,12 +34,20 @@
         select * from comment1 where memberNickname = #{memberNickname}
      </select>
      
-          <select id="getTotal_ad" resultType="int">
+     <select id="getTotal_ad" resultType="int">
         select count(*) from comment1 where ad_num = #{ad_num}
      </select>
      
-          <select id="getList_ad" resultType="Comment">
+     <select id="getList_ad" resultType="Comment">
         select * from comment1 where ad_num = #{ad_num}
+     </select>
+     
+     <select id="getTotal_notice" resultType="int">
+        select count(*) from comment1 where notice_num = #{notice_num}
+     </select>
+     
+     <select id="getList_notice" resultType="Comment">
+        select * from comment1 where notice_num = #{notice_num}
      </select>
    
   </mapper>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                        
+<mapper namespace="com.kosta.serocar.dao.NoticeDAO">
+   <insert id = "insertNotice" parameterType="Notice">
+      <![CDATA[
+         insert into notice(notice_num, notice_title, notice_content, notice_views, notice_reco, notice_date, memberEmail, memberNickname)
+         values(seq_notice_num.nextval, #{notice_title}, #{notice_content}, #{notice_views}, 0, sysdate, #{memberEmail}, #{memberNickname})
+      ]]>
+   </insert>
+
+
+   <select id="selectMaxNoticeNum" resultType="Integer">
+      <![CDATA[
+         select max(notice_num) from Notice      
+      ]]>   
+   </select>
+   
+    <select id="selectNoticeList" resultType="Notice" parameterType="Integer"> 
+   <![CDATA[
+      select *
+      from (select rownum as num, notice.* from notice ORDER BY notice_num desc)
+      where num between #{row1} and #{row1}+9
+   ]]> 
+   </select>   
+   
+    <select id="selectNoticeList2" resultType="Notice" parameterType="hashmap"> 
+   <![CDATA[
+	  select *
+      from (select rownum as num, notice.* from notice where notice_title like '%'||#{keyword}||'%' ORDER BY notice_num desc)
+      where num between #{row1} and #{row1}+9 
+   ]]>
+   </select>
+   
+   <select id="selectNoticeCount" resultType="Integer" >
+      <![CDATA[
+         select count(*) from notice
+      ]]>   
+   </select>
+   
+   <select id="selectNoticeCount2" resultType="Integer" >
+      <![CDATA[
+         select count(*) from notice where notice_title like '%'||#{keyword}||'%'
+      ]]>   
+   </select>
+   
+   <select id="selectNotice" resultType="Notice" parameterType="Integer">
+      <![CDATA[
+         select * from notice where notice_num = #{notice_num}
+      ]]>   
+   </select>
+   
+   <update id="updateNotice" parameterType="Notice">
+      <![CDATA[
+         update notice set notice_title=#{notice_title}, notice_content=#{notice_content}
+         where notice_num=#{notice_num}
+      ]]>   
+   </update>
+   
+   <update id="updateNoticeReReq" parameterType="Notice">
+      <![CDATA[
+         update notice set notice_re_ref=notice_re_ref+1
+         where notice_re_ref=#{notice_re_ref} and notice_re_seq>#{notice_re_seq}
+      ]]>   
+   </update>
+   
+    <delete id="deleteNotice" parameterType="Integer">
+      <![CDATA[
+      delete from notice where notice_num=#{notice_num}
+      ]]>
+   </delete>
+     
+     <!-- 좋아요 눌럿는지 안눌럿는지 -->
+        <select id="findLike_notice" resultType="int">
+         <![CDATA[
+            select count(*) from comlike where notice_num = #{notice_num} and memberEmail = #{memberEmail}
+         ]]>
+   </select>
+   
+   <!-- 좋아요 불러오기 -->  
+     <select id="getLike_notice" resultType="int">
+        <![CDATA[
+           select count(*) from comlike where notice_num = #{notice_num} and likeN =#{likeN}
+        ]]>
+     </select>
+   
+   <insert id="likeUp_notice">
+         <![CDATA[
+            insert into comlike (likenum ,notice_num , memberEmail,likeN)
+            values((select * from (select NVL (max(likenum),0)+1 from comlike)), #{notice_num},#{memberEmail},1)
+         ]]>
+   </insert>
+   
+    <delete id="likeDown_notice">
+       <![CDATA[
+           delete from comlike where notice_num = #{notice_num} and memberEmail = #{memberEmail} 
+        ]]>
+     </delete>
+     
+     <update id="hit_notice">
+        <![CDATA[
+           update Notice
+            set notice_views = notice_views + 1
+            where notice_num = #{notice_num}
+      ]]>
+   </update>
+</mapper>

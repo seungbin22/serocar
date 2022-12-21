@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.serocar.bean.Advertisement;
-import com.kosta.serocar.bean.Community;
 import com.kosta.serocar.bean.Like;
 import com.kosta.serocar.bean.PageInfo;
+import com.kosta.serocar.dao.MemberDAO;
 import com.kosta.serocar.service.AdvertisementService;
 import com.kosta.serocar.service.CommentService;
 
@@ -39,6 +39,10 @@ public class AdvertisementController {
    
    @Autowired
    CommentService commentService;
+   
+   @Autowired
+   MemberDAO memberDAO;
+   
    
    @RequestMapping(value = "/comwriteform_ad", method = RequestMethod.GET)
    public String writeform() {
@@ -93,6 +97,7 @@ public class AdvertisementController {
          System.out.println("컴넘1= " + ad_num);
          model.addAttribute("comtotal", commentService.getTotal(ad_num));
          try {
+           model.addAttribute("profile", memberDAO.getprofile_ad(ad_num));
             Like like = new Like();
 
             like.setComNum(ad_num);
@@ -132,7 +137,7 @@ public class AdvertisementController {
             mav.addObject("ad_num", advertisement.getAd_num());
             mav.addObject("ad_title", advertisement.getAd_title());
             mav.addObject("ad_content", advertisement.getAd_content());
-            mav.setViewName("community/adModifyWriteForm.tiles");
+            mav.setViewName("community/ModifyWriteForm_ad.tiles");
          } catch (Exception e) {
             e.printStackTrace();
             mav.addObject("err", "조회 실패");

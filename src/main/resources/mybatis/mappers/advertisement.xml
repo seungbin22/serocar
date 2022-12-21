@@ -30,8 +30,8 @@
       select ad_num, ad_title, membernickname, ad_content, ad_re_ref,
             ad_re_lev, ad_re_seq, ad_views, ad_date
       from (select row_number() over (order by ad_re_ref desc, ad_re_seq asc) num, B.*
-            from advertisement B order by ad_re_ref desc, ad_re_seq asc)
-      where num between #{row1} and #{row1}+9 and ad_title like '%'||#{keyword}||'%'
+            from advertisement B where ad_title like '%'||#{keyword}||'%' order by ad_re_ref desc, ad_re_seq asc)
+      where num between #{row1} and #{row1}+9 
    ]]>
    </select>
    

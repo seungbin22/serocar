@@ -22,4 +22,5 @@ public class Detail {
 	private int carMoney;
 	private int minMoney;
 	private int maxMoney;
+	private String carLink;
 }
