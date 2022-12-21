@@ -136,7 +136,7 @@ h6,
     color: #1b1b1c;
     line-height: 1.0;
     font-family: 'Noto Sans KR', sans-serif !important;
-    font-weight: 600;
+    font-weight: 540;
 }
 
 h1,
@@ -330,7 +330,7 @@ button:focus {
 }
 
 .btn {
-    border: 2px solid #d8d8d8;
+    border: 2px solid #fff;
     display: inline-block;
     font-size: 18px;
     font-weight: 600;

@@ -66,7 +66,6 @@ input,
 textarea,
 button,
 select {
-   margin: 0;
    padding: 0
 }
 
@@ -266,7 +265,7 @@ textarea.input01 {
 }
 
 .text_left {
-   text-align: left !important;
+   text-align: center !important;
 }
 
 .text_center {
@@ -818,6 +817,11 @@ span.display_block {
 
 
 /*       Ÿ   */
+.chatting-title {
+	margin-bottom : 15px;
+	font-size: 17px;
+}
+
 .modal_wrap {
    display: none;
    position: fixed;
@@ -825,11 +829,12 @@ span.display_block {
    left: 50%;
    transform: translate(-50%, -50%);
    background-color: #fff;
-   padding: 50px;
+   padding: 20px;
    box-shadow: 0 0 10px #00000029;
+   border-radius: 20px;
 }
 #note_to {
-   padding: 0 10px 0 0;
+   padding: 0 30px 0 0;
    line-height: 25px;
    font-size: 16px;
    font-family: "NotoSans-Medium";
@@ -849,7 +854,7 @@ span.display_block {
 }
 
 #note_content {
-   padding: 0 0 100px 0;
+   padding: 0 20px 100px 0;
    margin-bottom: 10px;
 }
 .modal_wrap.active {

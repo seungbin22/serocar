@@ -163,17 +163,20 @@
       </div>
    </div>
    
-   <div class="modal_wrap">
+   <div class="modal_wrap" id = "chatting-modal">
          <div class="modal-contnet">
+               <div class = chatting-title><center> 쪽지 보내기 </center></div>
             <%-- <form action="<c:url value='/note/insertNote' />"> --%>
             <div class="mini-title"><input name="note_to" id="note_to" ></div>
             <textarea class="modal-txtcontent" id="note_content" rows="4" cols="25" name="note_content"></textarea>
-            <button type="button" class="send-modalBtn" id="note" value='보내기'>
+            <div>
+            <button type="button" class="searchButton" id="note" value='보내기'>
                보내기
             </button>
             <button class="close-modalBtn">
                <a href="#">닫기</a>
             </button>
+            </div>
          </div>
       </div>
    

@@ -290,6 +290,7 @@ body {
     font-size: 1rem;
     font-weight: 700;
     color: #000;
+    line-height: 50px;
 }
 .small-text {
     font-size: 0.9rem;

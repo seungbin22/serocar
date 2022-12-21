@@ -25,7 +25,7 @@
             <nav id="navcc">
                <div class="nav-wrapper navWidth">
                   <a href="/" id="navlefttext"> <b>SEROCAR</b> 
-                  <h7 id="navlongtext2">&nbsp;MAKE YOURS</h7>
+                  <h7 id="navlongtext2">&nbsp;Select Easy Route Optimized</h7>
 
                   </a>
                   <ul id="navtextbtn1" class="nav-button-container">
@@ -39,11 +39,6 @@
                         <button class="header-btn" type="button" onclick="location.href='/login'"> 
                            로그인
                         </button>
-                        <div uk-dropdown="mode: hover" class="header-dropdown-style uk-dropdown uk-dropdown-bottom-right">
-                                 <ul style="color: #000; text-align: center">
-                                    <li><a href="./joinSelect">회원가입</a></li>
-                                 </ul>
-                              </div>
                      </li>
 
                   </ul>
@@ -58,7 +53,7 @@
             <nav id="navcc">
                <div class="nav-wrapper navWidth">
                   <a href="/" id="navlefttext"> <b>SEROCAR</b> 
-                  <h7 id="navlongtext2">&nbsp;MAKE YOURS</h7>
+                  <h7 id="navlongtext2">&nbsp;Select Easy Route Optimized</h7>
 
                   </a>
                   <ul id="navtextbtn1" class="nav-button-container">
@@ -76,8 +71,8 @@
                               </button>
                               <div uk-dropdown="mode: hover" class="header-dropdown-style uk-dropdown uk-dropdown-bottom-right">
                                  <ul style="color: #000; text-align: center">
-                                    <li><a href="./myPage?memberEmail=${memberEmail }&businessNum=${businessNum}&memberNickname=${memberNickname}">마이페이지</a></li>
-                                    <li><a href="./logout">로그아웃</a></li>
+                                    <li id=sidebar><a href="./myPage?memberEmail=${memberEmail }&businessNum=${businessNum}&memberNickname=${memberNickname}">마이페이지</a></li>
+                                    <li id=sidebar><a href="./logout">로그아웃</a></li>
                                  </ul>
                               </div> 
                            </div>
@@ -95,7 +90,7 @@
             <nav id="navcc">
                <div class="nav-wrapper navWidth">
                   <a href="/" id="navlefttext"> <b>SEROCAR</b> 
-                  <h7 id="navlongtext2">&nbsp;MAKE YOURS</h7>
+                  <h7 id="navlongtext2">&nbsp;Select Easy Route Optimized</h7>
                   
                   </a>
                   <ul id="navtextbtn1" class="nav-button-container">

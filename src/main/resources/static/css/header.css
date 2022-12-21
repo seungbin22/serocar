@@ -21,7 +21,9 @@
 }
 
 #navcc a {
+	
     text-decoration: none !important;
+    font-size: 15px;
 }
 #navlefttext {
     color: black;
@@ -43,7 +45,7 @@ nav ul li {
     /* height: 35px; */ 
     background-color:transparent;
     color: black;
-    /* font-size: 1rem; */
+    font-size: 15px; 
     border: 0px;
     outline: 0;
     display: flex;
@@ -90,7 +92,6 @@ nav ul a {
     -webkit-transition: background-color 0.3s;
     transition: background-color 0.3s;
     color: inherit;
-    display: block;
     padding: 0 15px;
     cursor: pointer;
 }
@@ -156,11 +157,14 @@ ul:not(.browser-default) > li {
         line-height: 20px !important; */
         color: #616161;
     }
-    #navlongtext2 {
+   
+}
+
+@media (max-width: 838px) {
+	 #navlongtext2 {
         display: none;
     }
 }
-
 .nav-sidebar {
     background-color: #fff !important;
     width: 240px !important;

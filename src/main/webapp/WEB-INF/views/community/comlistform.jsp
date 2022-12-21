@@ -159,8 +159,9 @@
       </div>
    </div>
    
-   <div class="modal_wrap" id = "chatting-modal">
+  <div class="modal_wrap" id = "chatting-modal">
          <div class="modal-contnet">
+               <div class = chatting-title><center> 쪽지 보내기 </center></div>
             <%-- <form action="<c:url value='/note/insertNote' />"> --%>
             <div class="mini-title"><input name="note_to" id="note_to" ></div>
             <textarea class="modal-txtcontent" id="note_content" rows="4" cols="25" name="note_content"></textarea>

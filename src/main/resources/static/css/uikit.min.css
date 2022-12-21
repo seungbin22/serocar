@@ -11,6 +11,16 @@ html {
 body {
     margin: 0;
 }
+
+li {
+	display: block;
+    text-align: -webkit-match-parent;
+}
+
+#sidebar {
+	line-height: 4;
+	
+}
 .uk-link,
 a {
     color: #1e87f0;
@@ -155,7 +165,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     font-weight: 400;
     color: #333;
@@ -2362,10 +2372,10 @@ select.uk-form-width-xsmall {
 }
 .uk-dropdown {
     display: none;
-    position: absolute;
+    position: fixed !important;
     z-index: 1020;
     box-sizing: border-box;
-    min-width: 200px;
+    min-width: 180px;
     padding: 25px;
     background: #fff;
     color: #666;
@@ -2374,6 +2384,11 @@ select.uk-form-width-xsmall {
 .uk-dropdown.uk-open {
     display: block;
 }
+
+[class*='uk-dropdown-bottom'] {
+    margin-top: 25px;
+}
+
 .uk-dropdown-nav {
     white-space: nowrap;
     font-size: 0.875rem;
@@ -2401,9 +2416,9 @@ select.uk-form-width-xsmall {
 [class*='uk-dropdown-top'] {
     margin-top: -10px;
 }
-[class*='uk-dropdown-bottom'] {
-    margin-top: 4px;
-}
+/* [class*='uk-dropdown-bottom'] {
+    margin-top: 25px;
+} */
 [class*='uk-dropdown-left'] {
     margin-left: -10px;
 }
@@ -2917,7 +2932,7 @@ select.uk-form-width-xsmall {
     margin: 0;
 }
 .uk-grid > * > :last-child {
-    margin-bottom: 0;
+    
 }
 .uk-grid {
     margin-left: -30px;
@@ -4522,6 +4537,7 @@ ul.uk-nav-sub {
         width: auto;
     }
     .uk-width-expand\@m {
+    	margin-top: 20px;
         flex: 1;
         min-width: 1px;
     }

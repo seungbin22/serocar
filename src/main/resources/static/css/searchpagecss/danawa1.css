@@ -18196,10 +18196,11 @@ span[class^=lowemission] {
 }
 
 .container_newcarlist .contents .list li {
+	
   position: relative;
   display: table;
   table-layout: fixed;
-  padding: 12px 0;
+  padding: 45px 0 0 0;
   height: 124px;
   width: 1200px;
   border-top: 1px solid #f0f0f0
