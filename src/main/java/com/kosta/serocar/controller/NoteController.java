@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.serocar.bean.Note;
 import com.kosta.serocar.bean.PageInfo;
+import com.kosta.serocar.dao.DetailDAO;
 import com.kosta.serocar.dao.MyPageDAO;
 import com.kosta.serocar.dao.NoteDAO;
 import com.kosta.serocar.service.NoteService;
@@ -31,6 +32,8 @@ public class NoteController {
 	
 	@Autowired
 	MyPageDAO myPageDAO;
+	@Autowired
+	DetailDAO detailDAO;
 
 	@ResponseBody
 	@PostMapping("/insertNote")
@@ -73,6 +76,7 @@ public class NoteController {
 		mav.addObject("count_ad",listCount_ad);
 		int myRecordCount = noteDAO.myRecordCount(memberNickname);
 		mav.addObject("chatCount", myRecordCount);
+		mav.addObject("carCount", detailDAO.selectCarNum(memberEmail));
 		return mav;
 	}
 	

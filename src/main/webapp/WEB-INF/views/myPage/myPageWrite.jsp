@@ -41,7 +41,7 @@
 									<b>즐겨찾기</b>
 								</h5>
 								<div>
-									<h2 style="line-height: 1; font-weight: 700" id="mypick">1</h2>
+									<h2 style="line-height: 1; font-weight: 700" id="mypick">${carCount}</h2>
 								</div>
 							</div>
 

@@ -40,12 +40,12 @@
 					<div class="row">
 						<div class="index-section">
 							<div class="index-circle"
-								onclick="location.href='./myPage?memberEmail=${memberEmail}'">
+								onclick="location.href='./myPageList?memberEmail=${memberEmail}&businessNum=${businessNum}&memberNickname=${memberNickname }'">
 								<h5 style="font-family: 'Montserrat' !important">
 									<b>즐겨찾기</b>
 								</h5>
 								<div>
-									<h2 style="line-height: 1; font-weight: 700" id="mypick">1</h2>
+									<h2 style="line-height: 1; font-weight: 700" id="mypick">${carCount}</h2>
 								</div>
 							</div>
 

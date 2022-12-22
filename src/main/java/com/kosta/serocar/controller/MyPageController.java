@@ -81,6 +81,7 @@ public class MyPageController {
 		
 		List<Detail> carList = detailDAO.selectCarLike(memberEmail);
 		mav.addObject("carList", carList);
+		mav.addObject("carCount", detailDAO.selectCarNum(memberEmail));
 //		 Integer carNum = detailDAO.selectCarNum(memberEmail);
 //		 CarLike carlike = new CarLike();
 //         carlike.setCarNum(carNum);
@@ -146,6 +147,7 @@ public class MyPageController {
 			mav.addObject("count_ad",listCount_ad);
 			int myRecordCount = noteDAO.myRecordCount(memberNickname);
 			mav.addObject("chatCount", myRecordCount);
+			mav.addObject("carCount", detailDAO.selectCarNum(memberEmail));
 		} catch (Exception e) {
 			e.printStackTrace();
 			mav.addObject("err", e.getMessage());
@@ -173,6 +175,7 @@ public class MyPageController {
 			mav.addObject("count_ad",listCount_ad);
 			int myRecordCount = noteDAO.myRecordCount(memberNickname);
 			mav.addObject("chatCount", myRecordCount);
+			mav.addObject("carCount", detailDAO.selectCarNum(memberEmail));
 		} catch (Exception e) {
 			e.printStackTrace();
 			mav.addObject("err", e.getMessage());

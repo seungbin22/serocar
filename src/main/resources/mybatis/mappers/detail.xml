@@ -121,7 +121,7 @@
      
      <select id="selectCarNum" resultType="Integer">
         <![CDATA[
-           SELECT carnum FROM detail WHERE carnum in (SELECT CARNUM  FROM carlike WHERE MEMBEREMAIL = #{memberEmail})
+           SELECT count(*) FROM detail WHERE carnum in (SELECT CARNUM  FROM carlike WHERE MEMBEREMAIL = #{memberEmail})
         ]]>
      </select>
 </mapper>
