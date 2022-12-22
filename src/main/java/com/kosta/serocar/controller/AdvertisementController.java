@@ -105,6 +105,7 @@ public class AdvertisementController {
             like.setLikeN(1);
             model.addAttribute("like", advertisementService.findLike_ad(ad_num, memberEmail));
             model.addAttribute("getLike", advertisementService.getLike_ad(ad_num, 1));
+            model.addAttribute("getComment", commentService.getTotal(ad_num));
             System.out.println("갯라이크 : "+advertisementService.getLike_ad(ad_num, 1));
             advertisementService.hit_ad(ad_num);
 

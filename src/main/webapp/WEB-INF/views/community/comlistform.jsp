@@ -61,12 +61,12 @@
                                  </colgroup>
                                  <thead>
                                     <tr>
-                                       <th scope="col" class="display_sm_none">번호</th>
-                                       <th scope="col">제목</th>
-                                       <th scope="col">글쓴이</th>
-                                       <th scope="col" class="display_sm_none">날짜</th>
-                                       <th scope="col" class="display_md_none">조회 수</th>
-                                       <th scope="col" class="display_md_none">추천 수</th>
+                                       <th scope="col" class="display_sm_none" style="text-align:center;">번호</th>
+                                       <th scope="col" style="text-align:center;">제목</th>
+                                       <th scope="col" style="text-align:center;">글쓴이</th>
+                                       <th scope="col" class="display_sm_none" style="text-align:center;">날짜</th>
+                                       <th scope="col" class="display_md_none" style="text-align:center;">조회 수</th>
+                                       <th scope="col" class="display_md_none" style="text-align:center;">추천 수</th>
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -94,16 +94,19 @@
                                           <c:forEach var="article" items="${articleList }">
                                              <input type="hidden" href="./comDetail?memberEmail=${memberEmail }">
                                              <tr>
-                                                <td class="num display_sm_none">${article.comNum }</td>
-                                                <td class="text_left color_black"><a href="./comDetail?comNum=${article.comNum}&memberEmail=${memberEmail }"
-                                                   class="subject"> ${article.comTitle}
+                                                <td class="num display_sm_none" style="text-align:center;">${article.comNum }</td>
+                                                <td class=""><a href="./comDetail?comNum=${article.comNum}&memberEmail=${memberEmail }"
+                                                   class=""> ${article.comTitle}
+                                                     <c:if test="${article.comReco ne 0 }">
+                                                      <small><b class="comment">[&nbsp;<c:out value="${article.comReco }"/>&nbsp;]</b></small>
+                                                   </c:if>
                                                 </a></td>
                                                 <td class="text_left color_black"><a href="#"
                                                    class="modal-writer1" data-com-id = "${article.memberNickname}">${article.memberNickname}
                                                 </a></td>
                                                 <td class="display_sm_none">${article.comDate}</td>
-                                                <td class="display_md_none">${article.comViews}</td>
-                                                <td class="display_md_none">${article.comReco}</td>
+                                                <td class="display_md_none" style="text-align:center;">${article.comViews}</td>
+                                                <td class="display_md_none" style="text-align:center;">${article.com_re_lev}</td>
                                              </tr>
                                           </c:forEach>
                                        </c:when>

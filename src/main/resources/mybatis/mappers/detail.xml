@@ -8,7 +8,7 @@
 		parameterType="HashMap"> 
    <![CDATA[
       select *
-      from (select rownum as num, detail.* from detail where carname like '%'||#{keyword}||'%')
+      from (select rownum as num, detail.* from detail where carname like '%'||#{keyword}||'%' ORDER BY carnum desc)
       where num between #{row} and #{row}+9 
    ]]>
 	</select>
@@ -17,7 +17,7 @@
 		parameterType="HashMap"> 
    <![CDATA[
       select *
-      from (select rownum as num, detail.* from detail)
+      from (select rownum as num, detail.* from detail ORDER BY carnum desc)
       where num between #{row} and #{row}+9
    ]]>
 	</select>
@@ -30,7 +30,7 @@
 	
 	<select id="selectCarKeywordCount" resultType="Integer">
 		<![CDATA[
-			select count(*) from detail where carname like '%'||#{keyword}||'%'
+			select count(*) from detail where carname like '%'||#{keyword}||'%' ORDER BY carnum desc
 		]]>
 	</select>
 	
@@ -38,14 +38,14 @@
 		parameterType="HashMap"> 
    <![CDATA[
       select *
-      from (select rownum as num, detail.* from detail where carbrand like '%'||#{carBrand}||'%')
+      from (select rownum as num, detail.* from detail where carbrand like '%'||#{carBrand}||'%' ORDER BY carnum desc)
       where num between #{row} and #{row}+9 
 		]]>
 	</select>
 
 	<select id="selectCarBrandCount" resultType="Integer">
 		<![CDATA[
-			select count(*) from detail where carbrand like '%'||#{carBrand}||'%'
+			select count(*) from detail where carbrand like '%'||#{carBrand}||'%' ORDER BY carnum desc
 		]]>
 	</select>
 	
@@ -53,14 +53,14 @@
 		parameterType="HashMap"> 
    <![CDATA[
       select *
-      from (select rownum as num, detail.* from detail where cartype like '%'||#{carType}||'%')
+      from (select rownum as num, detail.* from detail where cartype like '%'||#{carType}||'%' ORDER BY carnum desc)
       where num between #{row} and #{row}+9 
 		]]>
 	</select>
 
 	<select id="selectCarTypeCount" resultType="Integer">
 		<![CDATA[
-			select count(*) from detail where cartype like '%'||#{carType}||'%'
+			select count(*) from detail where cartype like '%'||#{carType}||'%' ORDER BY carnum desc
 		]]>
 	</select>
 	
@@ -113,5 +113,15 @@
             where carNum = #{carNum}
       ]]>
    </update> -->
-	
+	<select id="selectCarLike" resultType="Detail">
+        <![CDATA[
+           SELECT * FROM detail WHERE carnum in (SELECT CARNUM  FROM carlike WHERE MEMBEREMAIL = #{memberEmail})
+        ]]>
+     </select>
+     
+     <select id="selectCarNum" resultType="Integer">
+        <![CDATA[
+           SELECT carnum FROM detail WHERE carnum in (SELECT CARNUM  FROM carlike WHERE MEMBEREMAIL = #{memberEmail})
+        ]]>
+     </select>
 </mapper>

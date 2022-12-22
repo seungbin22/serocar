@@ -129,5 +129,11 @@ public class CommunityServiceImpl implements CommunityService{
 	   public void hit(int comNum) {
 	      communityDAO.hit(comNum);
 	   }
-
+	   
+	   public void updateComment(int comNum) {
+		  communityDAO.updateComment(comNum);
+	   }
+	   public void updateLike(int comNum) {
+		   communityDAO.updateLike(comNum);
+	   }
 }

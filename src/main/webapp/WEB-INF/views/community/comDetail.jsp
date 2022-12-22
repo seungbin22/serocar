@@ -25,7 +25,6 @@
                   <div class="mainBoard">
                      <div class="detailHead">
                         <input type="hidden" value="${article.comNum }"/>
-                        <input type="hidden" value="${comNum }"/>
                            <div class="detailTitle">
                               <div class="boardList">
                                  <a href="./communityList">현재게시판 목록으로 ></a>
@@ -62,40 +61,68 @@
                   </div>
                   
                   <div class="boardTag">
-                     <div class="likeComment">
-                        <button class="fa fa-heart-o fa-2x CancleBtn LikeBtn" id="iconH"></button> 
-                        <span><input type="text" class="form-control" id="exampleFormControlInput1" value="${getLike}" readonly></span>
-                        <i class="fa fa-comment-o fa-2x" id="iconC"></i> 
-                        <span>123</span>
+                        <div class="likeComment">
+                           <button class="fa fa-2x CancleBtn LikeBtn"
+                              id="iconH" ><img style="width: 45px; height: 45px;" id="iconH" class="iconH" src="../resources/images/heart.png"/></button>
+                           <span class="heart"><input type="text"
+                              class="" id="exampleFormControlInput1"
+                              value="${getLike}" readonly></span> <i
+                              class="fa fa-comment-o fa-2x" id="iconC"></i> <span>&nbsp${getComment}</span>
+                        </div>
                      </div>
-                  </div>
+                     <!-- 댓글 구현 -->
+                     <div class="detailComment">
 
-                  <!-- 댓글 구현 -->
-                  <div class="detailComment">
-                     <ul>
-                        <li>
-            
-                              <div class="comment_Box" style="border:1px solid gray;"> <!-- 댓글이 들어갈 박스 -->
-
-                                     </div>
+                        <ul>
+                           <li>
+                              <h5 class="daegel" style="margin-left: 25px;">
+                                 댓글
+                                 </h5>
+                                 
+                                 <div class="commentList">
+                                     <img
+                                       src="https://ssl.pstatic.net/static/cafe/cafe_pc/default/cafe_profile_70.png"
+                                       width="36" height="36" alt="프로필사진" class="profileImg2"> 
+                                     <div class="userNickname">
+                                       <div class="nick2">
+                                          <button>${memberNickname }</button> 
+                                          <!-- 내가 쓴글 x 보여줌 -->
+                                          <span>신고</span>
+                                          <!-- 내가 쓴글 o 보여줌 -->
+                                          <span>수정</span> <span>삭제</span> 
+                                       </div>
+                                       <div style="height: 40px;">
+                                          <span class="date">2022.12.19</span> 
+                                       </div>
+                                       <div class="comment">
+                                          <span>${article.memberNickname }</span>
+                                       </div>
+                                    </div> 
+                                 </div> 
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="comment-area">
+                        <div class="writeComment">
                            
-                        </li>
-                     </ul>
-                  </div>
-                  <div class="comment-area">
-                     <div class="writeComment">
-                        <div><input class="commentWriter" id="commentWriter" name="memberNickname" value="${memberNickname }" readonly="readonly"/></div>
-                        <textarea rows="1" id="com_content" name="com_content" placeholder="댓글을 남겨보세요"></textarea>
-                        <button id="Comment_regist">등록</button>
-                      
+                               <input class="commentWriter" id="commentWriter"
+                                 name="memberNickname" value="${memberNickname }"
+                                 readonly="readonly" /> 
+                           <div class="dae">
+                              <textarea style="    width: 100%; height: 6.25em; border: none; resize: none;"rows="1" id="com_content" name="com_content"
+                                 placeholder="댓글을 남겨보세요"></textarea>
+                        <button style="background-color:transparent; border:none; float:right; font-size: 18px; margin-right: -350px; margin-bottom: 10px"id="Comment_regist">등록</button>      
+                           </div>
+                        </div>
+                        
                      </div>
                   </div>
                </div>
             </div>
          </div>
-      </div>
    </section>
-<script>
+
+   <script>
 $('#Comment_regist').click(function() {
    
       //Json으로 전달할 파라미터 변수선언
@@ -175,19 +202,21 @@ function getList() {
                }
             }
             
-            $(".comment_Box").html(comment_html);
+            $(".commentList").html(comment_html);
             
             
          }
          else{
             var comment_html = "<div>등록된 댓글이 없습니다.</div>";
-            $(".comment_Box").html(comment_html);
+            $(".commentList").html(comment_html);
          }
       }
-);//getJson
+   );//getJson
 }
 
-//좋아요 
+//좋아요
+
+
 var likeval = ${like};
 
 let comNum = ${article.comNum};
@@ -196,8 +225,10 @@ let likeN = 1;
 
 if(likeval > 0){
    console.log(likeval + "좋아요 누름");
-   $('.LikeBtn').html("좋아요 취소");
-   $('.LikeBtn').click(function() {
+
+   $('.iconH').attr("src", "../resources/images/heartcolor.png");
+      $('.LikeBtn').click(function() {
+      
       $.ajax({
          type :'post',
          url : '<c:url value ="/likeDown"/>',
@@ -234,6 +265,7 @@ if(likeval > 0){
             alert('성공염');
          }
       });// 아작스 끝
+      $('.iconH').attr("src", "../resources/images/heartcolor.png");
    });
 
 }

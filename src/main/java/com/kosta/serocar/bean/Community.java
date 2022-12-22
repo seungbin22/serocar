@@ -24,4 +24,5 @@ public class Community {
 	private int com_re_lev;
 	private int com_re_seq;
 	private String memberEmail;
+	private int comment;
 }

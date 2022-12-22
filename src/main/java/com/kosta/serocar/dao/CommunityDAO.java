@@ -31,4 +31,7 @@ public interface CommunityDAO {
 	void likeDown(Map<String, Object> data);
 	int getLike(Map<String, Object> data);
 	void hit(int comNum);
+	
+	public void updateComment(int comNum);
+	public void updateLike(int comNum);
 }

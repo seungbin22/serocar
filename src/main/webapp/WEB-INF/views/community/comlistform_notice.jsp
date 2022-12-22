@@ -62,12 +62,12 @@
                                  </colgroup>
                                  <thead>
                                     <tr>
-                                       <th scope="col" class="display_sm_none">번호</th>
-                                       <th scope="col">제목</th>
-                                       <th scope="col">글쓴이</th>
-                                       <th scope="col" class="display_sm_none">날짜</th>
-                                       <th scope="col" class="display_md_none">조회 수</th>
-                                       <th scope="col" class="display_md_none">추천 수</th>
+                                       <th scope="col" class="display_sm_none" style="text-align:center;">번호</th>
+                                       <th scope="col" style="text-align:center;">제목</th>
+                                       <th scope="col" style="text-align:center;">글쓴이</th>
+                                       <th scope="col" class="display_sm_none" style="text-align:center;">날짜</th>
+                                       <th scope="col" class="display_md_none" style="text-align:center;">조회 수</th>
+                                       <th scope="col" class="display_md_none" style="text-align:center;">추천 수</th>
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -95,16 +95,16 @@
                                           <c:forEach var="article" items="${noticeList }">
                                              <input type="hidden" href="./comDetail_notice?memberEmail=${memberEmail }">
                                              <tr>
-                                                <td class="num display_sm_none">${article.notice_num }</td>
-                                                <td class="text_left color_black"><a href="./comDetail_notice?notice_num=${article.notice_num}&memberEmail=${memberEmail }"
-                                                   class="subject"> ${article.notice_title}
+                                                <td class="num display_sm_none" style="text-align:center;">${article.notice_num }</td>
+                                                <td class=""><a href="./comDetail_notice?notice_num=${article.notice_num}&memberEmail=${memberEmail }"
+                                                   class=""> ${article.notice_title}
                                                 </a></td>
                                                 <td class="text_left color_black"><a href="#"
                                                    class="modal-writer1" data-com-id = "${article.memberNickname}">${article.memberNickname}
                                                 </a></td>
                                                 <td class="display_sm_none">${article.notice_date}</td>
-                                                <td class="display_md_none">${article.notice_views}</td>
-                                                <td class="display_md_none">${article.notice_reco}</td>
+                                                <td class="display_md_none" style="text-align:center;">${article.notice_views}</td>
+                                                <td class="display_md_none" style="text-align:center;">${article.notice_reco}</td>
                                              </tr>
                                           </c:forEach>
                                        </c:when>

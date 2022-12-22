@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kosta.serocar.bean.Advertisement;
 import com.kosta.serocar.bean.Community;
+import com.kosta.serocar.bean.Detail;
 
 @Mapper
 @Repository
@@ -18,4 +19,6 @@ public interface MyPageDAO {
 	
 	List<Advertisement> selectAdvertisementList2(HashMap<String, String> map) throws Exception;
 	Integer selectAdvertisementCount2(String memberEmail) throws Exception;
+	
+	
 }

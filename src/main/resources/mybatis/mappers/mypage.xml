@@ -36,4 +36,5 @@
          select count(*) from advertisement where memberEmail = #{memberEmail}
       ]]>   
    </select>
+   
 </mapper>

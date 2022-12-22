@@ -86,28 +86,15 @@
                         <b>즐겨찾기</b>
                      </h3>
                   </div>
+                  <c:forEach var="carList" items="${carList }">
                   <span id="resultArea">
                      <div style="margin: 16px 0;">
                         <div
                            class="uk-card uk-card-default uk-grid-collapse uk-grid uk-grid-stack"
                            style="padding: 16px" uk-grid="">
                            <div class="uk-width-1-3@m uk-first-column">
-                              <div class="uk-grid" uk-grid="" style="margin: 0; height: 60%">
-                                 <div class="uk-width-1-2 info-container uk-first-column">
-                                    <img class="width:100%" src="/resources/images/car2.jpg"
+                             <img class="width:100%" src="carDetail/${carList.carImage }"
                                        alt="">
-                                 </div>
-                                 <div class="uk-width-1-2 info-container">
-                                    <div class="car-title">차이름</div>
-                                    <div class="uk-text-meta">차종</div>
-
-                                    <div class="info-container" style="margin-top: 40px">
-                                       <div
-                                          style="display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; background-color: #717171; color: #fff; font-weight: 700;">
-                                          L</div>
-                                    </div>
-                                 </div>
-                              </div>
                            </div>
                            <div class="uk-width-2-3@m">
                               <div class="uk-grid uk-grid-stack" uk-grid=""
@@ -120,8 +107,8 @@
                                           class="uk-width-1-2 info-container-top uk-first-column">
                                           <div class="uk-inline">
                                              <div class="small-title">
-                                                연료 <span class="small-text" style="line-height: 40px;">
-                                                   전기 </span>
+                                                차이름 <span class="small-text" style="line-height: 40px;">
+                                                   ${carList.carName } </span>
                                              </div>
                                           </div>
                                        </div>
@@ -132,7 +119,7 @@
                                                     ">
                                           <div class="small-title">
                                              가격 <span class="small-text" style="line-height: 40px;">
-                                                4500~6500만원 </span>
+                                                 ${carList.carMoney } 만원 </span>
                                           </div>
                                        </div>
                                     </div>
@@ -141,7 +128,7 @@
                                        <div
                                           class="uk-width-1-2 info-container-bottom uk-first-column">
                                           <div class="small-title">
-                                             출시년도 <span class="small-text"> 2022 </span>
+                                             브랜드 <span class="small-text"> <img src="carBrand/${carList.carBrand }" alt="현대"> </span>
                                           </div>
                                        </div>
                                        <div
@@ -150,7 +137,7 @@
                                                         info-container-bottom
                                                     ">
                                           <div class="small-title">
-                                             색상 <span class="small-text"> black </span>
+                                             타입 <span class="small-text">  ${carList.carType } </span>
                                           </div>
                                        </div>
                                     </div>
@@ -170,11 +157,10 @@
 
                                        <div class="uk-width-5-7">
                                           <div>
-                                             <div class="delete">
-                                                <img src="/resources/images/delete.png"
-                                                   style="height: 40px; float: right;"
-                                                   onclick="deleteSavedRoute(0)">
-                                             </div>
+                                             <div class="action">
+                                                                    <a href="/carLink?carLink=${carList.carLink }&carNum=${carList.carNum}&memberEmail=${memberEmail}"
+                                                                        class="btn">자세히보기</a>
+                                                                </div>
 
                                           </div>
                                        </div>
@@ -184,8 +170,10 @@
                            </div>
                         </div>
                      </div>
+                     </span>
+                     </c:forEach>
                </div>
-               </span>
+               
             </div>
             <!-- 내가 쓴 글 div -->
 
@@ -197,5 +185,54 @@
          
          
    </form>
+   <script>
+      //좋아요 
+      var likeval = ${carLike};
+
+      let carNum = ${carNum};
+      let memberEmail = "${memberEmail}";
+      let carLikeN = 1;
+
+      if (likeval > 0) {
+         console.log(likeval + "좋아요 누름");
+         $('.iconH').attr("src", "../resources/images/starcolor.png");
+         $('.LikeBtn').click(function() {
+            $.ajax({
+               type : 'post',
+               url : '<c:url value ="/carlikeDown"/>',
+               contentType : 'application/json',
+               data : JSON.stringify({
+                  "carNum" : carNum,
+                  "memberEmail" : memberEmail,
+                  "carLikeN" : carLikeN
+               }),
+               success : function(data) {
+                  alert('취소 성공');
+               }
+            });// 아작스 끝
+         });
+
+      } else {
+         console.log(likeval + "좋아요 안누름")
+         console.log(memberEmail);
+         $('.LikeBtn').click(function() {
+            $.ajax({
+               type : 'post',
+               url : '<c:url value ="/carlikeUp"/>',
+               contentType : 'application/json',
+               data : JSON.stringify({
+                  "carNum" : carNum,
+                  "memberEmail" : memberEmail,
+                  "carLikeN" : carLikeN
+               }),
+               success : function(data) {
+                  alert('성공염');
+               }
+            });// 아작스 끝
+            $('.iconH').attr("src", "../resources/images/starcolor.png");
+         });
+
+      }
+   </script>
 </body>
 </html>

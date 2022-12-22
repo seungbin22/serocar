@@ -32,5 +32,7 @@ public interface DetailDAO {
 	   void likeDown(Map<String, Object> data);
 	   int getLike(Map<String, Object> data);
 	   /* void hit(int carNum); */
-
+	  
+	   List<Detail> selectCarLike(String memberEmail) throws Exception;
+	   Integer selectCarNum(String memberEmail) throws Exception;
 }

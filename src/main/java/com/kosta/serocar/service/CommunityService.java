@@ -21,4 +21,7 @@ public interface CommunityService  {
 	void likeDown(int comNum , String memberEmail,int likeN);
 	void hit(int comNum);
 	int getLike(int comNum,int likeN);
+	
+	public void updateComment(int comNum) ;
+	public void updateLike(int comNum);
 }

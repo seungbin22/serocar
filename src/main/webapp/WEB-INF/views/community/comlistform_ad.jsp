@@ -14,7 +14,7 @@
 <title>Document</title>
 
 <link rel="stylesheet" href="/resources/css/community/sub.css" />
-<link rel="stylesheet" href="/resources/css/community/base_ad.css" />
+<link rel="stylesheet" href="/resources/css/community/base.css" />
 <link rel="stylesheet" href="/resources/css/community/contents.css" />
 
 
@@ -62,12 +62,12 @@
                                  </colgroup>
                                  <thead>
                                     <tr>
-                                       <th scope="col" class="display_sm_none">번호</th>
-                                       <th scope="col">제목</th>
-                                       <th scope="col">글쓴이</th>
-                                       <th scope="col" class="display_sm_none">날짜</th>
-                                       <th scope="col" class="display_md_none">조회 수</th>
-                                       <th scope="col" class="display_md_none">추천 수</th>
+                                       <th scope="col" class="display_sm_none" style="text-align:center;">번호</th>
+                                       <th scope="col" style="text-align:center;">제목</th>
+                                       <th scope="col" style="text-align:center;">글쓴이</th>
+                                       <th scope="col" class="display_sm_none" style="text-align:center;">날짜</th>
+                                       <th scope="col" class="display_md_none" style="text-align:center;">조회 수</th>
+                                       <th scope="col" class="display_md_none" style="text-align:center;">추천 수</th>
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -95,16 +95,16 @@
                                           <c:forEach var="article" items="${articleList2 }">
                                              <input type="hidden" href="./comDetail_ad?memberEmail=${memberEmail }">
                                              <tr>
-                                                <td class="num display_sm_none">${article.ad_num }</td>
-                                                <td class="text_left color_black"><a href="./comDetail_ad?ad_num=${article.ad_num}&memberEmail=${memberEmail }"
-                                                   class="subject"> ${article.ad_title}
+                                                <td class="num display_sm_none" style="text-align:center;">${article.ad_num }</td>
+                                                <td class=""><a href="./comDetail_ad?ad_num=${article.ad_num}&memberEmail=${memberEmail }"
+                                                   class=""> ${article.ad_title}
                                                 </a></td>
                                                 <td class="text_left color_black"><a href="#"
                                                    class="modal-writer1" data-com-id = "${article.memberNickname}">${article.memberNickname}
                                                 </a></td>
                                                 <td class="display_sm_none">${article.ad_date}</td>
-                                                <td class="display_md_none">${article.ad_views}</td>
-                                                <td class="display_md_none">${article.ad_reco}</td>
+                                                <td class="display_md_none" style="text-align:center;">${article.ad_views}</td>
+                                                <td class="display_md_none" style="text-align:center;">${article.ad_reco}</td>
                                              </tr>
                                           </c:forEach>
                                        </c:when>

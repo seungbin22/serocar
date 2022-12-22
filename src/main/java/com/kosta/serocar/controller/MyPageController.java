@@ -18,11 +18,15 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.serocar.bean.Advertisement;
+import com.kosta.serocar.bean.CarLike;
 import com.kosta.serocar.bean.Community;
+import com.kosta.serocar.bean.Detail;
 import com.kosta.serocar.bean.Member;
 import com.kosta.serocar.bean.PageInfo;
+import com.kosta.serocar.dao.DetailDAO;
 import com.kosta.serocar.dao.MyPageDAO;
 import com.kosta.serocar.dao.NoteDAO;
+import com.kosta.serocar.service.DetailService;
 import com.kosta.serocar.service.MemberService;
 import com.kosta.serocar.service.MyPageService;
 
@@ -37,6 +41,12 @@ public class MyPageController {
 	
 	@Autowired
 	MyPageService myPageService;
+	
+	@Autowired
+	DetailService detailService;
+	
+	@Autowired
+	DetailDAO detailDAO;
 	
 	@Autowired
 	MyPageDAO myPageDAO;
@@ -69,7 +79,16 @@ public class MyPageController {
 			mav.setViewName("myPage/myPage.tiles");
 		}
 		
-		
+		List<Detail> carList = detailDAO.selectCarLike(memberEmail);
+		mav.addObject("carList", carList);
+//		 Integer carNum = detailDAO.selectCarNum(memberEmail);
+//		 CarLike carlike = new CarLike();
+//         carlike.setCarNum(carNum);
+//         carlike.setMemberEmail(memberEmail);
+//         carlike.setCarLikeN(1);
+//         mav.addObject("carNum", carNum);
+//         mav.addObject("carLike", detailService.findLike(carNum, memberEmail));
+//         mav.addObject("getCarLike", detailService.getLike(carNum, 1));
 		return mav;
 	}
 	

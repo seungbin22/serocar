@@ -511,12 +511,11 @@
                                                                     <a href="javascript:void(0);" model="4188"
                                                                         name="modelDetailLink" class="name">
                                                                         <img src="carBrand/${car.carBrand }"
-                                                                            alt="현대">${car.carName }
+                                                                            alt="현대">
                                                                     </a>
                                                                     <div class="spec">
-                                                                        <span>2022.11. 출시</span>
-                                                                        <span>대형</span>
-                                                                        <span>${car.carComment }
+                                                  
+                                                                        <span>${car.carComment }</span>
                                                                     </div>
                                                                     <a href='javascript:void(0);' no='5193632'
                                                                         class='news' name='newcarNews'
@@ -535,10 +534,7 @@
                                                                         class="btn_estm">자세히보기</a>
                                                                 </div>
                                                             </div>
-                                                                   <div class="likeComment">
-                                                <button class="fa fa-heart-o fa-2x Cancle Btn FavBtn"
-                                                   id="iconH" value="${car.carNum }">${car.carNum }</button>
-                                             </div>                                                
+                                                                                            
                                                            </div>
                                                           </li>
                                                    
@@ -546,30 +542,7 @@
                                                       </c:forEach>
                                        </c:when>
                                     </c:choose>
-                                        <div class="page_area">
-                                            <a href='javascript:void(0);' page='1' class='on newcarPage'>
-                                                <span>1</span></a>
-                                            <a href='javascript:void(0);' page='2' class=' newcarPage'>
-                                                <span>2</span></a>
-                                            <a href='javascript:void(0);' page='3' class=' newcarPage'>
-                                                <span>3</span></a>
-                                            <a href='javascript:void(0);' page='4' class=' newcarPage'>
-                                                <span>4</span></a>
-                                            <a href='javascript:void(0);' page='5' class=' newcarPage'>
-                                                <span>5</span></a>
-                                            <a href='javascript:void(0);' page='6' class=' newcarPage'>
-                                                <span>6</span></a>
-                                            <a href='javascript:void(0);' page='7' class=' newcarPage'>
-                                                <span>7</span></a>
-                                            <a href='javascript:void(0);' page='8' class=' newcarPage'>
-                                                <span>8</span></a>
-                                            <a href='javascript:void(0);' page='9' class=' newcarPage'>
-                                                <span>9</span></a>
-                                            <a href='javascript:void(0);' page='10' class=' newcarPage'>
-                                                <span>10</span></a>
-                                            <a href='javascript:void(0);' page='11' class='next newcarPage'>
-                                                <span>다음</span></a>
-                                        </div>
+                                        
                                         <div class="paging-in" style="text-align: center;">
 											<c:choose>
 												<c:when test="${pageInfo.page<=1}">
@@ -617,54 +590,7 @@
             </div>
 
 <script src="./resources/js/searchj.js"></script>
-<script>
-      //좋아요 
-      var likeval = ${carLike};
 
-      let carNum = ${car.carNum};
-      let memberEmail = "${memberEmail}";
-      let carLikeN = 1;
-
-      if (likeval > 0) {
-         console.log(likeval + "좋아요 누름");
-         $('.FavBtn').html("좋아요 취소");
-         $('.FavBtn').click(function() {
-            $.ajax({
-               type : 'post',
-               url : '<c:url value ="/carlikeDown"/>',
-               contentType : 'application/json',
-               data : JSON.stringify({
-                  "carNum" : carNum,
-                  "memberEmail" : memberEmail,
-                  "carLikeN" : carLikeN
-               }),
-               success : function(data) {
-                  alert('취소 성공');
-               }
-            });// 아작스 끝
-         });
-
-      } else {
-         console.log(likeval + "좋아요 안누름")
-         console.log(memberEmail);
-         $('.FavBtn').click(function() {
-            $.ajax({
-               type : 'post',
-               url : '<c:url value ="/carlikeUp"/>',
-               contentType : 'application/json',
-               data : JSON.stringify({
-                  "carNum" : carNum,
-                  "memberEmail" : memberEmail,
-                  "carLikeN" : carLikeN
-               }),
-               success : function(data) {
-                  alert('성공염');
-               }
-            });// 아작스 끝
-         });
-
-      }
-   </script>
 </body>
 
 </html>

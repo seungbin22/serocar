@@ -20,7 +20,7 @@
 	 <select id="selectCommunityList" resultType="Community" parameterType="Integer"> 
    <![CDATA[
       select comnum, comtitle, membernickname, memberEmail, comcontent, com_re_ref,
-            com_re_lev, com_re_seq, comviews, comdate
+            com_re_lev, com_re_seq, comviews, comdate, comreco
       from (select row_number() over (order by com_re_ref desc, com_re_seq asc) num, B.*
             from community B order by com_re_ref desc, com_re_seq asc)
       where num between #{row} and #{row}+9
@@ -30,7 +30,7 @@
     <select id="selectCommunityList2" resultType="Community" parameterType="hashmap"> 
    <![CDATA[
       select comnum, comtitle, membernickname, comcontent, com_re_ref,
-            com_re_lev, com_re_seq, comviews, comdate
+            com_re_lev, com_re_seq, comviews, comdate, comreco
       from (select row_number() over (order by com_re_ref desc, com_re_seq asc) num, B.*
             from community B where comtitle like '%'||#{keyword}||'%' order by com_re_ref desc, com_re_seq asc)
       where num between #{row1} and #{row1}+9
@@ -107,6 +107,22 @@
      		update community
       		set comviews = comviews + 1
       		where comNum = #{comNum}
+      ]]>
+   </update>
+   
+   <update id="updateComment">
+     	<![CDATA[
+     		update community c
+      		set c.comreco = (select count(com_no)from comment1 where comnum = #{comNum})
+      		where c.comNum = #{comNum}
+      ]]>
+   </update>
+   
+   <update id="updateLike">
+     	<![CDATA[
+     		update community c
+      		set c.com_re_lev = (select count(likeNum)from comlike where comnum = #{comNum})
+      		where c.comNum = #{comNum}
       ]]>
    </update>
 </mapper>

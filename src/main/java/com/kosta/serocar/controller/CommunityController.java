@@ -126,6 +126,7 @@ public class CommunityController {
 			mav.addObject("articleList", articleList);
 			mav.addObject("pageInfo", pageInfo);
 			mav.addObject("searchKeyword", keyword);
+			
 			System.out.println("컨트롤러 키워드: "+keyword);
 			System.out.println("멤버이메일:" + request.getParameter("memberEmail"));
 			System.out.println("멤버이메일:" + request.getParameter("article.memberEmail"));
@@ -158,7 +159,9 @@ public class CommunityController {
 			model.addAttribute("getLike", communityService.getLike(comNum, 1));
 			System.out.println("갯라이크 : "+communityService.getLike(comNum, 1));
 			communityService.hit(comNum);
-
+			communityService.updateComment(comNum);
+			communityService.updateLike(comNum);
+			model.addAttribute("getComment", commentService.getTotal(comNum));
 			Community community = communityService.getCommunity(comNum);
 			mav.addObject("article", community);
 			mav.addObject("page", page);
@@ -233,4 +236,5 @@ System.out.println("컨트롤러 컴넘 : "+comNum);
 	      System.out.println(vo.getLikeN());
 	      communityService.likeDown(vo.getComNum(), vo.getMemberEmail(),vo.getLikeN());
 	   }
+	   
 }

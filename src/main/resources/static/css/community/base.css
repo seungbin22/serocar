@@ -734,7 +734,6 @@ span.display_block {
 
 .board .list.type1 th,
 .board .list.type1 td {
-   text-align: center;
    padding: 15px 10px;
    border-bottom: 1px solid #EFF0F1;
    word-break: break-all;
