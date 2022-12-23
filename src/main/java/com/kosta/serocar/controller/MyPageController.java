@@ -184,7 +184,15 @@ public class MyPageController {
 		return mav;
 	}
 	
-	
+	   // 마이페이지 게시글 삭제
+	   @RequestMapping(value = "/myPage_delete", method = { RequestMethod.POST, RequestMethod.GET })
+	   String delete(@RequestParam("comNum") Integer comNum, @RequestParam(value="memberEmail") String memberEmail,
+	         @RequestParam(value="businessNum") String businessNum, @RequestParam(value="memberNickname") String memberNickname) throws Exception {
+
+	      myPageService.deleteMyPage(comNum);
+	      System.out.println("컨트롤러 컴넘 : "+comNum);
+	      return "redirect:/myPageList?comNum="+comNum+"&memberEmail="+memberEmail+"&memberNickname="+memberNickname+"&businessNum="+businessNum;
+	   }
 	
 	
 }

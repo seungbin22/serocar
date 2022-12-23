@@ -2,7 +2,6 @@ package com.kosta.serocar.service;
 
 import java.util.List;
 
-import com.kosta.serocar.bean.Advertisement;
 import com.kosta.serocar.bean.Notice;
 import com.kosta.serocar.bean.PageInfo;
 
@@ -26,5 +25,6 @@ public interface NoticeService  {
    void hit_notice(int notice_num);
    int getLike_notice(int notice_num,int likeN);
    
-   
+   public void updateComment(int notice_num);
+	public void updateLike(int notice_num);
 }

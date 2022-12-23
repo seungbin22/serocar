@@ -72,25 +72,30 @@
                                  <tbody>
                                     <c:choose>
                                        <c:when
-                                          test="${articleList!=null && pageInfo.listCount>0 }">
+                                          test="${noticeList!=null && pageInfo.listCount>0 }">
+                                          <c:forEach var="notice" items="${noticeList }">
                                           <tr class="notice">
                                              <td class="num display_sm_none">공지</td>
-                                             <td class="text_left color_black"><a
-                                                href="상세보기.html" class="subject"> <span
-                                                   class="cate color_bluelight display_none display_sm_block">[공지]</span>공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지
-                                                   <span class="comment">14</span> <i class="icon_img"></i>
+                                             <td class=""><a href="./comDetail_notice?notice_num=${notice.notice_num}&memberEmail=${memberEmail}"
+                                                   class=""><span
+                                                   class="cate color_bluelight display_none display_sm_block">[공지]</span>${notice.notice_title }
+                                                   <span class="comment">${notice.notice_comment}</span> <i class="icon_img"></i>
                                                    <i class="icon_new"></i>
                                              </a></td>
                                              <td class="text_left color_black"><a href="#"
-                                                class="writer" onclick="return false;"> <!-- <span
-                                       class="writer_img"> <img
-                            http://localhost:8088/communityList              src="assets/img/sub/writer_comgom.png" alt="글쓴이 사진"></span> -->
-                                                   컴곰
+                                                class="writer" onclick="return false;"> 
+                                                   ${notice.memberNickname }
                                              </a></td>
-                                             <td class="display_sm_none">2021.02.09</td>
-                                             <td class="display_md_none">1</td>
-                                             <td class="display_md_none">1</td>
+                                             <td class="display_sm_none">${notice.notice_date }</td>
+                                             <td class="display_md_none" style="text-align:center;">${notice.notice_views }</td>
+                                             <td class="display_md_none" style="text-align:center;">${notice.notice_reco }</td>
                                           </tr>
+                                          </c:forEach>
+                                           </c:when>
+                                 			   </c:choose>
+                                         <c:choose>
+                                      		 <c:when
+                                          test="${articleList!=null && pageInfo.listCount>0 }">
                                           <c:forEach var="article" items="${articleList }">
                                              <input type="hidden" href="./comDetail?memberEmail=${memberEmail }">
                                              <tr>

@@ -131,5 +131,10 @@ public class NoticeServiceImpl implements NoticeService {
          map.put("likeN", likeN);
          return noticeDAO.getLike_notice(map);   
       }
-
+   public void updateComment(int notice_num) {
+	   noticeDAO.updateComment(notice_num);
+	   }
+	   public void updateLike(int notice_num) {
+		   noticeDAO.updateLike(notice_num);
+	   }
 }

@@ -22,6 +22,10 @@
       select * from member where memberEmail = #{value}
    </select>
    
+   <select id="checkNickname" resultType="Member">
+      select * from member where memberNickname = #{memberNickname}
+   </select>
+   
     <update id="updatePassword" parameterType="Member">
    <![CDATA[
       update member

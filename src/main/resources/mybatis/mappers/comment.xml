@@ -16,6 +16,10 @@
         select count(*) from comment1 where comNum = #{comNum}
      </select>
      
+     <select id="getTotal2" resultType="int">
+        select count(*) from comment1 where notice_num = #{notice_num}
+     </select>
+     
      <select id="getList" resultType="Comment">
         select * from comment1 where comNum = #{comNum}
      </select>

@@ -65,7 +65,7 @@
                                 <b>SEROCAR</b>
                             </h1>
                             <div class="text-focus-in" id="startbutton">
-                                <a onclick="start()" class="btn mainstartbutton">시작하기</a>
+                                <a href="/carList" class="btn mainstartbutton">시작하기</a>
                             </div>
                         </div>
                     </div>

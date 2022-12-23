@@ -34,4 +34,7 @@ public interface NoticeDAO {
    void likeDown_notice(Map<String, Object> data);
    int getLike_notice(Map<String, Object> data);
    void hit_notice(int notice_num);
+   public void updateComment(int notice_num);
+   public void updateLike(int notice_num);
+   List<Notice> getNotice() throws Exception;
 }

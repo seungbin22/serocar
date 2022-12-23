@@ -39,10 +39,12 @@
 					<input type="hidden" name="businessNum" id="businessNum"/>
 				<div>
 					<label class="label-text" for="membernickname">닉네임</label>
-					<div class="uk-form-controls">
-						<input class="uk-input" type="text" id="memberNickname" required="required"
+					<div class="uk-form-controls input-button-flex">
+						<input class="uk-input" type="text" id="nick" required="required"
 							name="memberNickname" placeholder="" />
+							<button type="button"class="uk-button email-btn" id="checkNickname" style="font-size:12px">확인</button>
 					</div>
+					<span style="font-size:13px;"id="checkNicknameResult"></span>
 				</div>
 				<div>
 					<label class="label-text" for="memberpassword">비밀번호</label>
@@ -144,6 +146,18 @@ $(function() {
 			success:function(result){
 				console.log("memberEmail3: "+memberEmail);
 				$("#checkIdResult").text(result);
+			}
+		});//ajax
+	});//click
+	$("#checkNickname").click(function(){
+		var memberNickname = $("#nick").val();
+		
+		$.ajax({
+			type:"get",
+			url:"/checkNickname",
+			data:{"memberNickname" : memberNickname},
+			success:function(result){
+				$("#checkNicknameResult").text(result);
 			}
 		});//ajax
 	});//click

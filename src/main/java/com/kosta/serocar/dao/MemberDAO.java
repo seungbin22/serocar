@@ -17,6 +17,8 @@ public interface MemberDAO {
    Member selectMember(Member member) throws Exception;
    //이메일 중복확인
    Member findMemberEmail(String memberEmail) throws Exception;
+   
+   Member checkNickname(String memberNickname) throws Exception;
    //비밀번호 변경
    void updatePassword(Member member) throws Exception;
    //프로필 변경

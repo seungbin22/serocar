@@ -42,7 +42,9 @@
 						<label>이메일</label> <input type="text" id="memberEmail" name="memberEmail" readonly="readonly" value="${memberEmail}"/>
 					</div>
 					<div class="data">
-						<label>닉네임</label> <input type="text" id="memberNickname" name="memberNickname"/>
+						<label>닉네임</label> <input type="text" id="nickname" name="memberNickname"/>
+						<button type="button"class="uk-button email-btn" id="checkNickname" style="font-size:12px">확인</button>
+						<span style="font-size:13px;"id="checkNicknameResult"></span>
 					</div>
 				</div>
 				<span id="resultAreaForPwd"></span>
@@ -59,5 +61,21 @@
 
 	</div>
 	</form>
+	<script>
+	$(function(){
+		$("#checkNickname").click(function(){
+			var memberNickname = $("#nickname").val();
+			
+			$.ajax({
+				type:"get",
+				url:"/checkNickname",
+				data:{"memberNickname" : memberNickname},
+				success:function(result){
+					$("#checkNicknameResult").text(result);
+				}
+			});//ajax
+		});//click
+	});
+	</script>
 </body>
 </html>

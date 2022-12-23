@@ -37,4 +37,10 @@
       ]]>   
    </select>
    
+       <delete id="deleteMyPage" parameterType="Integer">
+      <![CDATA[
+      delete from community where comnum=#{comNum}
+      ]]>
+   </delete>
+   
 </mapper>

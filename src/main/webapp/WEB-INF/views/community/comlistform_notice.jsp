@@ -74,24 +74,6 @@
                                     <c:choose>
                                        <c:when
                                           test="${noticeList!=null && pageInfo2.listCount>0 }">
-                                          <tr class="notice">
-                                             <td class="num display_sm_none">공지</td>
-                                             <td class="text_left color_black"><a
-                                                href="상세보기.html" class="subject"> <span
-                                                   class="cate color_bluelight display_none display_sm_block">[공지]</span>공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지공지
-                                                   <span class="comment">14</span> <i class="icon_img"></i>
-                                                   <i class="icon_new"></i>
-                                             </a></td>
-                                             <td class="text_left color_black"><a href="#"
-                                                class="writer" onclick="return false;"> <!-- <span
-                                       class="writer_img"> <img
-                            http://localhost:8088/communityList              src="assets/img/sub/writer_comgom.png" alt="글쓴이 사진"></span> -->
-                                                   컴곰
-                                             </a></td>
-                                             <td class="display_sm_none">2021.02.09</td>
-                                             <td class="display_md_none">1</td>
-                                             <td class="display_md_none">1</td>
-                                          </tr>
                                           <c:forEach var="article" items="${noticeList }">
                                              <input type="hidden" href="./comDetail_notice?memberEmail=${memberEmail }">
                                              <tr>

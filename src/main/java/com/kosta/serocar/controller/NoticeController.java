@@ -83,9 +83,10 @@ public class NoticeController {
          model.addAttribute("like", noticeService.findLike_notice(notice_num, memberEmail));
          model.addAttribute("getLike", noticeService.getLike_notice(notice_num, 1));
          System.out.println("갯라이크 : "+noticeService.getLike_notice(notice_num, 1));
-         model.addAttribute("getComment", commentService.getTotal(notice_num));
+         model.addAttribute("getCommentNotice", commentService.getTotal2(notice_num));
          noticeService.hit_notice(notice_num);
-
+         noticeService.updateComment(notice_num);
+         noticeService.updateLike(notice_num);
          Notice notice = noticeService.getNotice(notice_num);
          mav.addObject("article", notice);
          mav.addObject("page", page);

@@ -22,6 +22,6 @@ public interface CommunityService  {
 	void hit(int comNum);
 	int getLike(int comNum,int likeN);
 	
-	public void updateComment(int comNum) ;
+	public void updateComment(int comNum);
 	public void updateLike(int comNum);
 }

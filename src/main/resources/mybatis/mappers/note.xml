@@ -2,30 +2,36 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="com.kosta.serocar.dao.NoteDAO">
-  
-  <insert id="insertNote">
+
+<mapper namespace="com.kosta.serocar.dao.NoteDAO">
+
+	<insert id="insertNote">
   <![CDATA[
-  	INSERT INTO NOTE
-  	(note_no, note_to, note_from, note_content, memberemail, note_date)
-  	VALUES(seq_note_no.NEXTVAL, #{note_to}, #{note_from,}, #{note_content}, #{memberEmail}, sysdate)
-  	]]>
-  </insert>
-  
-  <select id="myRecord" resultType="Note" parameterType="hashmap">
+     INSERT INTO NOTE
+     (note_no, note_to, note_from, note_content, memberemail, note_date)
+     VALUES(seq_note_no.NEXTVAL, #{note_to}, #{note_from,}, #{note_content}, #{memberEmail}, sysdate)
+     ]]>
+	</insert>
+
+	<select id="myRecord" resultType="Note" parameterType="hashmap">
   <![CDATA[
-  	select *
+     select *
       from (select rownum as num, note.* from note where note_to = #{memberNickname})
       where num between #{row1} and #{row1}+9
-  	]]>
-  </select>
-  
-  <select id="myRecordCount" resultType="Integer">
+     ]]>
+	</select>
+
+	<select id="myRecordCount" resultType="Integer">
   <![CDATA[
-  	SELECT count(*) FROM NOTE
-  	WHERE note_to = #{memberNickname}
-  	]]>
-  </select>
-  
-  </mapper>
+     SELECT count(*) FROM NOTE
+     WHERE note_to = #{memberNickname}
+     ]]>
+	</select>
+
+	<delete id="deleteMyPage_note" parameterType="Integer">
+      <![CDATA[
+      delete from note where note_no=#{note_no}
+      ]]>
+	</delete>
+
+</mapper>

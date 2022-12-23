@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kosta.serocar.bean.Member;
+import com.kosta.serocar.dao.MemberDAO;
 import com.kosta.serocar.service.MemberService;
 
 @Controller
@@ -36,6 +37,9 @@ public class MemberController {
 	
 	@Autowired
 	ServletContext servletContext;
+	
+	@Autowired
+	MemberDAO memberDAO;
 
 	// 회원가입 페이지
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
@@ -76,10 +80,21 @@ public class MemberController {
 		if (email == null) {
 			return "사용가능한 아이디입니다.";
 		} else {
-			return "중복된아이디 입니다.";
+			return "중복된 아이디 입니다.";
 		}
 	}
 
+	@RequestMapping("/checkNickname")
+	@ResponseBody
+	public String checkNickname(@RequestParam("memberNickname") String memberNickname) throws Exception {
+		Member nick = memberDAO.checkNickname(memberNickname);
+		
+		if (nick == null) {
+			return "사용가능한 닉네임입니다.";
+		} else {
+			return "중복된 닉네임 입니다.";
+		}
+	}
 	// 로그인페이지
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	String login(Model model) {

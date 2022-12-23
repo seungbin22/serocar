@@ -5,8 +5,8 @@
 <mapper namespace="com.kosta.serocar.dao.NoticeDAO">
    <insert id = "insertNotice" parameterType="Notice">
       <![CDATA[
-         insert into notice(notice_num, notice_title, notice_content, notice_views, notice_reco, notice_date, memberEmail, memberNickname)
-         values(seq_notice_num.nextval, #{notice_title}, #{notice_content}, #{notice_views}, 0, sysdate, #{memberEmail}, #{memberNickname})
+         insert into notice(notice_num, notice_title, notice_content, notice_views, notice_reco, notice_date, memberEmail, memberNickname, notice_comment)
+         values(seq_notice_num.nextval, #{notice_title}, #{notice_content}, #{notice_views}, 0, sysdate, #{memberEmail}, #{memberNickname},0)
       ]]>
    </insert>
 
@@ -14,6 +14,12 @@
    <select id="selectMaxNoticeNum" resultType="Integer">
       <![CDATA[
          select max(notice_num) from Notice      
+      ]]>   
+   </select>
+   
+   <select id="getNotice" resultType="Notice">
+      <![CDATA[
+         select * from Notice      
       ]]>   
    </select>
    
@@ -103,6 +109,22 @@
            update Notice
             set notice_views = notice_views + 1
             where notice_num = #{notice_num}
+      ]]>
+   </update>
+   
+   <update id="updateComment">
+     	<![CDATA[
+     		update notice n
+      		set n.notice_comment = (select count(notice_num)from comment1 where notice_num = #{notice_num})
+      		where n.notice_num = #{notice_num}
+      ]]>
+   </update>
+   
+   <update id="updateLike">
+     	<![CDATA[
+     		update notice n
+      		set n.notice_reco = (select count(likeNum)from comlike where notice_num = #{notice_num})
+      		where n.notice_num = #{notice_num}
       ]]>
    </update>
 </mapper>

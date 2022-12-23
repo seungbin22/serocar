@@ -67,7 +67,7 @@
                            <span class="heart"><input type="text"
                               class="" id="exampleFormControlInput1"
                               value="${getLike}" readonly></span> <i
-                              class="fa fa-comment-o fa-2x" id="iconC"></i> <span>&nbsp${getComment}</span>
+                              class="fa fa-comment-o fa-2x" id="iconC"></i> <span>${getCommentNotice}</span>
                         </div>
                      </div>
                      <!-- 댓글 구현 -->

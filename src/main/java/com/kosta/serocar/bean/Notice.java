@@ -18,4 +18,5 @@ public class Notice {
 	private Date notice_date;
 	private String memberEmail;
 	private String memberNickname;
+	private int notice_comment;
 }

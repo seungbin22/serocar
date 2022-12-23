@@ -11,10 +11,12 @@ import com.kosta.serocar.bean.Note;
 @Mapper
 @Repository
 public interface NoteDAO {
-	void insertNote(Note note);
-	
-	List<Note> myRecord(HashMap<String, String> map);
-	
-	Integer myRecordCount(String memberNickname);
-	
+   void insertNote(Note note);
+   
+   List<Note> myRecord(HashMap<String, String> map);
+   
+   Integer myRecordCount(String memberNickname);
+   
+   //게시글 삭제
+   void deleteMyPage_note(Integer note_no) throws Exception;
 }

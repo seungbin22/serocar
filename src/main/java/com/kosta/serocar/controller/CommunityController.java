@@ -31,8 +31,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.serocar.bean.Community;
 import com.kosta.serocar.bean.Like;
+import com.kosta.serocar.bean.Notice;
 import com.kosta.serocar.bean.PageInfo;
 import com.kosta.serocar.dao.MemberDAO;
+import com.kosta.serocar.dao.NoticeDAO;
 import com.kosta.serocar.service.CommentService;
 import com.kosta.serocar.service.CommunityService;
 import com.kosta.serocar.service.MemberService;
@@ -48,6 +50,9 @@ public class CommunityController {
 	
 	@Autowired
 	MemberDAO memberDAO;
+	
+	@Autowired
+	NoticeDAO noticeDAO;
 
 	@Autowired
 	HttpSession session;
@@ -131,6 +136,8 @@ public class CommunityController {
 			System.out.println("멤버이메일:" + request.getParameter("memberEmail"));
 			System.out.println("멤버이메일:" + request.getParameter("article.memberEmail"));
 			mav.setViewName("community/comlistform.tiles");
+			List<Notice> noticeList = noticeDAO.getNotice();
+			mav.addObject("noticeList",noticeList);
 		} catch (Exception e) {
 			e.printStackTrace();
 			mav.addObject("err", e.getMessage());
