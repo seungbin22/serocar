@@ -70,7 +70,7 @@
                                        <td class="display_lg_none" style="text-align: center;">${article.businessNum}</td>
                                        <td class="display_sm_none" style="text-align: center;">${article.memberGender}</td>
                                        <td class="display_lg_none" style="text-align: center;">${article.memberDate}</td>
-                                       <td class="display_sm_none" style="text-align: center;"><a href="./managerDelete_member?memberEmail=${article.memberEmail}" ><img src="./resources/images/delete.png" style="width: 40px; height: 30px;"/></a></td>
+                                       <td class="display_sm_none" style="text-align: center;"><a href="./managerDelete_member?memberNum=${article.memberNum}" ><img src="./resources/images/delete.png" style="width: 40px; height: 30px;"/></a></td>
                                     </tr>
                                  </c:forEach>
                               </c:when>
